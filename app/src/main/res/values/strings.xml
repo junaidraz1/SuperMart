@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">S3 Super Mart</string>
+    <string name="Under_Rs20">Under Rs.20</string>
+    <string name="Fruits_Vegetables">Fruits and Vegetables</string>
+    <string name="Nashta">Nashta</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+</resources>

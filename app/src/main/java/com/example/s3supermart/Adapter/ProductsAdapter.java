@@ -161,19 +161,19 @@ public class ProductsAdapter extends RecyclerView.Adapter<ProductsAdapter.Custom
                     ll_addToCart.setVisibility(View.VISIBLE);
                     btn_addToCart.setVisibility(View.GONE);
                     tv_inc_dec.setText("1");
-                    Toast.makeText(context, "Add to Cart Button Clicked", Toast.LENGTH_SHORT).show();
+                    //  Toast.makeText(context, "Add to Cart Button Clicked", Toast.LENGTH_SHORT).show();
                 }
             });
             btn_decrement.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     Tv_Inc_Dec = tv_inc_dec.getText().toString();
-                    if (tv_inc_dec.getText().toString().equals("0")) {
+                    if (tv_inc_dec.getText().toString().equals("1")) {
                         btn_addToCart.setVisibility(View.VISIBLE);
                         ll_addToCart.setVisibility(View.GONE);
-                        Toast.makeText(context, "Button Decriment Clicked", Toast.LENGTH_SHORT).show();
+                        // Toast.makeText(context, "Button Decriment Clicked", Toast.LENGTH_SHORT).show();
                     } else {
-                        Decrement();
+                        quantityDecrement();
                     }
                 }
             });
@@ -181,63 +181,39 @@ public class ProductsAdapter extends RecyclerView.Adapter<ProductsAdapter.Custom
             btn_increment.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    /*  String Tv_Inc_Dec = tv_inc_dec.getText().toString();*/
-                /*    int stock_qt = 5;
-                    for (int qt = 0; qt<stock_qt; qt++ )
-                    {
-                        String num = String.valueOf(qt);
-                        tv_inc_dec.setText(num);
-                    }*/
-                    Increment();
-
-     /*               if(qt <= stock_qt)
-                    {
-                        qt += 1;
-                    }
-                    else{
-                        Toast.makeText(context, "Stock Limit reached", Toast.LENGTH_SHORT).show();
-                    }
-*/
-//                    for (int quantity=0; quantity <= 20; quantity++) {
-//                        String num = String.valueOf(quantity);
-//                        tv_inc_dec.setText(num);
-//                    }
-                    //                     Toast.makeText(context, "Button Incriment Clicked", Toast.LENGTH_SHORT).show();
-
+                    quantityIncrement();
                 }
             });
-
         }
 
-        private void Increment() {
+        private void quantityIncrement() {
             // Get the value of the text view
             String countString = tv_inc_dec.getText().toString();
             // Convert value to a number and increment it
-            int count = parseInt(countString);
-            if (count < 10){
-                count++;
-                String num = String.valueOf(count);
+            int totalStock = 10;
+            int qty = parseInt(countString);
+            if (qty < totalStock) {
+                qty++;
+                String num = String.valueOf(qty);
                 // Display the new value in the text view.
                 tv_inc_dec.setText(num);
 
-            }
-            else
-            {
+            } else {
                 Toast.makeText(context, "No more quantity available", Toast.LENGTH_SHORT).show();
 
             }
-
-
         }
 
-        private void Decrement() {
+        private void quantityDecrement() {
             // Get the value of the text view
             String countString = tv_inc_dec.getText().toString();
             // Convert value to a number and increment it
-            Integer count = parseInt(countString);
-            count--;
+            int qty = parseInt(countString);
+            qty--;
+            String num = String.valueOf(qty);
             // Display the new value in the text view.
-            tv_inc_dec.setText(count.toString());
+            tv_inc_dec.setText(num);
+
         }
     }
 }

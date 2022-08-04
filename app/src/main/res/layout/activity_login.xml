@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background"
+    tools:context=".Activity.LoginActivity">
+
+    <RelativeLayout
+        android:id="@+id/rl_applogo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_30sdp">
+
+        <ImageView
+            android:id="@+id/iv_logo"
+            android:layout_width="@dimen/_120sdp"
+            android:layout_height="@dimen/_120sdp"
+            android:layout_centerHorizontal="true"
+            android:src="@drawable/s3" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/iv_logo"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="@dimen/_5sdp"
+            android:fontFamily="@font/avenir_nextitpro_bold"
+            android:text="S3 Super Mart"
+            android:textColor="@color/dusk"
+            android:textSize="@dimen/_25ssp" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/rl_inputFields"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/rl_applogo"
+        android:layout_margin="@dimen/_15sdp">
+
+        <EditText
+            android:id="@+id/et_email"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_10sdp"
+            android:layout_marginEnd="@dimen/_10sdp"
+            android:background="@drawable/roundedrectangle_bg"
+            android:fontFamily="@font/avenir_nextitpro_regular"
+            android:hint="Enter Email"
+            android:padding="@dimen/_10sdp"
+            android:textColor="@color/dusk"
+            android:textColorHint="@color/hint"
+            android:textSize="@dimen/_10ssp" />
+
+        <EditText
+            android:id="@+id/et_password"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/et_email"
+            android:layout_margin="@dimen/_10sdp"
+            android:background="@drawable/roundedrectangle_bg"
+            android:fontFamily="@font/avenir_nextitpro_regular"
+            android:hint="Enter Password"
+            android:padding="@dimen/_10sdp"
+            android:textColor="@color/dusk"
+            android:textColorHint="@color/hint"
+            android:textSize="@dimen/_10ssp" />
+
+    </RelativeLayout>
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btn_login"
+        android:layout_width="@dimen/_150sdp"
+        android:layout_height="@dimen/_30sdp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="@dimen/_20sdp"
+        android:background="@drawable/roundedrectangle_bg"
+        android:backgroundTint="@color/dusk"
+        android:fontFamily="@font/avenir_nextitpro_regular"
+        android:text="Login"
+        android:textAllCaps="false"
+        android:textColor="@color/white" />
+
+</RelativeLayout>

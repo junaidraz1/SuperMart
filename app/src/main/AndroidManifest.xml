@@ -10,6 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.S3SuperMart">
         <activity
+            android:name=".Activity.LoginActivity"
+            android:exported="false" />
+        <activity
             android:name=".Activity.MilkCheeseAndYogurtActivity"
             android:exported="false" />
         <activity
@@ -20,8 +23,8 @@
             android:exported="false" />
         <activity
             android:name=".Activity.SplashActivity"
-            android:theme="@style/SplashTheme"
-            android:exported="true">
+            android:exported="true"
+            android:theme="@style/SplashTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

@@ -18,12 +18,13 @@ public class SplashActivity extends AppCompatActivity {
 
     ImageView imageView;
     Handler handler;
-    Animation animationBounce, animationMove_L_to_C,animationMove_C_to_R,animationShake;
+    Animation animationBounce, animationMove_L_to_C, animationMove_C_to_R, animationShake;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash);
-        handler=new Handler();
+        handler = new Handler();
         handler.postDelayed(new Runnable() {
             @Override
             public void run() {
@@ -104,7 +105,7 @@ public class SplashActivity extends AppCompatActivity {
                 startActivity(intent);
                 finish();*/
             }
-        },0);
+        }, 200);
 
     }
 };

@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".Activity.SignupActivity">
+
+    <include
+        android:id="@+id/rl_appLogo"
+        layout="@layout/layout_logoheader" />
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_280sdp"
+        android:layout_marginStart="@dimen/_10sdp"
+        android:layout_marginTop="-70dp"
+        android:layout_marginEnd="@dimen/_10sdp"
+        app:cardCornerRadius="@dimen/_15sdp"
+        app:cardElevation="@dimen/_5sdp">
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/_15sdp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:fontFamily="@font/nexa_regular"
+                    android:gravity="center"
+                    android:text="Register"
+                    android:textColor="@color/dusk"
+                    android:textSize="@dimen/_20ssp" />
+
+                <EditText
+                    android:id="@+id/et_fName"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_20sdp"
+                    android:background="@drawable/roundedrectangle_bg"
+                    android:fontFamily="@font/avenir_nextitpro_regular"
+                    android:hint="Enter First Name"
+                    android:imeOptions="actionNext"
+                    android:maxLines="1"
+                    android:padding="@dimen/_10sdp"
+                    android:textColor="@color/dusk"
+                    android:textColorHint="@color/hint"
+                    android:textSize="@dimen/_10ssp" />
+
+                <EditText
+                    android:id="@+id/et_lName"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:background="@drawable/roundedrectangle_bg"
+                    android:fontFamily="@font/avenir_nextitpro_regular"
+                    android:hint="Enter Last Name"
+                    android:imeOptions="actionNext"
+                    android:maxLines="1"
+                    android:padding="@dimen/_10sdp"
+                    android:textColor="@color/dusk"
+                    android:textColorHint="@color/hint"
+                    android:textSize="@dimen/_10ssp" />
+
+                <EditText
+                    android:id="@+id/et_email"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:background="@drawable/roundedrectangle_bg"
+                    android:fontFamily="@font/avenir_nextitpro_regular"
+                    android:hint="Enter Email"
+                    android:imeOptions="actionNext"
+                    android:maxLines="1"
+                    android:padding="@dimen/_10sdp"
+                    android:textColor="@color/dusk"
+                    android:textColorHint="@color/hint"
+                    android:textSize="@dimen/_10ssp" />
+
+                <EditText
+                    android:id="@+id/et_password"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:background="@drawable/roundedrectangle_bg"
+                    android:fontFamily="@font/avenir_nextitpro_regular"
+                    android:hint="Enter Password"
+                    android:imeOptions="actionNext"
+                    android:inputType="textPassword"
+                    android:maxLines="1"
+                    android:padding="@dimen/_10sdp"
+                    android:textColor="@color/dusk"
+                    android:textColorHint="@color/hint"
+                    android:textSize="@dimen/_10ssp" />
+
+                <EditText
+                    android:id="@+id/et_confirmPassword"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:background="@drawable/roundedrectangle_bg"
+                    android:fontFamily="@font/avenir_nextitpro_regular"
+                    android:hint="Confirm Password"
+                    android:inputType="textPassword"
+                    android:maxLines="1"
+                    android:padding="@dimen/_10sdp"
+                    android:textColor="@color/dusk"
+                    android:textColorHint="@color/hint"
+                    android:textSize="@dimen/_10ssp" />
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/btn_regUser"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_30sdp"
+                    android:layout_marginTop="@dimen/_20sdp"
+                    android:layout_marginBottom="@dimen/_25sdp"
+                    android:background="@drawable/roundedrectangle_bg"
+                    android:backgroundTint="@color/MintGreen"
+                    android:fontFamily="@font/nexa_regular"
+                    android:text="Register"
+                    android:textAllCaps="false"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/_10ssp" />
+
+            </LinearLayout>
+
+        </ScrollView>
+
+    </androidx.cardview.widget.CardView>
+
+</LinearLayout>

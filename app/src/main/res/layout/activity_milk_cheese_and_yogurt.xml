@@ -3,6 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+    android:background="@color/bg_dim"
     android:layout_height="match_parent"
     tools:context=".Activity.MilkCheeseAndYogurtActivity">
 
@@ -16,7 +17,7 @@
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/white"
+            android:background="@drawable/bottom_roundedcorners"
             android:padding="@dimen/_8sdp">
 
             <LinearLayout
@@ -41,7 +42,7 @@
                 android:layout_marginTop="@dimen/_20sdp"
                 android:fontFamily="@font/avenir_nextitpro_bold"
                 android:text="Milk Cheese And Yogurt"
-                android:textColor="@color/dusk"
+                android:textColor="@color/white"
                 android:textSize="@dimen/_14sdp" />
 
             <LinearLayout
@@ -59,19 +60,21 @@
             </LinearLayout>
         </RelativeLayout>
 
-        <View
+    <!--    <View
             android:layout_width="match_parent"
             android:layout_height="@dimen/_1sdp"
-            android:background="@color/hint"/>
+            android:background="@color/hint"/>-->
 
         <com.google.android.material.tabs.TabLayout
             android:id="@+id/tab_layoutAddPatient"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@drawable/tab_layout_bg"
+            android:background="@color/bg_dim"
             app:tabGravity="fill"
-            app:tabIndicatorColor="@color/MintGreen"
-            app:tabSelectedTextColor="@color/MintGreen"
+            app:tabIndicatorColor="@color/hint"
+            app:tabIndicatorHeight="0dp"
+            app:tabSelectedTextColor="@color/black"
+            app:tabTextColor="@color/col164"
             app:tabMode="scrollable"
             app:tabTextAppearance="@style/MyCustomTabTextAppearance" />
 
@@ -89,9 +92,41 @@
             app:layout_behavior="@string/appbar_scrolling_view_behavior" />
 
     </LinearLayout>
-    <include layout="@layout/bottom_bar"
-        android:layout_width="match_parent"
+
+    <LinearLayout
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"/>
+        android:layout_alignParentBottom="true"
+        android:gravity="center"
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/roundedrectangle_btn"
+        android:layout_marginBottom="@dimen/_10sdp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="@dimen/_150sdp"
+            android:layout_height="@dimen/_30sdp"
+            android:fontFamily="@font/avenir_nextitpro_bold"
+            android:text="View Cart"
+            android:gravity="center"
+            android:background="@drawable/roundedrectangle_btn"
+            android:textColor="@color/white"
+            android:textSize="@dimen/_10ssp" />
+
+        <View
+            android:layout_width="@dimen/_1sdp"
+            android:layout_height="match_parent"
+            android:background="@color/hint" />
+        <TextView
+            android:layout_width="@dimen/_30sdp"
+            android:layout_height="@dimen/_30sdp"
+            android:fontFamily="@font/avenir_nextitpro_bold"
+            android:gravity="center"
+            android:text="0"
+            android:textColor="@color/white"
+            android:textSize="@dimen/_10ssp"/>
+
+
+    </LinearLayout>
 
 </RelativeLayout>

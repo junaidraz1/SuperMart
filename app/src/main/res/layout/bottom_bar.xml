@@ -8,13 +8,13 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/white"
+        android:background="@color/MintGreen"
         android:layout_marginTop="@dimen/_10sdp">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/white"
+            android:background="@color/MintGreen"
             android:orientation="horizontal"
             android:paddingTop="@dimen/_7sdp"
             android:paddingBottom="@dimen/_10sdp"

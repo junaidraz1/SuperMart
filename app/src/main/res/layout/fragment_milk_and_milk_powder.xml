@@ -5,9 +5,10 @@
     android:layout_height="match_parent"
     tools:context=".Fragment.MilkAndMilkPowderFragment">
 
-        <androidx.recyclerview.widget.RecyclerView
+    <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rv_milkAndMilkPowder"
         android:layout_width="match_parent"
+        android:background="@color/bg_dim"
         android:layout_height="match_parent">
 
     </androidx.recyclerview.widget.RecyclerView>

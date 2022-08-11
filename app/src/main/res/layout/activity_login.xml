@@ -66,8 +66,8 @@
                 android:textColorHint="@color/hint"
                 android:textSize="@dimen/_10ssp" />
 
-            <EditText
-                android:id="@+id/et_password"
+            <com.xwray.passwordview.PasswordView
+                android:id="@+id/pv_password"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/et_email"
@@ -84,30 +84,43 @@
                 android:textColorHint="@color/hint"
                 android:textSize="@dimen/_10ssp" />
 
-            <TextView
-                android:id="@+id/tv_forgotPass"
+            <RelativeLayout
+                android:id="@+id/rl_forgotPass"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/et_password"
-                android:layout_marginStart="@dimen/_15sdp"
-                android:layout_marginTop="@dimen/_10sdp"
-                android:fontFamily="@font/nexa_bold"
-                android:text="Forgot Password?"
-                android:textColor="@color/dusk"
-                android:textSize="@dimen/_10ssp" />
+                android:layout_below="@+id/pv_password"
+                android:layout_marginStart="@dimen/_5sdp"
+                android:padding="@dimen/_10sdp">
 
-            <TextView
-                android:id="@+id/tv_signUp"
-                android:layout_width="wrap_content"
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/nexa_bold"
+                    android:text="Forgot Password?"
+                    android:textColor="@color/dusk"
+                    android:textSize="@dimen/_10ssp" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/rl_signUp"
+                android:layout_width="@dimen/_80sdp"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/et_password"
+                android:layout_below="@+id/pv_password"
                 android:layout_alignParentEnd="true"
-                android:layout_marginTop="@dimen/_10sdp"
-                android:layout_marginEnd="@dimen/_15sdp"
-                android:fontFamily="@font/nexa_bold"
-                android:text="New User?"
-                android:textColor="@color/dusk"
-                android:textSize="@dimen/_10ssp" />
+                android:layout_marginEnd="@dimen/_5sdp"
+                android:padding="@dimen/_10sdp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:fontFamily="@font/nexa_bold"
+                    android:text="New User?"
+                    android:textColor="@color/dusk"
+                    android:textSize="@dimen/_10ssp" />
+
+            </RelativeLayout>
 
         </RelativeLayout>
 

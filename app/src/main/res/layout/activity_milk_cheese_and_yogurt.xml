@@ -70,8 +70,8 @@
             android:layout_height="wrap_content"
             android:background="@drawable/tab_layout_bg"
             app:tabGravity="fill"
-            app:tabIndicatorColor="@color/dusk"
-            app:tabSelectedTextColor="@color/colorPrimary"
+            app:tabIndicatorColor="@color/MintGreen"
+            app:tabSelectedTextColor="@color/MintGreen"
             app:tabMode="scrollable"
             app:tabTextAppearance="@style/MyCustomTabTextAppearance" />
 

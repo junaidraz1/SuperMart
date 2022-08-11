@@ -2,7 +2,7 @@
     <!-- Base application theme. -->
     <style name="Theme.S3SuperMart" parent="Theme.MaterialComponents.DayNight.NoActionBar">
         <!-- Primary brand color. -->
-        <item name="colorPrimary">@color/purple_500</item>
+        <item name="colorPrimary">@color/MintGreen</item>
         <item name="colorPrimaryVariant">@color/MintGreen</item>
         <item name="colorOnPrimary">@color/white</item>
         <!-- Secondary brand color. -->
@@ -15,11 +15,11 @@
     </style>
 
     <style name="SplashTheme" parent="Theme.MaterialComponents.Light.NoActionBar">
-        <item name="android:windowBackground">@drawable/background_2</item>
-        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="android:windowBackground">@color/MintGreen</item>
+        <item name="colorPrimary">@color/bg_dim</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
-        <item name="android:statusBarColor">@color/colorAccent</item>
+        <item name="android:statusBarColor">@color/MintGreen</item>
     </style>
 
 </resources>

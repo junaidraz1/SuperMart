@@ -31,7 +31,6 @@ public class LoginActivity extends AppCompatActivity {
         rl_signUp = findViewById(R.id.rl_signUp);
         btn_login = findViewById(R.id.btn_login);
         et_email = findViewById(R.id.et_email);
-        ;
         pv_password = findViewById(R.id.pv_password);
 
         clickListeners();

@@ -9,11 +9,13 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_above="@+id/bottom_bar"
         android:orientation="vertical">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:elevation="@dimen/_20sdp"
             android:background="@drawable/bottom_roundedcorners"
             android:orientation="vertical">
 
@@ -116,7 +118,7 @@
                 android:layout_marginEnd="@dimen/_10sdp"
                 android:background="@color/white"
                 android:orientation="vertical"
-                android:paddingBottom="@dimen/_40sdp">
+                android:paddingBottom="@dimen/_10sdp">
 
                 <RelativeLayout
                     android:id="@+id/rl_categories"
@@ -581,7 +583,8 @@
     </LinearLayout>
 
     <include
-        layout="@layout/bottom_bar"
+        android:id="@+id/bottom_bar"
+        layout="@layout/bottom_bar2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true" />

@@ -4,102 +4,105 @@
     android:layout_width="wrap_content"
     android:layout_height="wrap_content">
 
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
 
-            <androidx.cardview.widget.CardView
-                android:id="@+id/cv_personalCare"
-                android:layout_width="@dimen/_90sdp"
-                android:layout_height="@dimen/_90sdp"
-                app:cardBackgroundColor="@color/white"
-                android:layout_margin="@dimen/_5sdp"
-                app:cardCornerRadius="@dimen/_5sdp"
-                app:cardElevation="@dimen/_5sdp">
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cv_personalCare"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_110sdp"
+            android:layout_margin="@dimen/_5sdp"
+            app:cardBackgroundColor="@color/white"
+            app:cardCornerRadius="@dimen/_5sdp"
+            app:cardElevation="@dimen/_5sdp">
 
-                <LinearLayout
-                    android:id="@+id/rl_personalCare"
+            <LinearLayout
+                android:id="@+id/rl_personalCare"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="@dimen/_3sdp"
+                android:orientation="vertical"
+                android:weightSum="1">
+
+                <TextView
+                    android:id="@+id/tv_catName"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_margin="@dimen/_5sdp"
-                    android:orientation="vertical">
+                    android:layout_height="0dp"
+                    android:layout_weight="0.2"
+                    android:fontFamily="@font/nexa_bold"
+                    android:gravity="center"
+                    android:text="Product Name"
+                    android:textColor="@color/dusk"
+                    android:textSize="@dimen/_10ssp" />
 
-                    <TextView
-                        android:id="@+id/milk"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Milk"
-                        android:fontFamily="@font/avenir_nextitpro_bold"
-                        android:layout_gravity="center"
-                        android:textColor="@color/dusk"
-                        android:textSize="@dimen/_9ssp">
+                <ImageView
+                    android:id="@+id/iv_catImg"
+                    android:layout_width="@dimen/_80sdp"
+                    android:layout_height="0dp"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_weight="0.8"
+                    android:background="@drawable/olpers_milk_250ml" />
 
-                    </TextView>
-                    <ImageView
-                        android:id="@+id/iv_personalCare"
-                        android:layout_width="@dimen/_80sdp"
-                        android:layout_height="@dimen/_80sdp"
-                        android:layout_gravity="center"
-                        android:background="@drawable/olpers_milk_250ml" />
+            </LinearLayout>
 
-                </LinearLayout>
-            </androidx.cardview.widget.CardView>
-<!--
-            <androidx.cardview.widget.CardView
-                android:id="@+id/cv_BabyCare"
-                android:layout_width="0dp"
-                android:layout_height="@dimen/_90sdp"
-                android:layout_gravity="top"
-                android:layout_margin="@dimen/_5sdp"
-                android:layout_marginStart="@dimen/_10sdp"
-                android:layout_weight="1"
-                app:cardBackgroundColor="@color/white"
-                app:cardCornerRadius="@dimen/_5sdp"
-                app:cardElevation="@dimen/_5sdp">
+        </androidx.cardview.widget.CardView>
+        <!--
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/cv_BabyCare"
+                        android:layout_width="0dp"
+                        android:layout_height="@dimen/_90sdp"
+                        android:layout_gravity="top"
+                        android:layout_margin="@dimen/_5sdp"
+                        android:layout_marginStart="@dimen/_10sdp"
+                        android:layout_weight="1"
+                        app:cardBackgroundColor="@color/white"
+                        app:cardCornerRadius="@dimen/_5sdp"
+                        app:cardElevation="@dimen/_5sdp">
 
-                <LinearLayout
-                    android:id="@+id/rl_BabyCare"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_margin="@dimen/_5sdp"
-                    android:orientation="vertical">
+                        <LinearLayout
+                            android:id="@+id/rl_BabyCare"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_margin="@dimen/_5sdp"
+                            android:orientation="vertical">
 
-                    <ImageView
-                        android:id="@+id/iv_BabyCare"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:layout_gravity="center"
-                        android:background="@drawable/babycare" />
+                            <ImageView
+                                android:id="@+id/iv_BabyCare"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_gravity="center"
+                                android:background="@drawable/babycare" />
 
-                </LinearLayout>
-            </androidx.cardview.widget.CardView>
+                        </LinearLayout>
+                    </androidx.cardview.widget.CardView>
 
-            <androidx.cardview.widget.CardView
-                android:id="@+id/CV_OilGhee"
-                android:layout_width="0dp"
-                android:layout_height="@dimen/_90sdp"
-                android:layout_margin="@dimen/_5sdp"
-                android:layout_marginStart="@dimen/_10sdp"
-                android:layout_weight="1"
-                app:cardBackgroundColor="@color/white"
-                app:cardCornerRadius="@dimen/_5sdp"
-                app:cardElevation="@dimen/_5sdp">
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/CV_OilGhee"
+                        android:layout_width="0dp"
+                        android:layout_height="@dimen/_90sdp"
+                        android:layout_margin="@dimen/_5sdp"
+                        android:layout_marginStart="@dimen/_10sdp"
+                        android:layout_weight="1"
+                        app:cardBackgroundColor="@color/white"
+                        app:cardCornerRadius="@dimen/_5sdp"
+                        app:cardElevation="@dimen/_5sdp">
 
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_margin="@dimen/_5sdp"
-                    android:orientation="vertical">
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_margin="@dimen/_5sdp"
+                            android:orientation="vertical">
 
-                    <ImageView
-                        android:id="@+id/iv_OilGhee"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:layout_gravity="center"
-                        android:background="@drawable/oil_and_ghee" />
+                            <ImageView
+                                android:id="@+id/iv_OilGhee"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_gravity="center"
+                                android:background="@drawable/oil_and_ghee" />
 
-                </LinearLayout>
-            </androidx.cardview.widget.CardView>-->
-        </LinearLayout>
+                        </LinearLayout>
+                    </androidx.cardview.widget.CardView>-->
+    </LinearLayout>
 </RelativeLayout>

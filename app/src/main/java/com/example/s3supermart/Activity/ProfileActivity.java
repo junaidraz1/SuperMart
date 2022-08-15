@@ -6,21 +6,26 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 
 import com.example.s3supermart.Helper.DialogHandler;
 import com.example.s3supermart.R;
 
-public class ChangePasswordActivity extends AppCompatActivity {
+public class ProfileActivity extends AppCompatActivity {
 
     LinearLayout layout_back, layout_menu;
+    TextView tv_title;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_change_password);
+        setContentView(R.layout.activity_profile);
 
         layout_back = findViewById(R.id.ll_back);
         layout_menu = findViewById(R.id.ll_menu);
+        tv_title = findViewById(R.id.tv_title);
+
+        tv_title.setText("Profile");
 
         clickListeners();
     }
@@ -29,7 +34,7 @@ public class ChangePasswordActivity extends AppCompatActivity {
         layout_back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(ChangePasswordActivity.this, SettingsActivity.class)
+                startActivity(new Intent(ProfileActivity.this, HomeActivity.class)
                         .setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP));
             }
         });
@@ -37,8 +42,9 @@ public class ChangePasswordActivity extends AppCompatActivity {
         layout_menu.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                DialogHandler.homeMenu(ChangePasswordActivity.this);
+                DialogHandler.homeMenu(ProfileActivity.this);
             }
         });
+
     }
 }

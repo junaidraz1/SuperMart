@@ -16,15 +16,15 @@ public class AllCategoriesActivity extends AppCompatActivity {
 
 
     LinearLayout ll_viewAll_MilkCheeseAnYogurt;
-    TextView tv_topBar;
+    AllCategoriesActivity allCategoriesActivity;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_all_categories);
 
+        allCategoriesActivity = new AllCategoriesActivity();
+
         ll_viewAll_MilkCheeseAnYogurt = findViewById(R.id.ll_viewAll_MilkCheeseAnYogurt);
-//        tv_topBar = findViewById(R.id.tv_topBar);
-//        tv_topBar.setText("Categories");
 
         ll_viewAll_MilkCheeseAnYogurt.setOnClickListener(new View.OnClickListener() {
             @Override

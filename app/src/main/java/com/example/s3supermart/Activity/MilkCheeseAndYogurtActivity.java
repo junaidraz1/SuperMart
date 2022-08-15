@@ -28,9 +28,9 @@ public class MilkCheeseAndYogurtActivity extends AppCompatActivity {
         //intialising ids to  variables
         viewPager = findViewById(R.id.viewpagerAddPatient);
         tabLayout = findViewById(R.id.tab_layoutAddPatient);
-        layout_back = findViewById(R.id.ll_backAddPatient);
+        layout_back = findViewById(R.id.ll_back);
         layout_homeBtn = findViewById(R.id.Rl_homeBtn);
-        layout_menu = findViewById(R.id.ll_menuAddPatient);
+        layout_menu = findViewById(R.id.ll_menu);
 
       /*  //method that contains click listener implementation
         clickListeners();

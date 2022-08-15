@@ -22,7 +22,7 @@
             android:padding="@dimen/_8sdp">
 
             <LinearLayout
-                android:id="@+id/ll_backAddPatient"
+                android:id="@+id/ll_back"
                 android:layout_width="@dimen/_40sdp"
                 android:layout_height="@dimen/_40sdp"
                 android:gravity="center">
@@ -36,7 +36,7 @@
             </LinearLayout>
 
             <TextView
-                android:id="@+id/iHealthCure_textView"
+                android:id="@+id/tv_title"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerInParent="true"
@@ -47,7 +47,7 @@
                 android:textSize="@dimen/_14sdp" />
 
             <LinearLayout
-                android:id="@+id/ll_menuAddPatient"
+                android:id="@+id/ll_menu"
                 android:layout_width="@dimen/_40sdp"
                 android:layout_height="@dimen/_40sdp"
                 android:layout_alignParentEnd="true"

@@ -1,6 +1,5 @@
 package com.example.s3supermart.Fragment;
 
-import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -11,7 +10,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
-import android.widget.Toast;
 
 import com.example.s3supermart.Adapter.ViewPagerAdapter;
 import com.example.s3supermart.R;
@@ -39,9 +37,9 @@ public class MilkCheeseAndYogurtFragment extends Fragment {
         //intialising ids to  variables
         viewPager = view.findViewById(R.id.viewpagerAddPatient);
         tabLayout = view.findViewById(R.id.tab_layoutAddPatient);
-        layout_back = view.findViewById(R.id.ll_backAddPatient);
+        layout_back = view.findViewById(R.id.ll_back);
         layout_homeBtn = view.findViewById(R.id.Rl_homeBtn);
-        layout_menu = view.findViewById(R.id.ll_menuAddPatient);
+        layout_menu = view.findViewById(R.id.ll_menu);
 
       /*  //method that contains click listener implementation
         clickListeners();

@@ -1,35 +1,45 @@
 package com.example.s3supermart.Activity;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.cardview.widget.CardView;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 
 import com.example.s3supermart.Helper.DialogHandler;
 import com.example.s3supermart.R;
 
-public class ChangePasswordActivity extends AppCompatActivity {
+public class SettingsActivity extends AppCompatActivity {
 
     LinearLayout layout_back, layout_menu;
+    TextView tv_title;
+    CardView cv_changePassword;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_change_password);
+        setContentView(R.layout.activity_settings);
 
         layout_back = findViewById(R.id.ll_back);
         layout_menu = findViewById(R.id.ll_menu);
+        tv_title = findViewById(R.id.tv_title);
+        cv_changePassword = findViewById(R.id.cv_changePassword);
+
+        tv_title.setText("Settings");
 
         clickListeners();
+
     }
 
     public void clickListeners() {
         layout_back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(ChangePasswordActivity.this, SettingsActivity.class)
+                startActivity(new Intent(SettingsActivity.this, HomeActivity.class)
                         .setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP));
             }
         });
@@ -37,7 +47,15 @@ public class ChangePasswordActivity extends AppCompatActivity {
         layout_menu.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                DialogHandler.homeMenu(ChangePasswordActivity.this);
+                DialogHandler.homeMenu(SettingsActivity.this);
+            }
+        });
+
+        cv_changePassword.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(SettingsActivity.this, ChangePasswordActivity.class)
+                        .setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP));
             }
         });
     }

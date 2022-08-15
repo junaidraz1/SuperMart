@@ -10,8 +10,17 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.S3SuperMart">
         <activity
-            android:name=".Activity.ChangePasswordActivity"
+            android:name=".Activity.SettingsActivity"
             android:exported="false" />
+        <activity
+            android:name=".Activity.ProfileActivity"
+
+            android:exported="false"
+            android:windowSoftInputMode="adjustPan" />
+        <activity
+            android:name=".Activity.ChangePasswordActivity"
+            android:exported="false"
+            android:windowSoftInputMode="adjustPan" />
         <activity
             android:name=".Activity.SignupActivity"
             android:exported="false" />

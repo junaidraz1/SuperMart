@@ -7,24 +7,28 @@
     <!--        android:icon="@drawable/ic_launcher_background"-->
     <!--        android:title="Cart"-->
     <!--        app:showAsAction="always" />-->
+
     <item
         android:id="@+id/notification"
         android:icon="@drawable/ic_home_icon_white"
         android:title="Home"
         app:showAsAction="ifRoom" />
+
+
     <item
         android:id="@+id/wallet"
-        android:icon="@drawable/ic_arrow_back_white"
+        android:icon="@drawable/wallet"
         android:title="Wallet"
         app:showAsAction="ifRoom" />
 
     <item
         android:title=""
-        app:showAsAction="ifRoom" />
+        app:showAsAction="ifRoom"
+        android:enabled="false"/>
 
     <item
         android:id="@+id/myorders"
-        android:icon="@drawable/order_icon"
+        android:icon="@drawable/shopping_list"
         android:title="Orders"
         app:showAsAction="ifRoom" />
 
@@ -33,5 +37,6 @@
         android:icon="@drawable/ic_baseline_search_24"
         android:title="Search"
         app:showAsAction="ifRoom" />
+
 
 </menu>

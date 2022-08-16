@@ -8,8 +8,9 @@
     tools:context=".Activity.HomeActivity">
 
     <LinearLayout
+        android:id="@+id/ll_topbarHome"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:orientation="vertical">
 
         <RelativeLayout
@@ -62,120 +63,130 @@
 
         </RelativeLayout>
 
-        <RelativeLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/_10sdp"
-            android:layout_marginTop="@dimen/_10sdp"
-            android:layout_marginEnd="@dimen/_5sdp">
-
-            <TextView
-                android:id="@+id/tv_Hi"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/nexa_light"
-                android:text="Hi,"
-                android:textColor="@color/dusk"
-                android:textSize="@dimen/_14ssp" />
-
-            <TextView
-                android:id="@+id/tv_userName"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/_3sdp"
-                android:layout_toEndOf="@+id/tv_Hi"
-                android:fontFamily="@font/nexa_bold"
-                android:text="Mehmood Ur Rehman "
-                android:textColor="@color/dusk"
-                android:textSize="@dimen/_14ssp" />
-
-            <TextView
-                android:id="@+id/tv_gd_morning"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/tv_userName"
-                android:fontFamily="@font/nexa_bold"
-                android:text="Good Morning "
-                android:textColor="@color/dusk"
-                android:textSize="@dimen/_10ssp" />
-
-            <TextView
-                android:id="@+id/tv_greetingTxt"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/tv_gd_morning"
-                android:fontFamily="@font/nexa_regular"
-                android:text="Wanna buy something? Choose best with us"
-                android:textColor="@color/dusk"
-                android:textSize="@dimen/_10ssp" />
-
-        </RelativeLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
-
-            <androidx.cardview.widget.CardView
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/_120sdp"
-                android:layout_margin="@dimen/_10sdp"
-                app:cardCornerRadius="@dimen/_15sdp">
-
-                <com.synnapps.carouselview.CarouselView
-                    android:id="@+id/carouselView"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    app:fillColor="@color/white"
-                    app:indicatorGravity="bottom"
-                    app:indicatorMarginVertical="@dimen/_10sdp"
-                    app:indicatorOrientation="horizontal"
-                    app:pageColor="@color/transparent"
-                    app:radius="@dimen/_1ssp"
-                    app:slideInterval="3000"
-                    app:strokeColor="@color/CIL_Grimmy_Grey"
-                    app:strokeWidth="@dimen/_1sdp" />
-            </androidx.cardview.widget.CardView>
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginBottom="@dimen/_55sdp"
-            android:orientation="vertical">
-
-            <RelativeLayout
-                android:id="@+id/rl_categories"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/_10sdp"
-                android:layout_marginEnd="@dimen/_10sdp">
-
-                <TextView
-                    android:id="@+id/tv_categories"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="@font/nexa_bold"
-                    android:text="Categories"
-                    android:textColor="@color/dusk"
-                    android:textSize="@dimen/_16ssp" />
-
-            </RelativeLayout>
-
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/rv_productCategory"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginStart="@dimen/_10sdp"
-                android:layout_marginTop="@dimen/_3sdp"
-                android:layout_marginEnd="@dimen/_10sdp" />
-
-        </LinearLayout>
-
     </LinearLayout>
 
+    <FrameLayout
+        android:id="@+id/frameLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/layout_bottomBar"
+        android:layout_below="@+id/ll_topbarHome" />
+
+    <!--        <RelativeLayout-->
+    <!--            android:layout_width="wrap_content"-->
+    <!--            android:layout_height="wrap_content"-->
+    <!--            android:layout_marginStart="@dimen/_10sdp"-->
+    <!--            android:layout_marginTop="@dimen/_10sdp"-->
+    <!--            android:layout_marginEnd="@dimen/_5sdp">-->
+
+    <!--            <TextView-->
+    <!--                android:id="@+id/tv_Hi"-->
+    <!--                android:layout_width="wrap_content"-->
+    <!--                android:layout_height="wrap_content"-->
+    <!--                android:fontFamily="@font/nexa_light"-->
+    <!--                android:text="Hi,"-->
+    <!--                android:textColor="@color/dusk"-->
+    <!--                android:textSize="@dimen/_14ssp" />-->
+
+    <!--            <TextView-->
+    <!--                android:id="@+id/tv_userName"-->
+    <!--                android:layout_width="wrap_content"-->
+    <!--                android:layout_height="wrap_content"-->
+    <!--                android:layout_marginStart="@dimen/_3sdp"-->
+    <!--                android:layout_toEndOf="@+id/tv_Hi"-->
+    <!--                android:fontFamily="@font/nexa_bold"-->
+    <!--                android:text="Mehmood Ur Rehman "-->
+    <!--                android:textColor="@color/dusk"-->
+    <!--                android:textSize="@dimen/_14ssp" />-->
+
+    <!--            <TextView-->
+    <!--                android:id="@+id/tv_gd_morning"-->
+    <!--                android:layout_width="wrap_content"-->
+    <!--                android:layout_height="wrap_content"-->
+    <!--                android:layout_below="@+id/tv_userName"-->
+    <!--                android:fontFamily="@font/nexa_bold"-->
+    <!--                android:text="Good Morning "-->
+    <!--                android:textColor="@color/dusk"-->
+    <!--                android:textSize="@dimen/_10ssp" />-->
+
+    <!--            <TextView-->
+    <!--                android:id="@+id/tv_greetingTxt"-->
+    <!--                android:layout_width="wrap_content"-->
+    <!--                android:layout_height="wrap_content"-->
+    <!--                android:layout_below="@+id/tv_gd_morning"-->
+    <!--                android:fontFamily="@font/nexa_regular"-->
+    <!--                android:text="Wanna buy something? Choose best with us"-->
+    <!--                android:textColor="@color/dusk"-->
+    <!--                android:textSize="@dimen/_10ssp" />-->
+
+    <!--        </RelativeLayout>-->
+
+    <!--        <LinearLayout-->
+    <!--            android:layout_width="match_parent"-->
+    <!--            android:layout_height="wrap_content"-->
+    <!--            android:orientation="vertical">-->
+
+    <!--            <androidx.cardview.widget.CardView-->
+    <!--                android:layout_width="match_parent"-->
+    <!--                android:layout_height="@dimen/_120sdp"-->
+    <!--                android:layout_margin="@dimen/_10sdp"-->
+    <!--                app:cardCornerRadius="@dimen/_15sdp">-->
+
+    <!--                <com.synnapps.carouselview.CarouselView-->
+    <!--                    android:id="@+id/carouselView"-->
+    <!--                    android:layout_width="match_parent"-->
+    <!--                    android:layout_height="match_parent"-->
+    <!--                    app:fillColor="@color/white"-->
+    <!--                    app:indicatorGravity="bottom"-->
+    <!--                    app:indicatorMarginVertical="@dimen/_10sdp"-->
+    <!--                    app:indicatorOrientation="horizontal"-->
+    <!--                    app:pageColor="@color/transparent"-->
+    <!--                    app:radius="@dimen/_1ssp"-->
+    <!--                    app:slideInterval="3000"-->
+    <!--                    app:strokeColor="@color/CIL_Grimmy_Grey"-->
+    <!--                    app:strokeWidth="@dimen/_1sdp" />-->
+    <!--            </androidx.cardview.widget.CardView>-->
+
+    <!--        </LinearLayout>-->
+
+    <!--        <LinearLayout-->
+    <!--            android:layout_width="match_parent"-->
+    <!--            android:layout_height="match_parent"-->
+    <!--            android:layout_marginBottom="@dimen/_55sdp"-->
+    <!--            android:orientation="vertical">-->
+
+    <!--            <RelativeLayout-->
+    <!--                android:id="@+id/rl_categories"-->
+    <!--                android:layout_width="match_parent"-->
+    <!--                android:layout_height="wrap_content"-->
+    <!--                android:layout_marginStart="@dimen/_10sdp"-->
+    <!--                android:layout_marginEnd="@dimen/_10sdp">-->
+
+    <!--                <TextView-->
+    <!--                    android:id="@+id/tv_categories"-->
+    <!--                    android:layout_width="wrap_content"-->
+    <!--                    android:layout_height="wrap_content"-->
+    <!--                    android:fontFamily="@font/nexa_bold"-->
+    <!--                    android:text="Categories"-->
+    <!--                    android:textColor="@color/dusk"-->
+    <!--                    android:textSize="@dimen/_16ssp" />-->
+
+    <!--            </RelativeLayout>-->
+
+    <!--            <androidx.recyclerview.widget.RecyclerView-->
+    <!--                android:id="@+id/rv_productCategory"-->
+    <!--                android:layout_width="match_parent"-->
+    <!--                android:layout_height="match_parent"-->
+    <!--                android:layout_marginStart="@dimen/_10sdp"-->
+    <!--                android:layout_marginTop="@dimen/_3sdp"-->
+    <!--                android:layout_marginEnd="@dimen/_10sdp" />-->
+
+    <!--        </LinearLayout>-->
+
+    <!--    </LinearLayout>-->
+
     <include
+        android:id="@+id/layout_bottomBar"
         layout="@layout/bottom_bar2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

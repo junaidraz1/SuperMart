@@ -24,10 +24,10 @@
             app:itemTextColor="@color/white"
             app:menu="@menu/bottom_menu" />
 
-
     </com.google.android.material.bottomappbar.BottomAppBar>
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fab_viewCart"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="@color/MintGreen"

@@ -6,6 +6,8 @@ import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
+import android.os.Build;
+import android.provider.Settings;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -16,6 +18,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AlertDialog;
 
 import com.example.s3supermart.Activity.HomeActivity;
@@ -130,10 +133,19 @@ public class DialogHandler {
             @Override
             public void onClick(View v) {
                 dialog.dismiss();
+                PrefsManager prefsManager = new PrefsManager(context);
+
+                if (prefsManager.getFINGERPRINT_ENABLED()) {
+                    prefsManager.editor.remove("KEY_LOGIN");
+                    prefsManager.editor.commit();
+
+                } else {
+                    prefsManager.editor.clear();
+                    prefsManager.editor.commit();
+                }
                 Intent intent = new Intent(context, LoginActivity.class)
                         .setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 context.startActivity(intent);
-
             }
         });
 
@@ -152,6 +164,43 @@ public class DialogHandler {
         });
         tv_diagMessage.setText(text);
         tv_diagTitle.setText(title);
+
+        dialog.show();
+    }
+
+    //dialog that opens biometric settings of device when device supports fingerprint
+    //but no fingerprint is configured
+    public static void dialogbiometricSetting(Context context, String title, String text) {
+        AlertDialog.Builder builder = new AlertDialog.Builder(context);
+        View view = LayoutInflater.from(context).inflate(R.layout.custom_dialog, null);
+        builder.setView(view);
+        AlertDialog dialog = builder.create();
+        dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+        RelativeLayout layout_close;
+        Button btn_ok;
+        TextView tv_errorMessage, tv_titlesettingsDialog;
+        tv_errorMessage = view.findViewById(R.id.tv_dialogMessage);
+        tv_titlesettingsDialog = view.findViewById(R.id.tv_dialogTitle);
+        btn_ok = view.findViewById(R.id.btn_dialogBtn);
+        layout_close = view.findViewById(R.id.rl_closeIcon);
+        btn_ok.setOnClickListener(new View.OnClickListener() {
+            @RequiresApi(api = Build.VERSION_CODES.R)
+            @Override
+            public void onClick(View v) {
+                dialog.dismiss();
+                context.startActivity(new Intent(Settings.ACTION_BIOMETRIC_ENROLL));
+            }
+        });
+
+        layout_close.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dialog.dismiss();
+            }
+        });
+
+        tv_errorMessage.setText(text);
+        tv_titlesettingsDialog.setText(title);
 
         dialog.show();
     }

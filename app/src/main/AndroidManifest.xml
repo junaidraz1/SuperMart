@@ -10,11 +10,22 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.S3SuperMart">
         <activity
+            android:name=".Activity.ViewCartActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Activity.SearchActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Activity.MyOrdersActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Activity.WalletActivity"
+            android:exported="false" />
+        <activity
             android:name=".Activity.SettingsActivity"
             android:exported="false" />
         <activity
             android:name=".Activity.ProfileActivity"
-
             android:exported="false"
             android:windowSoftInputMode="adjustPan" />
         <activity
@@ -43,13 +54,11 @@
             android:name=".Activity.SplashActivity"
             android:exported="true"
             android:theme="@style/SplashTheme">
-
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-
         </activity>
     </application>
 

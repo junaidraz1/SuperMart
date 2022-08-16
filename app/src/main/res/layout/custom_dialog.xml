@@ -85,6 +85,7 @@
             android:layout_centerInParent="true"
             android:background="@drawable/roundedrectangle_bg"
             android:backgroundTint="@color/MintGreen"
+            android:fontFamily="@font/nexa_regular"
             android:text="OK"
             android:textAllCaps="false"
             android:textColor="@color/white"

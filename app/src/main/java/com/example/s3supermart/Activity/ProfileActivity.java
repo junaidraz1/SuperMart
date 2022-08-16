@@ -10,11 +10,13 @@ import android.widget.TextView;
 
 import com.example.s3supermart.Helper.DialogHandler;
 import com.example.s3supermart.R;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class ProfileActivity extends AppCompatActivity {
 
     LinearLayout layout_back, layout_menu;
     TextView tv_title;
+    BottomNavigationView bottomNavigationView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,8 +26,10 @@ public class ProfileActivity extends AppCompatActivity {
         layout_back = findViewById(R.id.ll_back);
         layout_menu = findViewById(R.id.ll_menu);
         tv_title = findViewById(R.id.tv_title);
+        bottomNavigationView = findViewById(R.id.bottomnavView);
 
         tv_title.setText("Profile");
+        bottomNavigationView.setBackground(null);
 
         clickListeners();
     }

@@ -1,12 +1,16 @@
 package com.example.s3supermart.Activity;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 import androidx.cardview.widget.CardView;
 import androidx.core.content.ContextCompat;
+import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.annotation.SuppressLint;
 import android.app.AlertDialog;
 import android.content.Intent;
 import android.graphics.Color;
@@ -15,6 +19,7 @@ import android.os.Build;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.GridLayout;
 import android.widget.ImageView;
@@ -28,7 +33,9 @@ import com.example.s3supermart.Helper.DialogHandler;
 import com.example.s3supermart.Model.AllCategoriesClass;
 import com.example.s3supermart.R;
 import com.example.s3supermart.Utils.Utility;
+import com.google.android.material.bottomappbar.BottomAppBar;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.synnapps.carouselview.CarouselView;
 import com.synnapps.carouselview.ImageListener;
 
@@ -42,8 +49,10 @@ public class HomeActivity extends AppCompatActivity {
     TextView tv_greetMsg, tv_location;
     RecyclerView rv_productCategory;
     ImageView iv_menu;
+    FloatingActionButton fab_viewCart;
     AllCategoriesAdapter allCategoriesAdapter;
     Utility utility;
+    Fragment fragment;
     int[] sampleImages = {R.drawable.offer1, R.drawable.offer2,
             R.drawable.logo, R.drawable.slider1, R.drawable.offer3};
 
@@ -59,6 +68,7 @@ public class HomeActivity extends AppCompatActivity {
         tv_location = findViewById(R.id.tv_location);
         rv_productCategory = findViewById(R.id.rv_productCategory);
         iv_menu = findViewById(R.id.iv_homeMenu);
+        fab_viewCart = findViewById(R.id.fab_viewCart);
 
         tv_location.setSelected(true);
         tv_location.setEllipsize(TextUtils.TruncateAt.MARQUEE);
@@ -100,6 +110,45 @@ public class HomeActivity extends AppCompatActivity {
             }
         });
 
+        fab_viewCart.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(HomeActivity.this, ViewCartActivity.class)
+                        .setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP));
+            }
+        });
+
+        bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
+            @SuppressLint("NonConstantResourceId")
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+
+                switch (item.getItemId()) {
+
+                    case R.id.homePage:
+                        Toast.makeText(HomeActivity.this, "Clicked", Toast.LENGTH_SHORT).show();
+                        startActivity(new Intent(HomeActivity.this, HomeActivity.class)
+                                .setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP));
+                        break;
+
+                    case R.id.wallet:
+                        fragment = new MilkCheeseAndYogurtFragment();
+                        break;
+
+                    case R.id.myorders:
+                        startActivity(new Intent(HomeActivity.this, MyOrdersActivity.class)
+                                .setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP));
+                        break;
+
+                    case R.id.search:
+                        startActivity(new Intent(HomeActivity.this, SearchActivity.class)
+                                .setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP));
+                        break;
+                }
+                getSupportFragmentManager().beginTransaction().replace(R.id.rl_mainLayout, fragment).commit();
+                return true;
+            }
+        });
     }
 
     //method to display greeting message on home screen

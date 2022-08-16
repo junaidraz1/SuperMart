@@ -9,7 +9,7 @@
     <!--        app:showAsAction="always" />-->
 
     <item
-        android:id="@+id/notification"
+        android:id="@+id/homePage"
         android:icon="@drawable/ic_home_icon_white"
         android:title="Home"
         app:showAsAction="ifRoom" />

@@ -13,6 +13,7 @@ import android.view.animation.AnimationSet;
 import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 
+import com.example.s3supermart.Helper.PrefsManager;
 import com.example.s3supermart.R;
 
 public class SplashActivity extends AppCompatActivity {
@@ -20,12 +21,23 @@ public class SplashActivity extends AppCompatActivity {
     ImageView imageView;
     Handler handler;
     Animation animationBounce, animationMove_L_to_C, animationMove_C_to_R, animationShake;
+    PrefsManager prefsManager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash);
+
         handler = new Handler();
+        prefsManager = new PrefsManager(SplashActivity.this);
+
+        //to animate splash screen
+        splashAnimation();
+
+    }
+
+    //method that contains implementation of animated splash screen
+    public void splashAnimation() {
         handler.postDelayed(new Runnable() {
             @Override
             public void run() {
@@ -36,19 +48,16 @@ public class SplashActivity extends AppCompatActivity {
                 animationMove_C_to_R = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.move_animation_center_to_right);
                 imageView.startAnimation(animationMove_L_to_C);
                 imageView.setVisibility(View.VISIBLE);
+
                 // Your fade animation
                 AlphaAnimation fadeOutAnimation = new AlphaAnimation(1, 0);
                 fadeOutAnimation.setDuration(300);
 
-// Your translate animation - move image to right
-        /*TranslateAnimation translateAnimation = new TranslateAnimation(float fromXDelta,float toXDelta, float fromYDelta, float toYDelta);
-        translateAnimation.setDuration(300);*/
-
-// Create animation set and add both animations to run simultaneously.
+                //Create animation set and add both animations to run simultaneously.
                 AnimationSet animationSet = new AnimationSet(true);
                 animationSet.addAnimation(animationMove_C_to_R);
 
-// Now set animatio  listener on your rotate animation
+                //Now set animation  listener on your rotate animation
                 animationMove_L_to_C.setAnimationListener(new Animation.AnimationListener() {
                     @Override
                     public void onAnimationStart(Animation animation) {
@@ -56,9 +65,6 @@ public class SplashActivity extends AppCompatActivity {
 
                     @Override
                     public void onAnimationEnd(Animation animation) {
-/*
-                animationSet.start();
-*/
                         imageView.startAnimation(animationShake);
                     }
 
@@ -73,9 +79,6 @@ public class SplashActivity extends AppCompatActivity {
 
                     @Override
                     public void onAnimationEnd(Animation animation) {
-/*
-                animationSet.start();
-*/
                         imageView.startAnimation(animationMove_C_to_R);
                     }
 
@@ -90,23 +93,29 @@ public class SplashActivity extends AppCompatActivity {
 
                     @Override
                     public void onAnimationEnd(Animation animation) {
-/*
-                animationSet.start();
-*/
-                        startActivity(new Intent(SplashActivity.this, LoginActivity.class).
-                                addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP));
+                        //to check if user was previously logged in or not
+                        getloginPref();
                     }
 
                     @Override
                     public void onAnimationRepeat(Animation animation) {
                     }
                 });
-
-          /*      Intent intent=new Intent(SplashActivity.this,HomeActivity.class);
-                startActivity(intent);
-                finish();*/
             }
         }, 200);
 
+
     }
-};
+
+    //to check if user was previously logged in, in order to redirect him to main screen
+    public void getloginPref() {
+
+        if (prefsManager.getLogin()) {
+            startActivity(new Intent(SplashActivity.this, HomeActivity.class));
+
+        } else {
+            startActivity(new Intent(SplashActivity.this, LoginActivity.class));
+        }
+    }
+
+}

@@ -4,13 +4,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/bg_dim"
     android:orientation="vertical"
     tools:context=".Activity.ProfileActivity">
 
     <include
         android:id="@+id/layout_topbar"
         layout="@layout/top_bar" />
-
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -18,13 +18,13 @@
         android:layout_below="@+id/layout_topbar"
         android:layout_centerVertical="true"
         android:layout_marginStart="@dimen/_10sdp"
-        android:layout_marginTop="@dimen/_10sdp"
+        android:layout_marginTop="@dimen/_20sdp"
+        android:background="@color/transparent"
         android:layout_marginEnd="@dimen/_10sdp"
         android:layout_marginBottom="@dimen/_10sdp"
-        android:background="@color/white"
-        android:backgroundTint="@color/white"
         app:cardCornerRadius="@dimen/_15sdp"
-        app:cardElevation="@dimen/_5sdp">
+        app:cardElevation="@dimen/_20sdp">
+
 
         <RelativeLayout
             android:layout_width="match_parent"
@@ -35,8 +35,8 @@
                 android:layout_width="@dimen/_100sdp"
                 android:layout_height="@dimen/_100sdp"
                 android:layout_centerHorizontal="true"
-                android:layout_marginTop="@dimen/_10sdp"
-                android:background="@drawable/roundedrectangle_bg"
+                android:layout_gravity="center_horizontal"
+                android:background="@color/white"
                 android:src="@drawable/placeholder" />
 
             <LinearLayout

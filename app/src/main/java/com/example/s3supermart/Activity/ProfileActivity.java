@@ -25,7 +25,7 @@ public class ProfileActivity extends AppCompatActivity {
 
         layout_back = findViewById(R.id.ll_back);
         layout_menu = findViewById(R.id.ll_menu);
-        tv_title = findViewById(R.id.tv_title);
+        tv_title = findViewById(R.id.tv_titleTopBar);
         bottomNavigationView = findViewById(R.id.bottomnavView);
 
         tv_title.setText("Profile");

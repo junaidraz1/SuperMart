@@ -6,4 +6,6 @@
     android:layout_height="match_parent"
     tools:context=".Activity.SearchActivity">
 
+    <include layout="@layout/top_bar"/>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

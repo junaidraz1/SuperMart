@@ -16,6 +16,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.s3supermart.Model.ProductsClass;
 import com.example.s3supermart.R;
+import com.google.android.material.bottomsheet.BottomSheetBehavior;
 
 import java.util.List;
 
@@ -23,7 +24,7 @@ public class ProductsAdapter extends RecyclerView.Adapter<ProductsAdapter.Custom
 
     private final List<ProductsClass> productsList;
     private final Context context;
-    String Tv_Inc_Dec;
+    String Tv_Counter;
 
     public ProductsAdapter(Context context, List<ProductsClass> productsList) {
         this.context = context;
@@ -131,9 +132,9 @@ public class ProductsAdapter extends RecyclerView.Adapter<ProductsAdapter.Custom
     class CustomViewHolder extends RecyclerView.ViewHolder {
         public final View view;
 
-        TextView tv_ProductName, tv_productQuantity, tv_productPrice, tv_inc_dec;
+        TextView tv_ProductName, tv_productQuantity, tv_productPrice, tv_quantityCounter;
         Button btn_addToCart, btn_increment, btn_decrement;
-        LinearLayout ll_addToCart;
+        LinearLayout ll_addToCart,ll_increment,ll_decrement;
 
         public CustomViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -144,9 +145,9 @@ public class ProductsAdapter extends RecyclerView.Adapter<ProductsAdapter.Custom
             tv_productPrice = view.findViewById(R.id.tv_productPrice);
             btn_addToCart = view.findViewById(R.id.btn_AddToCart);
             ll_addToCart = view.findViewById(R.id.ll_AddToCart);
-            tv_inc_dec = view.findViewById(R.id.tv_inc_dec);
-            btn_increment = view.findViewById(R.id.btn_increment);
-            btn_decrement = view.findViewById(R.id.btn_decrement);
+            tv_quantityCounter = view.findViewById(R.id.tv_quantityCounter);
+            ll_increment = view.findViewById(R.id.ll_increment);
+            ll_decrement = view.findViewById(R.id.ll_decrement);
 
            /* layout_menu.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -160,15 +161,15 @@ public class ProductsAdapter extends RecyclerView.Adapter<ProductsAdapter.Custom
                 public void onClick(View v) {
                     ll_addToCart.setVisibility(View.VISIBLE);
                     btn_addToCart.setVisibility(View.GONE);
-                    tv_inc_dec.setText("1");
+                    tv_quantityCounter.setText("1");
                     //  Toast.makeText(context, "Add to Cart Button Clicked", Toast.LENGTH_SHORT).show();
                 }
             });
-            btn_decrement.setOnClickListener(new View.OnClickListener() {
+            ll_decrement.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Tv_Inc_Dec = tv_inc_dec.getText().toString();
-                    if (tv_inc_dec.getText().toString().equals("1")) {
+                    Tv_Counter = tv_quantityCounter.getText().toString();
+                    if (tv_quantityCounter.getText().toString().equals("1")) {
                         btn_addToCart.setVisibility(View.VISIBLE);
                         ll_addToCart.setVisibility(View.GONE);
                         // Toast.makeText(context, "Button Decriment Clicked", Toast.LENGTH_SHORT).show();
@@ -178,7 +179,7 @@ public class ProductsAdapter extends RecyclerView.Adapter<ProductsAdapter.Custom
                 }
             });
 
-            btn_increment.setOnClickListener(new View.OnClickListener() {
+            ll_increment.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     quantityIncrement();
@@ -188,7 +189,7 @@ public class ProductsAdapter extends RecyclerView.Adapter<ProductsAdapter.Custom
 
         private void quantityIncrement() {
             // Get the value of the text view
-            String countString = tv_inc_dec.getText().toString();
+            String countString = tv_quantityCounter.getText().toString();
             // Convert value to a number and increment it
             int totalStock = 10;
             int qty = parseInt(countString);
@@ -196,7 +197,7 @@ public class ProductsAdapter extends RecyclerView.Adapter<ProductsAdapter.Custom
                 qty++;
                 String num = String.valueOf(qty);
                 // Display the new value in the text view.
-                tv_inc_dec.setText(num);
+                tv_quantityCounter.setText(num);
 
             } else {
                 Toast.makeText(context, "No more quantity available", Toast.LENGTH_SHORT).show();
@@ -206,13 +207,13 @@ public class ProductsAdapter extends RecyclerView.Adapter<ProductsAdapter.Custom
 
         private void quantityDecrement() {
             // Get the value of the text view
-            String countString = tv_inc_dec.getText().toString();
+            String countString = tv_quantityCounter.getText().toString();
             // Convert value to a number and increment it
             int qty = parseInt(countString);
             qty--;
             String num = String.valueOf(qty);
             // Display the new value in the text view.
-            tv_inc_dec.setText(num);
+            tv_quantityCounter.setText(num);
 
         }
     }

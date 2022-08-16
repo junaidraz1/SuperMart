@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.viewpager.widget.ViewPager;
 
 import android.os.Bundle;
+import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 
@@ -12,14 +13,17 @@ import com.example.s3supermart.Fragment.CheeseAndCreamFragment;
 import com.example.s3supermart.Fragment.FlavouredMilkFragment;
 import com.example.s3supermart.Fragment.MilkAndMilkPowderFragment;
 import com.example.s3supermart.R;
+import com.google.android.material.bottomsheet.BottomSheetBehavior;
 import com.google.android.material.tabs.TabLayout;
 
 public class MilkCheeseAndYogurtActivity extends AppCompatActivity {
     ViewPagerAdapter viewPagerAdapter;
     ViewPager viewPager;
     TabLayout tabLayout;
-    LinearLayout layout_back,layout_menu;
-    RelativeLayout layout_homeBtn;
+    LinearLayout layout_back, layout_menu;
+    RelativeLayout rl_homeBtn, rl_titleBottomshet;
+    BottomSheetBehavior<View> bottomSheetBehavior;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -29,8 +33,10 @@ public class MilkCheeseAndYogurtActivity extends AppCompatActivity {
         viewPager = findViewById(R.id.viewpagerAddPatient);
         tabLayout = findViewById(R.id.tab_layoutAddPatient);
         layout_back = findViewById(R.id.ll_back);
-        layout_homeBtn = findViewById(R.id.Rl_homeBtn);
+        rl_homeBtn = findViewById(R.id.Rl_homeBtn);
         layout_menu = findViewById(R.id.ll_menu);
+        View BottomsheetView = findViewById(R.id.ll_bottomSheetView);
+        rl_titleBottomshet = findViewById(R.id.Rl_titleBottomsheet);
 
       /*  //method that contains click listener implementation
         clickListeners();
@@ -59,11 +65,31 @@ public class MilkCheeseAndYogurtActivity extends AppCompatActivity {
         // we use the setupWithViewPager().
         tabLayout.setupWithViewPager(viewPager);
 
+              /*  it is use to take the instance of the
+         behavior from the layout params of the View instance*/
+        bottomSheetBehavior = BottomSheetBehavior.from(BottomsheetView);
+
+        /* Sets the bottom sheet height with the
+         value set on the peekHeight attribute*/
+        bottomSheetBehavior.setState(BottomSheetBehavior.STATE_COLLAPSED);
+
+        //used to handle behaviour i.e. expand or collapsed of bottom sheet
+        rl_titleBottomshet.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                if (bottomSheetBehavior.getState() != BottomSheetBehavior.STATE_EXPANDED) {
+                    bottomSheetBehavior.setState(BottomSheetBehavior.STATE_EXPANDED);
+                } else {
+                    bottomSheetBehavior.setState(BottomSheetBehavior.STATE_COLLAPSED);
+                }
+            }
+        });
+
     }
 
     @Override
-    public void onBackPressed()
-    {
+    public void onBackPressed() {
         super.onBackPressed();
     }
 }

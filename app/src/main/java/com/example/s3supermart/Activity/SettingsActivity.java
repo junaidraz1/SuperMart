@@ -34,7 +34,7 @@ public class SettingsActivity extends AppCompatActivity {
 
         layout_back = findViewById(R.id.ll_back);
         layout_menu = findViewById(R.id.ll_menu);
-        tv_title = findViewById(R.id.tv_title);
+        tv_title = findViewById(R.id.tv_titleTopBar);
         cv_changePassword = findViewById(R.id.cv_changePassword);
         switch_fingerprintbtn = findViewById(R.id.btn_fingerprint);
         bottomNavigationView = findViewById(R.id.bottomnavView);

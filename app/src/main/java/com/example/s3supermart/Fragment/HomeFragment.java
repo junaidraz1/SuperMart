@@ -1,13 +1,11 @@
 package com.example.s3supermart.Fragment;
 
-import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -18,7 +16,6 @@ import com.example.s3supermart.Adapter.AllCategoriesAdapter;
 import com.example.s3supermart.Model.AllCategoriesClass;
 import com.example.s3supermart.R;
 import com.example.s3supermart.Utils.Utility;
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.synnapps.carouselview.CarouselView;
 import com.synnapps.carouselview.ImageListener;
 
@@ -29,7 +26,6 @@ public class HomeFragment extends Fragment {
 
     CarouselView carouselView;
     TextView tv_greetMsg;
-    RecyclerView rv_productCategory;
     AllCategoriesAdapter allCategoriesAdapter;
     Utility utility;
     int[] sampleImages = {R.drawable.offer1, R.drawable.offer2,
@@ -51,7 +47,6 @@ public class HomeFragment extends Fragment {
         //intialising id's to variables
         carouselView = view.findViewById(R.id.carouselView);
         tv_greetMsg = view.findViewById(R.id.tv_gd_morning);
-        rv_productCategory = view.findViewById(R.id.rv_productCategory);
 
         //intialising classes
         utility = new Utility();
@@ -60,7 +55,7 @@ public class HomeFragment extends Fragment {
         greetUser();
 
         //to set items to recyclerview for product category
-        setCategory();
+       // setCategory();
 
         carouselView.setPageCount(sampleImages.length);
         carouselView.setImageListener(imageListener);
@@ -68,15 +63,6 @@ public class HomeFragment extends Fragment {
 
         // Inflate the layout for this fragment
         return view;
-    }
-
-    //setting layout manager and adapter to category recycler view
-    public void setCategory() {
-
-        GridLayoutManager layoutManager = new GridLayoutManager(getContext(), 2);
-        allCategoriesAdapter = new AllCategoriesAdapter(getContext(), categoryList());
-        rv_productCategory.setAdapter(allCategoriesAdapter);
-        rv_productCategory.setLayoutManager(layoutManager);
     }
 
     //method to display greeting message on home screen

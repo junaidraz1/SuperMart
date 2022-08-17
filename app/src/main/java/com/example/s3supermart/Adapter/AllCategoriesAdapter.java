@@ -1,20 +1,14 @@
 package com.example.s3supermart.Adapter;
 
 import android.content.Context;
-import android.content.Intent;
-import android.graphics.Color;
-import android.graphics.drawable.ColorDrawable;
 import android.view.LayoutInflater;
-import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
-import android.widget.PopupMenu;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.s3supermart.Model.AllCategoriesClass;
@@ -27,10 +21,9 @@ public class AllCategoriesAdapter extends RecyclerView.Adapter<AllCategoriesAdap
     public final List<AllCategoriesClass> categoriesList;
     public final Context context;
 
-    public AllCategoriesAdapter(Context context, List<AllCategoriesClass> categoriesList) {
-        this.context = context;
+    public AllCategoriesAdapter(List<AllCategoriesClass> categoriesList, Context context) {
         this.categoriesList = categoriesList;
-
+        this.context = context;
     }
 
     @NonNull
@@ -44,14 +37,15 @@ public class AllCategoriesAdapter extends RecyclerView.Adapter<AllCategoriesAdap
     @Override
     public void onBindViewHolder(@NonNull AllCategoriesAdapter.CustomViewHolder holder, int position) {
 
-      holder.tv_catName.setText(categoriesList.get(position).getCategoryName());
-      holder.iv_catImg.setImageResource(categoriesList.get(position).getCategoryPicture());
+        holder.tv_catName.setText(categoriesList.get(position).getCategoryName());
+        holder.iv_catImg.setImageResource(categoriesList.get(position).getCategoryPicture());
         /* holder.tv_Sr.setText(patientDataList.get(position).getSr());
         holder.tv_patientName.setText(categoriesList.get(position).getPatientName());
         holder.tv_MrNo.setText(categoriesList.get(position).getMRNo());
         holder.tv_visitNo.setText(categoriesList.get(position).getVisitNo());
         holder.tv_labNo.setText(categoriesList.get(position).getLabNo());
         holder.tv_services.setText(categoriesList.get(position).getServices());*/
+
     }
 
     @Override
@@ -136,11 +130,12 @@ public class AllCategoriesAdapter extends RecyclerView.Adapter<AllCategoriesAdap
          popupMenu.show();
      }
  */
-    static class CustomViewHolder extends RecyclerView.ViewHolder {
+    class CustomViewHolder extends RecyclerView.ViewHolder {
         public final View view;
 
         TextView tv_catName;
         ImageView iv_catImg;
+        CardView cv_category;
 
         public CustomViewHolder(@NonNull View itemView) {
             super(itemView);

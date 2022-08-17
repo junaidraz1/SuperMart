@@ -13,15 +13,6 @@
             android:name=".Activity.ViewCartActivity"
             android:exported="false" />
         <activity
-            android:name=".Activity.SearchActivity"
-            android:exported="false" />
-        <activity
-            android:name=".Activity.MyOrdersActivity"
-            android:exported="false" />
-        <activity
-            android:name=".Activity.WalletActivity"
-            android:exported="false" />
-        <activity
             android:name=".Activity.SettingsActivity"
             android:exported="false" />
         <activity

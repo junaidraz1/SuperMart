@@ -69,7 +69,10 @@ public class MilkCheeseAndYogurtFragment extends Fragment {
         tabLayout.setupWithViewPager(viewPager);
 
         return view;
+
+
     }
+    
    /* public void clickListeners() {
 
         //redirects user on homepage when back imageview is clicked from add patient activity
@@ -117,4 +120,5 @@ public class MilkCheeseAndYogurtFragment extends Fragment {
                 Toast.makeText(AddPatientActivity.this, "Coming Soon", Toast.LENGTH_SHORT).show();
             }
         });*/
+
 }

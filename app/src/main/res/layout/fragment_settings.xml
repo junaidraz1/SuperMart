@@ -3,18 +3,12 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".Activity.SettingsActivity">
-
-    <include
-        android:id="@+id/layout_topBar"
-        layout="@layout/top_bar" />
+    android:layout_height="match_parent">
 
     <androidx.cardview.widget.CardView
         android:id="@+id/cv_fingerprint"
         android:layout_width="match_parent"
         android:layout_height="@dimen/_50sdp"
-        android:layout_below="@+id/layout_topBar"
         android:layout_marginStart="@dimen/_10sdp"
         android:layout_marginTop="@dimen/_20sdp"
         android:layout_marginEnd="@dimen/_10sdp"
@@ -104,12 +98,5 @@
         </RelativeLayout>
 
     </androidx.cardview.widget.CardView>
-
-    <include
-        android:id="@+id/layout_bottomBar"
-        layout="@layout/bottom_bar2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true" />
 
 </RelativeLayout>

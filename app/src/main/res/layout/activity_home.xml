@@ -26,6 +26,13 @@
                 android:layout_centerVertical="true"
                 android:src="@drawable/ic_baseline_location_on_24" />
 
+            <ImageView
+                android:id="@+id/iv_back"
+                android:layout_width="@dimen/_18sdp"
+                android:layout_height="@dimen/_18sdp"
+                android:layout_centerVertical="true"
+                android:src="@drawable/ic_arrow_back_white" />
+
             <TextView
                 android:id="@+id/tv_location"
                 android:layout_width="wrap_content"
@@ -43,6 +50,19 @@
                 android:text="House # 1712, Street 46, Dhoke Kala Khan, Rawalpindi"
                 android:textColor="@color/white"
                 android:textSize="@dimen/_12ssp" />
+
+            <TextView
+                android:id="@+id/tv_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:layout_marginStart="@dimen/_10sdp"
+                android:layout_marginEnd="@dimen/_10sdp"
+                android:fontFamily="@font/nexa_bold"
+                android:text="Title"
+                android:textColor="@color/white"
+                android:textSize="@dimen/_14ssp" />
+
 
             <ImageView
                 android:id="@id/iv_homeMenu"

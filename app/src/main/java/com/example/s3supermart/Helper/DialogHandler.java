@@ -2,6 +2,8 @@ package com.example.s3supermart.Helper;
 
 import static android.content.Context.LAYOUT_INFLATER_SERVICE;
 
+import static com.example.s3supermart.Activity.HomeActivity.currentFragment;
+
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
@@ -12,20 +14,21 @@ import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.PopupWindow;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.s3supermart.Activity.HomeActivity;
 import com.example.s3supermart.Activity.LoginActivity;
-import com.example.s3supermart.Activity.ProfileActivity;
-import com.example.s3supermart.Activity.SettingsActivity;
+import com.example.s3supermart.Fragment.ProfileFragment;
+import com.example.s3supermart.Fragment.SettingsFragment;
 import com.example.s3supermart.R;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class DialogHandler {
 
@@ -76,36 +79,63 @@ public class DialogHandler {
         View view = new View(context);
         popupWindow.showAtLocation(view, Gravity.TOP | Gravity.END, -15, 80);
 
-        TextView tv_profile, tv_settings, tv_logout, tv_versionNum;
+        TextView tv_versionNum, tv_location, tv_title;
+        LinearLayout layout_profile, layout_setting, layout_logout;
+        ImageView iv_location, iv_edit, iv_back;
+        BottomNavigationView bottomNavigationView;
 
-        tv_profile = popupView.findViewById(R.id.tv_profile);
-        tv_settings = popupView.findViewById(R.id.tv_settings);
-        tv_logout = popupView.findViewById(R.id.tv_logout);
+        layout_profile = popupView.findViewById(R.id.ll_profile);
+        layout_setting = popupView.findViewById(R.id.ll_settings);
+        layout_logout = popupView.findViewById(R.id.ll_logout);
         tv_versionNum = popupView.findViewById(R.id.tv_versionNum);
+        iv_location = ((AppCompatActivity) context).findViewById(R.id.iv_location);
+        iv_edit = ((AppCompatActivity) context).findViewById(R.id.iv_editLocation);
+        iv_back = ((AppCompatActivity) context).findViewById(R.id.iv_back);
+        tv_location = ((AppCompatActivity) context).findViewById(R.id.tv_location);
+        tv_title = ((AppCompatActivity) context).findViewById(R.id.tv_title);
+        bottomNavigationView = ((AppCompatActivity) context).findViewById(R.id.bottomnavView);
 
         tv_versionNum.setText("1.0");
+        bottomNavigationView.setBackground(null);
 
-        tv_profile.setOnClickListener(new View.OnClickListener() {
+        layout_profile.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 popupWindow.dismiss();
-                Intent intent = new Intent(context, ProfileActivity.class)
-                        .setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                context.startActivity(intent);
+                currentFragment = new ProfileFragment();
+                ((AppCompatActivity) context).getSupportFragmentManager().beginTransaction().replace(R.id.frameLayout, currentFragment,
+                        currentFragment.getClass().getSimpleName()).commit();
+                bottomNavigationView.getMenu().getItem(2).setChecked(true);
+                iv_location.setVisibility(View.GONE);
+                iv_edit.setVisibility(View.GONE);
+                tv_location.setVisibility(View.GONE);
+                iv_back.setVisibility(View.VISIBLE);
+                tv_title.setVisibility(View.VISIBLE);
+
+                tv_title.setText("Profile");
+
             }
         });
 
-        tv_settings.setOnClickListener(new View.OnClickListener() {
+        layout_setting.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 popupWindow.dismiss();
-                Intent intent = new Intent(context, SettingsActivity.class)
-                        .setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                context.startActivity(intent);
+                currentFragment = new SettingsFragment();
+                ((AppCompatActivity) context).getSupportFragmentManager().beginTransaction().replace(R.id.frameLayout, currentFragment,
+                        currentFragment.getClass().getSimpleName()).commit();
+                bottomNavigationView.getMenu().getItem(2).setChecked(true);
+                iv_location.setVisibility(View.GONE);
+                iv_edit.setVisibility(View.GONE);
+                tv_location.setVisibility(View.GONE);
+                iv_back.setVisibility(View.VISIBLE);
+                tv_title.setVisibility(View.VISIBLE);
+
+                tv_title.setText("Settings");
             }
         });
 
-        tv_logout.setOnClickListener(new View.OnClickListener() {
+        layout_logout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 popupWindow.dismiss();

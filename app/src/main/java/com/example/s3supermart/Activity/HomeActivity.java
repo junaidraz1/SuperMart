@@ -94,27 +94,45 @@ public class HomeActivity extends AppCompatActivity {
         //method that contains implementation of click listeners
         clickListeners();
 
-       // runThread();
+        //runthread1();
 
     }
 
-    private void runThread() {
-        runOnUiThread(new Thread(new Runnable() {
+    private void runthread1() {
+        runOnUiThread(new Runnable() {
+            @Override
             public void run() {
+                try {
+                    Thread.sleep(5);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
                 //to load home fragment when activity is created
                 loadFrag();
 
                 //method that contains implementation of click listeners
                 clickListeners();
-                try {
-                    Thread.sleep(300);
-                    Log.d("actHOME", "run: ");
-                } catch (InterruptedException e) {
-                    Log.d("actHOME", "run: " + e.getLocalizedMessage());
-                }
             }
-        }));
+        });
     }
+
+//    private void runThread() {
+//        runOnUiThread(new Thread(new Runnable() {
+//            public void run() {
+//                //to load home fragment when activity is created
+//                loadFrag();
+//
+//                //method that contains implementation of click listeners
+//                clickListeners();
+//                try {
+//                    Thread.sleep(300);
+//                    Log.d("actHOME", "run: ");
+//                } catch (InterruptedException e) {
+//                    Log.d("actHOME", "run: " + e.getLocalizedMessage());
+//                }
+//            }
+//        }));
+//    }
 
     public void loadFrag() {
         HomeFrag = new HomeFragment();

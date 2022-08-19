@@ -29,7 +29,7 @@ public class ChangePasswordActivity extends AppCompatActivity {
         layout_back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(ChangePasswordActivity.this, SettingsActivity.class)
+                startActivity(new Intent(ChangePasswordActivity.this, HomeActivity.class)
                         .setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP));
             }
         });

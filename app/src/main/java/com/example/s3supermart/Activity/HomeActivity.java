@@ -19,6 +19,7 @@ import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Build;
 import android.os.Bundle;
+import android.os.Handler;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -36,6 +37,7 @@ import com.example.s3supermart.Fragment.MilkAndMilkPowderFragment;
 import com.example.s3supermart.Fragment.MilkCheeseAndYogurtFragment;
 import com.example.s3supermart.Fragment.ProfileFragment;
 import com.example.s3supermart.Fragment.WalletFragment;
+import com.example.s3supermart.Helper.AsyncTaskRunner;
 import com.example.s3supermart.Helper.DialogHandler;
 import com.example.s3supermart.Model.AllCategoriesClass;
 import com.example.s3supermart.R;
@@ -55,8 +57,9 @@ public class HomeActivity extends AppCompatActivity {
     FloatingActionButton fab_viewCart;
     TextView tv_location, tv_title;
     ImageView iv_menu, iv_location, iv_edit, iv_back;
-    int backStack;
     Fragment HomeFrag;
+    String req = "Calling Async";
+    AsyncTaskRunner asyncTaskRunner = new AsyncTaskRunner();
     public static Fragment currentFragment;
 
     @Override
@@ -83,12 +86,34 @@ public class HomeActivity extends AppCompatActivity {
         tv_title.setVisibility(View.GONE);
         iv_back.setVisibility(View.GONE);
 
+        // asyncTaskRunner.execute();
+
         //to load home fragment when activity is created
         loadFrag();
 
         //method that contains implementation of click listeners
         clickListeners();
 
+       // runThread();
+
+    }
+
+    private void runThread() {
+        runOnUiThread(new Thread(new Runnable() {
+            public void run() {
+                //to load home fragment when activity is created
+                loadFrag();
+
+                //method that contains implementation of click listeners
+                clickListeners();
+                try {
+                    Thread.sleep(300);
+                    Log.d("actHOME", "run: ");
+                } catch (InterruptedException e) {
+                    Log.d("actHOME", "run: " + e.getLocalizedMessage());
+                }
+            }
+        }));
     }
 
     public void loadFrag() {
@@ -233,4 +258,5 @@ public class HomeActivity extends AppCompatActivity {
         } */
 
     }
+
 }

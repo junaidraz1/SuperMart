@@ -2,64 +2,39 @@ package com.example.s3supermart.Activity;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
-import androidx.cardview.widget.CardView;
-import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.FragmentTransaction;
-import androidx.recyclerview.widget.GridLayoutManager;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
 
 import android.annotation.SuppressLint;
-import android.app.AlertDialog;
 import android.content.Intent;
-import android.graphics.Color;
-import android.graphics.drawable.ColorDrawable;
-import android.os.Build;
 import android.os.Bundle;
-import android.os.Handler;
 import android.text.TextUtils;
 import android.util.Log;
-import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.GridLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
-import com.example.s3supermart.Adapter.AllCategoriesAdapter;
+import com.example.s3supermart.Fragment.GroceryFragment;
 import com.example.s3supermart.Fragment.HomeFragment;
 import com.example.s3supermart.Fragment.MilkAndMilkPowderFragment;
 import com.example.s3supermart.Fragment.MilkCheeseAndYogurtFragment;
-import com.example.s3supermart.Fragment.ProfileFragment;
 import com.example.s3supermart.Fragment.WalletFragment;
-import com.example.s3supermart.Helper.AsyncTaskRunner;
 import com.example.s3supermart.Helper.DialogHandler;
-import com.example.s3supermart.Model.AllCategoriesClass;
 import com.example.s3supermart.R;
-import com.example.s3supermart.Utils.Utility;
-import com.google.android.material.bottomappbar.BottomAppBar;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import com.synnapps.carouselview.CarouselView;
-import com.synnapps.carouselview.ImageListener;
-
-import java.util.ArrayList;
-import java.util.List;
 
 public class HomeActivity extends AppCompatActivity {
 
     BottomNavigationView bottomNavigationView;
     FloatingActionButton fab_viewCart;
-    TextView tv_location, tv_title;
-    ImageView iv_menu, iv_location, iv_edit, iv_back;
     Fragment HomeFrag;
-    String req = "Calling Async";
-    AsyncTaskRunner asyncTaskRunner = new AsyncTaskRunner();
+    LinearLayout ll_back, ll_menu;
+    RelativeLayout rl_homeactTopbar;
+
+
     public static Fragment currentFragment;
 
     @Override
@@ -68,25 +43,22 @@ public class HomeActivity extends AppCompatActivity {
         setContentView(R.layout.activity_home);
 
         //intialising ids to variables
+
+
+//        iv_location = findViewById(R.id.iv_location);
+
+
         bottomNavigationView = findViewById(R.id.bottomnavView);
         fab_viewCart = findViewById(R.id.fab_viewCart);
-        iv_location = findViewById(R.id.iv_location);
-        iv_menu = findViewById(R.id.iv_homeMenu);
-        iv_edit = findViewById(R.id.iv_editLocation);
-        iv_back = findViewById(R.id.iv_back);
-        tv_location = findViewById(R.id.tv_location);
-        tv_title = findViewById(R.id.tv_title);
+        rl_homeactTopbar = findViewById(R.id.rl_topbarHomeAct);
+        ll_back = findViewById(R.id.ll_back);
+        ll_menu = findViewById(R.id.ll_menu);
 
         bottomNavigationView.setBackground(null);
 
-        tv_location.setSelected(true);
-        tv_location.setEllipsize(TextUtils.TruncateAt.MARQUEE);
-
         //setting title and back icon gone on default
-        tv_title.setVisibility(View.GONE);
-        iv_back.setVisibility(View.GONE);
-
-        // asyncTaskRunner.execute();
+//        tv_title.setVisibility(View.GONE);
+//        iv_back.setVisibility(View.GONE);
 
         //to load home fragment when activity is created
         loadFrag();
@@ -94,63 +66,25 @@ public class HomeActivity extends AppCompatActivity {
         //method that contains implementation of click listeners
         clickListeners();
 
-        //runthread1();
-
     }
 
-    private void runthread1() {
-        runOnUiThread(new Runnable() {
-            @Override
-            public void run() {
-                try {
-                    Thread.sleep(5);
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
-                //to load home fragment when activity is created
-                loadFrag();
+    public void changetopBar() {
 
-                //method that contains implementation of click listeners
-                clickListeners();
-            }
-        });
+        if (currentFragment != HomeFrag) {
+            rl_homeactTopbar.setVisibility(View.VISIBLE);
+        }
     }
-
-//    private void runThread() {
-//        runOnUiThread(new Thread(new Runnable() {
-//            public void run() {
-//                //to load home fragment when activity is created
-//                loadFrag();
-//
-//                //method that contains implementation of click listeners
-//                clickListeners();
-//                try {
-//                    Thread.sleep(300);
-//                    Log.d("actHOME", "run: ");
-//                } catch (InterruptedException e) {
-//                    Log.d("actHOME", "run: " + e.getLocalizedMessage());
-//                }
-//            }
-//        }));
-//    }
 
     public void loadFrag() {
         HomeFrag = new HomeFragment();
         getSupportFragmentManager().beginTransaction().replace(R.id.frameLayout, HomeFrag,
-                HomeFrag.getClass().getSimpleName()).addToBackStack("fragment").commit();
+                HomeFrag.getClass().getSimpleName()).commit();
 
         currentFragment = HomeFrag;
     }
 
     //implementation of all the click listeners
     public void clickListeners() {
-
-        iv_menu.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                DialogHandler.homeMenu(HomeActivity.this);
-            }
-        });
 
         fab_viewCart.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -161,7 +95,7 @@ public class HomeActivity extends AppCompatActivity {
         });
 
         //when back icon is clicked from the fragments other then home frag
-        iv_back.setOnClickListener(new View.OnClickListener() {
+        ll_back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 onBackPressed();
@@ -181,11 +115,8 @@ public class HomeActivity extends AppCompatActivity {
                         Fragment fragment = new HomeFragment();
                         getSupportFragmentManager().beginTransaction().replace(R.id.frameLayout, fragment,
                                 fragment.getClass().getSimpleName()).commit();
-                        iv_location.setVisibility(View.VISIBLE);
-                        tv_location.setVisibility(View.VISIBLE);
-                        iv_edit.setVisibility(View.VISIBLE);
-                        tv_title.setVisibility(View.GONE);
-                        iv_back.setVisibility(View.GONE);
+
+                        rl_homeactTopbar.setVisibility(View.GONE);
                         currentFragment = fragment;
                         break;
 
@@ -195,12 +126,8 @@ public class HomeActivity extends AppCompatActivity {
                         Fragment fragment1 = new WalletFragment();
                         getSupportFragmentManager().beginTransaction().replace(R.id.frameLayout, fragment1,
                                 fragment1.getClass().getSimpleName()).commit();
-                        iv_location.setVisibility(View.GONE);
-                        tv_location.setVisibility(View.GONE);
-                        iv_edit.setVisibility(View.GONE);
-                        tv_title.setVisibility(View.VISIBLE);
-                        iv_back.setVisibility(View.VISIBLE);
-                        tv_title.setText("Wallet");
+
+                        rl_homeactTopbar.setVisibility(View.VISIBLE);
                         currentFragment = fragment1;
                         break;
 
@@ -210,12 +137,7 @@ public class HomeActivity extends AppCompatActivity {
                         Fragment fragment3 = new MilkCheeseAndYogurtFragment();
                         getSupportFragmentManager().beginTransaction().replace(R.id.frameLayout, fragment3,
                                 fragment3.getClass().getSimpleName()).commit();
-                        iv_location.setVisibility(View.GONE);
-                        tv_location.setVisibility(View.GONE);
-                        iv_edit.setVisibility(View.GONE);
-                        tv_title.setVisibility(View.VISIBLE);
-                        iv_back.setVisibility(View.VISIBLE);
-                        tv_title.setText("My Orders");
+
                         currentFragment = fragment3;
                         break;
 
@@ -225,12 +147,7 @@ public class HomeActivity extends AppCompatActivity {
                         Fragment fragment4 = new MilkAndMilkPowderFragment();
                         getSupportFragmentManager().beginTransaction().replace(R.id.frameLayout, fragment4,
                                 fragment4.getClass().getSimpleName()).commit();
-                        iv_location.setVisibility(View.GONE);
-                        tv_location.setVisibility(View.GONE);
-                        iv_edit.setVisibility(View.GONE);
-                        tv_title.setVisibility(View.VISIBLE);
-                        iv_back.setVisibility(View.VISIBLE);
-                        tv_title.setText("Search");
+
                         currentFragment = fragment4;
                         break;
                 }
@@ -243,18 +160,18 @@ public class HomeActivity extends AppCompatActivity {
     public void onBackPressed() {
 
         if (currentFragment.equals(HomeFrag)) {
+            Log.d("HOMEAct", "onBackPressed: onback if working");
             finishAffinity();
 
+
         } else {
-            currentFragment = HomeFrag;
+            Log.d("HOMEAct", "onBackPressed: onback else working");
             bottomNavigationView.getMenu().getItem(0).setChecked(true);
             getSupportFragmentManager().beginTransaction().replace(R.id.frameLayout, HomeFrag,
                     HomeFrag.getClass().getSimpleName()).commit();
-            iv_location.setVisibility(View.VISIBLE);
-            tv_location.setVisibility(View.VISIBLE);
-            iv_edit.setVisibility(View.VISIBLE);
-            tv_title.setVisibility(View.GONE);
-            iv_back.setVisibility(View.GONE);
+
+            rl_homeactTopbar.setVisibility(View.GONE);
+            currentFragment = HomeFrag;
 
         }
 

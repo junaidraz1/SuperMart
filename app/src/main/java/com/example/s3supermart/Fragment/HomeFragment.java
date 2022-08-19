@@ -1,18 +1,26 @@
 package com.example.s3supermart.Fragment;
 
+import static com.example.s3supermart.Activity.HomeActivity.currentFragment;
+
 import android.os.Bundle;
 
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.cardview.widget.CardView;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.example.s3supermart.Activity.HomeActivity;
 import com.example.s3supermart.Adapter.AllCategoriesAdapter;
+import com.example.s3supermart.Helper.DialogHandler;
 import com.example.s3supermart.Model.AllCategoriesClass;
 import com.example.s3supermart.R;
 import com.example.s3supermart.Utils.Utility;
@@ -25,9 +33,12 @@ import java.util.List;
 public class HomeFragment extends Fragment {
 
     CarouselView carouselView;
-    TextView tv_greetMsg;
-    AllCategoriesAdapter allCategoriesAdapter;
+    TextView tv_greetMsg, tv_location;
+    ImageView iv_edit, iv_menu;
     Utility utility;
+    HomeActivity homeActivity;
+    CardView cv_grocery;
+    LinearLayout ll_homeFragbar;
     int[] sampleImages = {R.drawable.offer1, R.drawable.offer2,
             R.drawable.logo, R.drawable.slider1, R.drawable.offer3};
 
@@ -47,15 +58,23 @@ public class HomeFragment extends Fragment {
         //intialising id's to variables
         carouselView = view.findViewById(R.id.carouselView);
         tv_greetMsg = view.findViewById(R.id.tv_gd_morning);
+        cv_grocery = view.findViewById(R.id.cv_groceryCategory);
+        ll_homeFragbar = view.findViewById(R.id.ll_topbarHome);
+        tv_location = view.findViewById(R.id.tv_location);
+        iv_edit = view.findViewById(R.id.iv_editLocation);
+        iv_menu = view.findViewById(R.id.iv_homeMenu);
 
         //intialising classes
         utility = new Utility();
+        homeActivity = new HomeActivity();
+
+        tv_location.setSelected(true);
+        tv_location.setEllipsize(TextUtils.TruncateAt.MARQUEE);
 
         //method that contains implementation of greeting message
         greetUser();
 
-        //to set items to recyclerview for product category
-       // setCategory();
+        clickListeners();
 
         carouselView.setPageCount(sampleImages.length);
         carouselView.setImageListener(imageListener);
@@ -65,50 +84,38 @@ public class HomeFragment extends Fragment {
         return view;
     }
 
+    public void clickListeners() {
+        cv_grocery.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (getContext() != null) {
+                    currentFragment = new GroceryFragment();
+                    ((HomeActivity) getContext()).getSupportFragmentManager().beginTransaction().replace(R.id.frameLayout, currentFragment,
+                            currentFragment.getClass().getSimpleName()).commit();
+                    ((HomeActivity) getContext()).changetopBar();
+
+                }
+            }
+        });
+
+        iv_menu.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (getContext() != null) {
+                    DialogHandler.homeMenu(getContext());
+                }
+            }
+        });
+    }
+
     //method to display greeting message on home screen
     public void greetUser() {
-        if (utility.getWishingMessage() == null) {
+        if (utility.getWishingMessage() == null || utility.getWishingMessage().equals("")) {
             tv_greetMsg.setText("Good Morning");
 
         } else {
             tv_greetMsg.setText(utility.getWishingMessage());
         }
-    }
-
-    //method to add items to category recycler view
-    public List<AllCategoriesClass> categoryList() {
-
-        List<AllCategoriesClass> allCategoriesList = new ArrayList<>();
-
-        AllCategoriesClass listItem1 = new AllCategoriesClass("Dairy Product", R.drawable.olpers_milk_1_litre);
-        AllCategoriesClass listItem2 = new AllCategoriesClass("Fruits and Vegetables", R.drawable.karaila);
-        AllCategoriesClass listItem3 = new AllCategoriesClass("Noodles and Sauces", R.drawable.milk_cheese_and_yogurt);
-        AllCategoriesClass listItem4 = new AllCategoriesClass("Snacks", R.drawable.lays);
-        AllCategoriesClass listItem5 = new AllCategoriesClass("Ice Cream & Chocolates", R.drawable.pancake_serup);
-        AllCategoriesClass listItem6 = new AllCategoriesClass("Beverages", R.drawable.pancake_serup);
-        AllCategoriesClass listItem7 = new AllCategoriesClass("Personal Care", R.drawable.milk_cheese_and_yogurt);
-        AllCategoriesClass listItem8 = new AllCategoriesClass("Baby Care", R.drawable.milk_cheese_and_yogurt);
-        AllCategoriesClass listItem9 = new AllCategoriesClass("Oil and Ghee", R.drawable.milk_cheese_and_yogurt);
-        AllCategoriesClass listItem10 = new AllCategoriesClass("Atta, Daal aur Chawal", R.drawable.milk_cheese_and_yogurt);
-        AllCategoriesClass listItem11 = new AllCategoriesClass("Laundry", R.drawable.milk_cheese_and_yogurt);
-        AllCategoriesClass listItem12 = new AllCategoriesClass("Tea, Coffee, Sugar", R.drawable.milk_cheese_and_yogurt);
-        AllCategoriesClass listItem13 = new AllCategoriesClass("Baby Food", R.drawable.milk_cheese_and_yogurt);
-
-        allCategoriesList.add(listItem1);
-        allCategoriesList.add(listItem2);
-        allCategoriesList.add(listItem3);
-        allCategoriesList.add(listItem4);
-        allCategoriesList.add(listItem5);
-        allCategoriesList.add(listItem6);
-        allCategoriesList.add(listItem7);
-        allCategoriesList.add(listItem8);
-        allCategoriesList.add(listItem9);
-        allCategoriesList.add(listItem10);
-        allCategoriesList.add(listItem11);
-        allCategoriesList.add(listItem12);
-        allCategoriesList.add(listItem13);
-
-        return allCategoriesList;
     }
 
     //image listener for carousel view

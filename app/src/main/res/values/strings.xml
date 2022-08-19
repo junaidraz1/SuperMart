@@ -5,4 +5,16 @@
     <string name="Nashta">Nashta</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="dairy_products">Dairy Products</string>
+    <string name="snacks">Snacks</string>
+    <string name="icecream_chocolates"><![CDATA[Icecream & Chocolates]]></string>
+    <string name="personal_care">Personal Care</string>
+    <string name="baby_care">Baby Care</string>
+    <string name="kitchen_items">Kitchen Items</string>
+    <string name="laundry">Laundry</string>
+    <string name="baby_food">Baby Food</string>
+    <string name="noodles_amp_sauces"><![CDATA[Noodles & Sauces]]></string>
+    <string name="beverages">Beverages</string>
+    <string name="tea_amp_coffee"><![CDATA[Tea & Coffee]]></string>
+    <string name="cooking_oil">Cooking Oil</string>
 </resources>

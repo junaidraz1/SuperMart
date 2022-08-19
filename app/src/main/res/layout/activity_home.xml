@@ -7,90 +7,16 @@
     android:layout_height="match_parent"
     tools:context=".Activity.HomeActivity">
 
-    <LinearLayout
-        android:id="@+id/ll_topbarHome"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical">
-
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@drawable/bottom_roundedcorners"
-            android:padding="@dimen/_10sdp">
-
-            <ImageView
-                android:id="@+id/iv_location"
-                android:layout_width="@dimen/_20sdp"
-                android:layout_height="@dimen/_20sdp"
-                android:layout_centerVertical="true"
-                android:src="@drawable/ic_baseline_location_on_24" />
-
-            <ImageView
-                android:id="@+id/iv_back"
-                android:layout_width="@dimen/_18sdp"
-                android:layout_height="@dimen/_18sdp"
-                android:layout_centerVertical="true"
-                android:src="@drawable/ic_arrow_back_white" />
-
-            <TextView
-                android:id="@+id/tv_location"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerVertical="true"
-                android:layout_marginStart="@dimen/_10sdp"
-                android:layout_marginEnd="@dimen/_10sdp"
-                android:layout_toStartOf="@+id/iv_editLocation"
-                android:layout_toEndOf="@+id/iv_location"
-                android:ellipsize="marquee"
-                android:fontFamily="@font/nexa_bold"
-                android:marqueeRepeatLimit="marquee_forever"
-                android:scrollHorizontally="true"
-                android:singleLine="true"
-                android:text="House # 1712, Street 46, Dhoke Kala Khan, Rawalpindi"
-                android:textColor="@color/white"
-                android:textSize="@dimen/_12ssp" />
-
-            <TextView
-                android:id="@+id/tv_title"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerInParent="true"
-                android:layout_marginStart="@dimen/_10sdp"
-                android:layout_marginEnd="@dimen/_10sdp"
-                android:fontFamily="@font/nexa_bold"
-                android:text="Title"
-                android:textColor="@color/white"
-                android:textSize="@dimen/_14ssp" />
-
-
-            <ImageView
-                android:id="@id/iv_homeMenu"
-                android:layout_width="@dimen/_25sdp"
-                android:layout_height="@dimen/_25sdp"
-                android:layout_alignParentEnd="true"
-                android:layout_centerVertical="true"
-                android:src="@drawable/ic_round_menu_24" />
-
-            <ImageView
-                android:id="@+id/iv_editLocation"
-                android:layout_width="@dimen/_15sdp"
-                android:layout_height="@dimen/_15sdp"
-                android:layout_alignEnd="@+id/iv_homeMenu"
-                android:layout_centerVertical="true"
-                android:layout_marginEnd="@dimen/_30sdp"
-                android:src="@drawable/ic_edit" />
-
-        </RelativeLayout>
-
-    </LinearLayout>
+    <include
+        android:id="@+id/layout_topbar"
+        layout="@layout/top_bar" />
 
     <FrameLayout
         android:id="@+id/frameLayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_above="@+id/layout_bottomBar"
-        android:layout_below="@+id/ll_topbarHome" />
+        android:layout_below="@+id/layout_topbar" />
 
     <include
         android:id="@+id/layout_bottomBar"

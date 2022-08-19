@@ -7,8 +7,87 @@
     tools:context=".Activity.HomeActivity">
 
     <LinearLayout
+        android:id="@+id/ll_topbarHome"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bottom_roundedcorners"
+            android:padding="@dimen/_10sdp">
+
+            <ImageView
+                android:id="@+id/iv_location"
+                android:layout_width="@dimen/_20sdp"
+                android:layout_height="@dimen/_20sdp"
+                android:layout_centerVertical="true"
+                android:src="@drawable/ic_baseline_location_on_24" />
+
+<!--            <ImageView-->
+<!--                android:id="@+id/iv_back"-->
+<!--                android:layout_width="@dimen/_18sdp"-->
+<!--                android:layout_height="@dimen/_18sdp"-->
+<!--                android:layout_centerVertical="true"-->
+<!--                android:src="@drawable/ic_arrow_back_white" />-->
+
+            <TextView
+                android:id="@+id/tv_location"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="@dimen/_10sdp"
+                android:layout_marginEnd="@dimen/_10sdp"
+                android:layout_toStartOf="@+id/iv_editLocation"
+                android:layout_toEndOf="@+id/iv_location"
+                android:ellipsize="marquee"
+                android:fontFamily="@font/nexa_bold"
+                android:marqueeRepeatLimit="marquee_forever"
+                android:scrollHorizontally="true"
+                android:singleLine="true"
+                android:text="House # 1712, Street 46, Dhoke Kala Khan, Rawalpindi"
+                android:textColor="@color/white"
+                android:textSize="@dimen/_12ssp" />
+
+<!--            <TextView-->
+<!--                android:id="@+id/tv_title"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_centerInParent="true"-->
+<!--                android:layout_marginStart="@dimen/_10sdp"-->
+<!--                android:layout_marginEnd="@dimen/_10sdp"-->
+<!--                android:fontFamily="@font/nexa_bold"-->
+<!--                android:text="Title"-->
+<!--                android:textColor="@color/white"-->
+<!--                android:textSize="@dimen/_14ssp" />-->
+
+
+            <ImageView
+                android:id="@id/iv_homeMenu"
+                android:layout_width="@dimen/_25sdp"
+                android:layout_height="@dimen/_25sdp"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:src="@drawable/ic_round_menu_24" />
+
+            <ImageView
+                android:id="@+id/iv_editLocation"
+                android:layout_width="@dimen/_15sdp"
+                android:layout_height="@dimen/_15sdp"
+                android:layout_alignEnd="@+id/iv_homeMenu"
+                android:layout_centerVertical="true"
+                android:layout_marginEnd="@dimen/_30sdp"
+                android:src="@drawable/ic_edit" />
+
+        </RelativeLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_below="@+id/ll_topbarHome"
         android:orientation="vertical">
 
         <LinearLayout
@@ -159,96 +238,152 @@
 
                 </RelativeLayout>
 
-
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:baselineAligned="false"
-                    android:orientation="horizontal"
-                    android:weightSum="2">
+                    android:orientation="vertical">
 
                     <androidx.cardview.widget.CardView
-                        android:id="@+id/cv_milkCheeseAndYogurt"
-                        android:layout_width="0dp"
-                        android:layout_height="@dimen/_100sdp"
-                        android:layout_gravity="top"
-                        android:layout_marginStart="@dimen/_10sdp"
+                        android:id="@+id/cv_groceryCategory"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/_90sdp"
+                        android:layout_gravity="center"
                         android:layout_marginTop="@dimen/_10sdp"
-                        android:layout_marginEnd="@dimen/_5sdp"
                         android:layout_marginBottom="@dimen/_5sdp"
                         android:layout_weight="1"
-                        app:cardBackgroundColor="@color/white"
+                        app:cardBackgroundColor="#f0f4ec"
                         app:cardCornerRadius="@dimen/_5sdp">
 
                         <LinearLayout
-                            android:id="@+id/rl_milkCheeseAndYogurt"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
-                            android:orientation="vertical"
+                            android:orientation="horizontal"
                             android:weightSum="1">
 
-                            <TextView
-                                android:layout_width="match_parent"
-                                android:layout_height="0dp"
-                                android:layout_margin="@dimen/_5sdp"
-                                android:layout_weight="0.2"
-                                android:fontFamily="@font/nexa_bold"
-                                android:gravity="center_horizontal"
-                                android:text="Dairy Products"
-                                android:textColor="@color/black"
-                                android:textSize="@dimen/_10ssp" />
+                            <RelativeLayout
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight="0.7"
+                                android:orientation="vertical">
 
+                                <TextView
+                                    android:id="@+id/tv_groceryCategory"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginStart="@dimen/_10sdp"
+                                    android:layout_marginTop="@dimen/_20sdp"
+                                    android:fontFamily="@font/avenir_nextitpro_bold"
+                                    android:text="Grocery"
+                                    android:textColor="@color/black"
+                                    android:textSize="@dimen/_16ssp" />
+
+                                <TextView
+                                    android:id="@+id/tv_viewAll"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_below="@+id/tv_groceryCategory"
+                                    android:layout_marginStart="@dimen/_10sdp"
+                                    android:layout_marginTop="@dimen/_10sdp"
+                                    android:fontFamily="@font/nexa_bold"
+                                    android:text="View All"
+                                    android:textColor="@color/MintGreen"
+                                    android:textSize="@dimen/_10ssp" />
+
+                                <ImageView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_below="@+id/tv_groceryCategory"
+                                    android:layout_gravity="center"
+                                    android:layout_marginTop="@dimen/_7sdp"
+                                    android:layout_toEndOf="@+id/tv_viewAll"
+                                    android:background="@drawable/ic_navigate_next_blue_24dp" />
+
+                            </RelativeLayout>
 
                             <ImageView
-                                android:id="@+id/iv_milkCheeseAndYogurt"
-                                android:layout_width="match_parent"
-                                android:layout_height="0dp"
+                                android:id="@+id/iv_grocery"
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
                                 android:layout_gravity="center"
-                                android:layout_weight="0.8"
-                                android:background="@drawable/dairy_product" />
+                                android:layout_weight="0.3"
+                                android:background="@drawable/grocery" />
 
                         </LinearLayout>
 
                     </androidx.cardview.widget.CardView>
 
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:baselineAligned="false"
+                    android:orientation="vertical">
+
                     <androidx.cardview.widget.CardView
-                        android:id="@+id/cv_FruitsAndVegetablles"
-                        android:layout_width="0dp"
-                        android:layout_height="@dimen/_100sdp"
-                        android:layout_gravity="top"
-                        android:layout_marginStart="@dimen/_5sdp"
+                        android:id="@+id/cv_electroniceCategory"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/_90sdp"
+                        android:layout_gravity="center"
                         android:layout_marginTop="@dimen/_10sdp"
-                        android:layout_marginEnd="@dimen/_5sdp"
                         android:layout_marginBottom="@dimen/_5sdp"
-                        android:layout_weight="1"
-                        app:cardBackgroundColor="@color/white"
+                        app:cardBackgroundColor="#e8f4fc"
                         app:cardCornerRadius="@dimen/_5sdp">
 
                         <LinearLayout
-                            android:id="@+id/rl_FruitsAndVegetables"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
-                            android:orientation="vertical"
+                            android:orientation="horizontal"
                             android:weightSum="1">
 
-                            <TextView
-                                android:layout_width="match_parent"
-                                android:layout_height="0dp"
-                                android:layout_margin="@dimen/_5sdp"
-                                android:layout_weight="0.2"
-                                android:fontFamily="@font/nexa_bold"
-                                android:gravity="center_horizontal"
-                                android:text="@string/Fruits_Vegetables"
-                                android:textColor="@color/black"
-                                android:textSize="@dimen/_10ssp" />
+                            <RelativeLayout
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight="0.7"
+                                android:orientation="vertical">
+
+                                <TextView
+                                    android:id="@+id/tv_electronicsCategory"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginStart="@dimen/_10sdp"
+                                    android:layout_marginTop="@dimen/_20sdp"
+                                    android:fontFamily="@font/avenir_nextitpro_bold"
+                                    android:text="Electronics"
+                                    android:textColor="@color/black"
+                                    android:textSize="@dimen/_16ssp" />
+
+                                <TextView
+                                    android:id="@+id/tv_viewAllElectronics"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_below="@+id/tv_electronicsCategory"
+                                    android:layout_marginStart="@dimen/_10sdp"
+                                    android:layout_marginTop="@dimen/_10sdp"
+                                    android:fontFamily="@font/nexa_bold"
+                                    android:text="View All"
+                                    android:textColor="@color/MintGreen"
+                                    android:textSize="@dimen/_10ssp" />
+
+                                <ImageView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_below="@+id/tv_electronicsCategory"
+                                    android:layout_gravity="center"
+                                    android:layout_marginTop="@dimen/_7sdp"
+                                    android:layout_toEndOf="@+id/tv_viewAllElectronics"
+                                    android:background="@drawable/ic_navigate_next_blue_24dp" />
+
+                            </RelativeLayout>
 
                             <ImageView
-                                android:id="@+id/iv_FruitsAndVegetables"
-                                android:layout_width="match_parent"
-                                android:layout_height="0dp"
+                                android:id="@+id/iv_electronics"
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
                                 android:layout_gravity="center"
-                                android:layout_weight="0.8"
-                                android:background="@drawable/fruits_vegetables" />
+                                android:layout_weight="0.3"
+                                android:background="@drawable/electronics" />
 
                         </LinearLayout>
 
@@ -259,504 +394,72 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="@dimen/_10sdp"
-                    android:layout_marginTop="@dimen/_10sdp"
-                    android:layout_marginEnd="@dimen/_10sdp"
                     android:baselineAligned="false"
-                    android:orientation="horizontal"
-                    android:weightSum="2">
+                    android:orientation="vertical">
 
                     <androidx.cardview.widget.CardView
-                        android:id="@+id/cv_chipsBiscuitsAndSnacks"
-                        android:layout_width="0dp"
-                        android:layout_height="@dimen/_100sdp"
-                        android:layout_gravity="top"
+                        android:id="@+id/cv_pharmacyCategory"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/_90sdp"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="@dimen/_10sdp"
                         android:layout_marginBottom="@dimen/_5sdp"
-                        android:layout_weight="1"
-                        app:cardBackgroundColor="@color/white"
+                        app:cardBackgroundColor="#fff4e4"
                         app:cardCornerRadius="@dimen/_5sdp">
 
                         <LinearLayout
-                            android:id="@+id/rl_chipsBiscuitsAndSnacks"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
-                            android:orientation="vertical"
+                            android:orientation="horizontal"
                             android:weightSum="1">
 
-                            <TextView
-                                android:layout_width="match_parent"
-                                android:layout_height="0dp"
-                                android:layout_margin="@dimen/_5sdp"
-                                android:layout_weight="0.2"
-                                android:fontFamily="@font/nexa_bold"
-                                android:gravity="center_horizontal"
-                                android:text="Snacks"
-                                android:textColor="@color/black"
-                                android:textSize="@dimen/_10ssp" />
+                            <RelativeLayout
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight="0.7"
+                                android:orientation="vertical">
+
+                                <TextView
+                                    android:id="@+id/tv_pharmacyCategory"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginStart="@dimen/_10sdp"
+                                    android:layout_marginTop="@dimen/_20sdp"
+                                    android:fontFamily="@font/avenir_nextitpro_bold"
+                                    android:text="Pharmacy"
+                                    android:textColor="@color/black"
+                                    android:textSize="@dimen/_16ssp" />
+
+                                <TextView
+                                    android:id="@+id/tv_viewAllpharmacy"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_below="@+id/tv_pharmacyCategory"
+                                    android:layout_marginStart="@dimen/_10sdp"
+                                    android:layout_marginTop="@dimen/_10sdp"
+                                    android:fontFamily="@font/nexa_bold"
+                                    android:text="View All"
+                                    android:textColor="@color/MintGreen"
+                                    android:textSize="@dimen/_10ssp" />
+
+                                <ImageView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_below="@+id/tv_pharmacyCategory"
+                                    android:layout_gravity="center"
+                                    android:layout_marginTop="@dimen/_7sdp"
+                                    android:layout_toEndOf="@+id/tv_viewAllpharmacy"
+                                    android:background="@drawable/ic_navigate_next_blue_24dp" />
+
+                            </RelativeLayout>
 
                             <ImageView
-                                android:id="@+id/iv_chipsBiscuitsAndSnacks"
-                                android:layout_width="match_parent"
-                                android:layout_height="0dp"
+                                android:id="@+id/iv_pharmacy"
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
                                 android:layout_gravity="center"
-                                android:layout_weight="0.8"
-                                android:background="@drawable/snacks" />
-
-                        </LinearLayout>
-                    </androidx.cardview.widget.CardView>
-
-                    <androidx.cardview.widget.CardView
-                        android:id="@+id/cv_icecreamAndChoclates"
-                        android:layout_width="0dp"
-                        android:layout_height="@dimen/_100sdp"
-                        android:layout_gravity="top"
-                        android:layout_marginStart="@dimen/_10sdp"
-                        android:layout_marginBottom="@dimen/_5sdp"
-                        android:layout_weight="1"
-                        app:cardBackgroundColor="@color/white"
-                        app:cardCornerRadius="@dimen/_5sdp">
-
-                        <LinearLayout
-                            android:id="@+id/rl_icecreamAndChoclates"
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:orientation="vertical">
-
-                            <TextView
-                                android:layout_width="match_parent"
-                                android:layout_height="0dp"
-                                android:layout_margin="@dimen/_5sdp"
-                                android:layout_weight="0.2"
-                                android:fontFamily="@font/nexa_bold"
-                                android:gravity="center_horizontal"
-                                android:text="Icecream &amp; Chocolates"
-                                android:textColor="@color/black"
-                                android:textSize="@dimen/_10ssp" />
-
-                            <ImageView
-                                android:id="@+id/iv_icecreamAndChcolates"
-                                android:layout_width="match_parent"
-                                android:layout_height="0dp"
-                                android:layout_gravity="center"
-                                android:layout_weight="0.8"
-                                android:background="@drawable/icecream_chocolate" />
-
-                        </LinearLayout>
-
-                    </androidx.cardview.widget.CardView>
-
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="@dimen/_10sdp"
-                    android:layout_marginTop="@dimen/_10sdp"
-                    android:layout_marginEnd="@dimen/_10sdp"
-                    android:baselineAligned="false"
-                    android:orientation="horizontal"
-                    android:weightSum="2">
-
-                    <androidx.cardview.widget.CardView
-                        android:id="@+id/cv_productCategory"
-                        android:layout_width="0dp"
-                        android:layout_height="@dimen/_100sdp"
-                        android:layout_marginBottom="@dimen/_5sdp"
-                        android:layout_weight="1"
-                        app:cardBackgroundColor="@color/white"
-                        app:cardCornerRadius="@dimen/_5sdp">
-
-                        <LinearLayout
-                            android:id="@+id/rl_personalCare"
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:orientation="vertical"
-                            android:weightSum="1">
-
-                            <TextView
-                                android:layout_width="match_parent"
-                                android:layout_height="0dp"
-                                android:layout_margin="@dimen/_5sdp"
-                                android:layout_weight="0.2"
-                                android:fontFamily="@font/nexa_bold"
-                                android:gravity="center_horizontal"
-                                android:text="Personal Care"
-                                android:textColor="@color/black"
-                                android:textSize="@dimen/_10ssp" />
-
-
-                            <ImageView
-                                android:id="@+id/iv_personalCare"
-                                android:layout_width="match_parent"
-                                android:layout_height="0dp"
-                                android:layout_gravity="center"
-                                android:layout_weight="0.8"
-                                android:background="@drawable/personal_care" />
-
-                        </LinearLayout>
-
-                    </androidx.cardview.widget.CardView>
-
-                    <androidx.cardview.widget.CardView
-                        android:id="@+id/cv_BabyCare"
-                        android:layout_width="0dp"
-                        android:layout_height="@dimen/_100sdp"
-                        android:layout_gravity="top"
-                        android:layout_marginStart="@dimen/_10sdp"
-                        android:layout_marginBottom="@dimen/_5sdp"
-                        android:layout_weight="1"
-                        app:cardBackgroundColor="@color/white"
-                        app:cardCornerRadius="@dimen/_5sdp">
-
-                        <LinearLayout
-                            android:id="@+id/rl_BabyCare"
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:orientation="vertical"
-                            android:weightSum="1">
-
-                            <TextView
-                                android:layout_width="match_parent"
-                                android:layout_height="0dp"
-                                android:layout_margin="@dimen/_5sdp"
-                                android:layout_weight="0.2"
-                                android:fontFamily="@font/nexa_bold"
-                                android:gravity="center_horizontal"
-                                android:text="Dairy Products"
-                                android:textColor="@color/black"
-                                android:textSize="@dimen/_10ssp" />
-
-                            <ImageView
-                                android:id="@+id/iv_BabyCare"
-                                android:layout_width="match_parent"
-                                android:layout_height="0dp"
-                                android:layout_gravity="center"
-                                android:layout_weight="0.8"
-                                android:background="@drawable/baby_care" />
-
-                        </LinearLayout>
-
-                    </androidx.cardview.widget.CardView>
-
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="@dimen/_10sdp"
-                    android:layout_marginTop="@dimen/_10sdp"
-                    android:layout_marginEnd="@dimen/_10sdp"
-                    android:baselineAligned="false"
-                    android:orientation="horizontal"
-                    android:weightSum="2">
-
-                    <androidx.cardview.widget.CardView
-                        android:id="@+id/cv_attaDaalAndChaawal"
-                        android:layout_width="0dp"
-                        android:layout_height="@dimen/_100sdp"
-                        android:layout_marginBottom="@dimen/_5sdp"
-                        android:layout_weight="1"
-                        app:cardBackgroundColor="@color/white"
-                        app:cardCornerRadius="@dimen/_5sdp">
-
-                        <LinearLayout
-                            android:id="@+id/rl_attaDaalAndChaawal"
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:orientation="vertical"
-                            android:weightSum="1">
-
-                            <TextView
-                                android:layout_width="match_parent"
-                                android:layout_height="0dp"
-                                android:layout_margin="@dimen/_5sdp"
-                                android:layout_weight="0.2"
-                                android:fontFamily="@font/nexa_bold"
-                                android:gravity="center_horizontal"
-                                android:text="Kitchen Items"
-                                android:textColor="@color/black"
-                                android:textSize="@dimen/_10ssp" />
-
-                            <ImageView
-                                android:id="@+id/iv_attaDaalAndChaawal"
-                                android:layout_width="match_parent"
-                                android:layout_height="0dp"
-                                android:layout_gravity="center"
-                                android:layout_weight="0.8"
-                                android:background="@drawable/aata_daal_chawal" />
-
-                        </LinearLayout>
-
-                    </androidx.cardview.widget.CardView>
-
-                    <androidx.cardview.widget.CardView
-                        android:id="@+id/cv_laundry"
-                        android:layout_width="0dp"
-                        android:layout_height="@dimen/_100sdp"
-                        android:layout_gravity="top"
-                        android:layout_marginStart="@dimen/_10sdp"
-                        android:layout_marginBottom="@dimen/_5sdp"
-                        android:layout_weight="1"
-                        app:cardBackgroundColor="@color/white"
-                        app:cardCornerRadius="@dimen/_5sdp">
-
-                        <LinearLayout
-                            android:id="@+id/rl_laundry"
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:orientation="vertical"
-                            android:weightSum="1">
-
-                            <TextView
-                                android:layout_width="match_parent"
-                                android:layout_height="0dp"
-                                android:layout_margin="@dimen/_5sdp"
-                                android:layout_weight="0.2"
-                                android:fontFamily="@font/nexa_bold"
-                                android:gravity="center_horizontal"
-                                android:text="Laundry"
-                                android:textColor="@color/black"
-                                android:textSize="@dimen/_10ssp" />
-
-                            <ImageView
-                                android:id="@+id/iv_laundry"
-                                android:layout_width="match_parent"
-                                android:layout_height="0dp"
-                                android:layout_gravity="center"
-                                android:layout_weight="0.8"
-                                android:background="@drawable/laundry" />
-
-                        </LinearLayout>
-
-                    </androidx.cardview.widget.CardView>
-
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="@dimen/_10sdp"
-                    android:layout_marginTop="@dimen/_10sdp"
-                    android:layout_marginEnd="@dimen/_10sdp"
-                    android:baselineAligned="false"
-                    android:orientation="horizontal"
-                    android:weightSum="2">
-
-                    <androidx.cardview.widget.CardView
-                        android:id="@+id/cv_babyFoodAndMilkFarmula"
-                        android:layout_width="0dp"
-                        android:layout_height="@dimen/_100sdp"
-                        android:layout_marginBottom="@dimen/_5sdp"
-                        android:layout_weight="1"
-                        app:cardBackgroundColor="@color/white"
-                        app:cardCornerRadius="@dimen/_5sdp">
-
-                        <LinearLayout
-                            android:id="@+id/rl_babyFoodAndMilkFarmula"
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:orientation="vertical"
-                            android:weightSum="1">
-
-                            <TextView
-                                android:layout_width="match_parent"
-                                android:layout_height="0dp"
-                                android:layout_margin="@dimen/_5sdp"
-                                android:layout_weight="0.2"
-                                android:fontFamily="@font/nexa_bold"
-                                android:gravity="center_horizontal"
-                                android:text="Baby Food"
-                                android:textColor="@color/black"
-                                android:textSize="@dimen/_10ssp" />
-
-                            <ImageView
-                                android:id="@+id/iv_babyFoodAndMilkFarmula"
-                                android:layout_width="match_parent"
-                                android:layout_height="0dp"
-                                android:layout_gravity="center"
-                                android:layout_weight="0.8"
-                                android:background="@drawable/baby_food" />
-
-                        </LinearLayout>
-
-                    </androidx.cardview.widget.CardView>
-
-                    <androidx.cardview.widget.CardView
-                        android:id="@+id/CV_noodlesAndSauces"
-                        android:layout_width="0dp"
-                        android:layout_height="@dimen/_100sdp"
-                        android:layout_marginStart="@dimen/_5sdp"
-                        android:layout_marginEnd="@dimen/_10sdp"
-                        android:layout_marginBottom="@dimen/_5sdp"
-                        android:layout_weight="1"
-                        app:cardBackgroundColor="@color/white"
-                        app:cardCornerRadius="@dimen/_5sdp">
-
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:orientation="vertical"
-                            android:weightSum="1">
-
-                            <TextView
-                                android:layout_width="match_parent"
-                                android:layout_height="0dp"
-                                android:layout_margin="@dimen/_5sdp"
-                                android:layout_weight="0.2"
-                                android:fontFamily="@font/nexa_bold"
-                                android:gravity="center_horizontal"
-                                android:text="Noodles &amp; Sauces"
-                                android:textColor="@color/black"
-                                android:textSize="@dimen/_10ssp" />
-
-                            <ImageView
-                                android:id="@+id/iv_noodlesAndSauces"
-                                android:layout_width="match_parent"
-                                android:layout_height="0dp"
-                                android:layout_gravity="center"
-                                android:layout_weight="0.8"
-                                android:background="@drawable/noodles_sauce" />
-
-                        </LinearLayout>
-
-                    </androidx.cardview.widget.CardView>
-
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="@dimen/_10sdp"
-                    android:layout_marginTop="@dimen/_10sdp"
-                    android:layout_marginEnd="@dimen/_10sdp"
-                    android:baselineAligned="false"
-                    android:orientation="horizontal"
-                    android:weightSum="2">
-
-                    <androidx.cardview.widget.CardView
-                        android:id="@+id/CV_Bevereges"
-                        android:layout_width="0dp"
-                        android:layout_height="@dimen/_100sdp"
-                        android:layout_marginStart="@dimen/_10sdp"
-                        android:layout_marginBottom="@dimen/_5sdp"
-                        android:layout_weight="1"
-                        app:cardBackgroundColor="@color/white"
-                        app:cardCornerRadius="@dimen/_5sdp">
-
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:orientation="vertical"
-                            android:weightSum="1">
-
-                            <TextView
-                                android:layout_width="match_parent"
-                                android:layout_height="0dp"
-                                android:layout_margin="@dimen/_5sdp"
-                                android:layout_weight="0.2"
-                                android:fontFamily="@font/nexa_bold"
-                                android:gravity="center_horizontal"
-                                android:text="Beverages"
-                                android:textColor="@color/black"
-                                android:textSize="@dimen/_10ssp" />
-
-                            <ImageView
-                                android:id="@+id/iv_Bevereges"
-                                android:layout_width="match_parent"
-                                android:layout_height="0dp"
-                                android:layout_gravity="center"
-                                android:layout_weight="0.8"
-                                android:background="@drawable/beverage" />
-
-                        </LinearLayout>
-
-                    </androidx.cardview.widget.CardView>
-
-                    <androidx.cardview.widget.CardView
-                        android:id="@+id/CV_teaCoffeeAndSugar"
-                        android:layout_width="0dp"
-                        android:layout_height="@dimen/_100sdp"
-                        android:layout_marginStart="@dimen/_10sdp"
-                        android:layout_marginBottom="@dimen/_5sdp"
-                        android:layout_weight="1"
-                        app:cardBackgroundColor="@color/white"
-                        app:cardCornerRadius="@dimen/_5sdp">
-
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:orientation="vertical"
-                            android:weightSum="1">
-
-                            <TextView
-                                android:layout_width="match_parent"
-                                android:layout_height="0dp"
-                                android:layout_margin="@dimen/_5sdp"
-                                android:layout_weight="0.2"
-                                android:fontFamily="@font/nexa_bold"
-                                android:gravity="center_horizontal"
-                                android:text="Tea &amp; Coffee"
-                                android:textColor="@color/black"
-                                android:textSize="@dimen/_10ssp" />
-
-                            <ImageView
-                                android:id="@+id/iv_teaCoffeeAndSugar"
-                                android:layout_width="match_parent"
-                                android:layout_height="0dp"
-                                android:layout_gravity="center"
-                                android:layout_weight="0.8"
-                                android:background="@drawable/tea_coffee" />
-
-                        </LinearLayout>
-
-                    </androidx.cardview.widget.CardView>
-
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="@dimen/_10sdp"
-                    android:layout_marginTop="@dimen/_10sdp"
-                    android:layout_marginEnd="@dimen/_10sdp"
-                    android:baselineAligned="false"
-                    android:orientation="horizontal"
-                    android:weightSum="2">
-
-                    <androidx.cardview.widget.CardView
-                        android:id="@+id/CV_OilGhee"
-                        android:layout_width="0dp"
-                        android:layout_height="@dimen/_100sdp"
-                        android:layout_marginStart="@dimen/_10sdp"
-                        android:layout_marginBottom="@dimen/_5sdp"
-                        android:layout_weight="1"
-                        app:cardBackgroundColor="@color/white"
-                        app:cardCornerRadius="@dimen/_5sdp">
-
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:orientation="vertical"
-                            android:weightSum="1">
-
-                            <TextView
-                                android:layout_width="match_parent"
-                                android:layout_height="0dp"
-                                android:layout_margin="@dimen/_5sdp"
-                                android:layout_weight="0.2"
-                                android:fontFamily="@font/nexa_bold"
-                                android:gravity="center_horizontal"
-                                android:text="Dairy Products"
-                                android:textColor="@color/black"
-                                android:textSize="@dimen/_10ssp" />
-
-                            <ImageView
-                                android:id="@+id/iv_OilGhee"
-                                android:layout_width="match_parent"
-                                android:layout_height="0dp"
-                                android:layout_gravity="center"
-                                android:layout_weight="0.8"
-                                android:background="@drawable/oil_ghee" />
+                                android:layout_weight="0.3"
+                                android:background="@drawable/pharmacy" />
 
                         </LinearLayout>
 

@@ -92,7 +92,7 @@ public class DialogHandler {
         iv_edit = ((AppCompatActivity) context).findViewById(R.id.iv_editLocation);
         iv_back = ((AppCompatActivity) context).findViewById(R.id.iv_back);
         tv_location = ((AppCompatActivity) context).findViewById(R.id.tv_location);
-        tv_title = ((AppCompatActivity) context).findViewById(R.id.tv_title);
+        tv_title = ((AppCompatActivity) context).findViewById(R.id.tv_titleTopBar);
         bottomNavigationView = ((AppCompatActivity) context).findViewById(R.id.bottomnavView);
 
         tv_versionNum.setText("1.0");

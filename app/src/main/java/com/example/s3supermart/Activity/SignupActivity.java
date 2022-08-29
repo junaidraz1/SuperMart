@@ -147,13 +147,13 @@ public class SignupActivity extends AppCompatActivity {
 
     }
 
-    public void tabAndViewPager() {
+  /*  public void tabAndViewPager() {
 
 
 
-      /*  //method that contains click listener implementation
+      *//*  //method that contains click listener implementation
         clickListeners();
-*/
+*//*
         //this is used to store memory of tabs that aren't active on screen
         //store memory means if user swipes from one tab to another it will store the filled state of fields
         //limit 5 means 5 tabs next to the current one
@@ -165,9 +165,9 @@ public class SignupActivity extends AppCompatActivity {
         // adding fragments into viewpager
         viewPagerAdapter.add(new FragmentSignUpPersonal(), "Personal");
         viewPagerAdapter.add(new FragmentSignUpSecurity(), "Security");
-       /* viewPagerAdapter.add(new VaccinationDetailFragment(), "Vaccination Details");
+       *//* viewPagerAdapter.add(new VaccinationDetailFragment(), "Vaccination Details");
         viewPagerAdapter.add(new NextOfKinFragment(), "Next of Kin");
-        viewPagerAdapter.add(new RegistrationFeeFragment(), "Registration fee");*/
+        viewPagerAdapter.add(new RegistrationFeeFragment(), "Registration fee");*//*
 
         //setting adapter to viewpager
         viewPager.setAdapter(viewPagerAdapter);
@@ -176,5 +176,5 @@ public class SignupActivity extends AppCompatActivity {
         // tabLayout hence we need to  set the page viewer
         // we use the setupWithViewPager().
         tabLayout.setupWithViewPager(viewPager);
-    }
+    }*/
 }

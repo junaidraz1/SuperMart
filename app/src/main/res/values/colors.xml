@@ -14,7 +14,6 @@
 
     <color name="MintGreen">#3EB489</color>
 
-
     <color name="colorPrimary">#1D85A8</color>
     <color name="colorPrimaryDark">#107EE0</color>
     <color name="colorAccent">#1D85A8</color>
@@ -48,4 +47,5 @@
     <color name="col164">#A4A4A4</color>
     <color name="niceBlue">#1C8AAA</color>
     <color name="red">#FF0000</color>
+
 </resources>

@@ -1,25 +1,454 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".Fragment.CheckOutFragment">
 
-    <com.kofigyan.stateprogressbar.StateProgressBar
-        android:id="@+id/stepsProgressBar"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:spb_currentStateNumber="two"
-        app:spb_maxStateNumber="four"
-        android:layout_marginTop="@dimen/_10sdp"
-        app:spb_stateBackgroundColor="#BDBDBD"
-        app:spb_stateForegroundColor="#009688"
-        app:spb_stateNumberBackgroundColor="#808080"
-        app:spb_stateNumberForegroundColor="#eeeeee"
-        app:spb_currentStateDescriptionColor="#009688"
-        app:spb_stateDescriptionColor="#808080"
-        app:spb_animateToCurrentProgressState="true"
-        app:spb_checkStateCompleted="true"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <com.kofigyan.stateprogressbar.StateProgressBar
+            android:id="@+id/stepsProgressBar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_10sdp"
+            app:spb_animateToCurrentProgressState="true"
+            app:spb_checkStateCompleted="true"
+            app:spb_currentStateDescriptionColor="#009688"
+            app:spb_currentStateNumber="one"
+            app:spb_maxStateNumber="four"
+            app:spb_stateBackgroundColor="#BDBDBD"
+            app:spb_stateDescriptionColor="#808080"
+            app:spb_stateForegroundColor="#009688"
+            app:spb_stateNumberBackgroundColor="#808080"
+            app:spb_stateNumberForegroundColor="#eeeeee" />
+
+        <LinearLayout
+            android:id="@+id/ll_deliveryDetails"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/MintGreen"
+            android:orientation="vertical">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_margin="@dimen/_10sdp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:layout_gravity="center"
+                    android:layout_marginStart="@dimen/_5sdp"
+                    android:text="Delivery Details"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/_12ssp" />
+
+            </RelativeLayout>
+
+            <View
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/_1sdp"
+                android:background="@color/View_color" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:background="@color/white"
+                android:orientation="vertical"
+                android:paddingStart="@dimen/_20sdp"
+                android:paddingTop="@dimen/_5sdp"
+                android:paddingEnd="@dimen/_20sdp">
+
+                <TextView
+                    android:id="@+id/tv_userName"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:drawableStart="@drawable/ic_baseline_account_circle_24"
+                    android:drawablePadding="@dimen/_10sdp"
+                    android:fontFamily="@font/nexa_regular"
+                    android:gravity="center_vertical"
+                    android:text="Name"
+                    android:textColor="@color/dusk"
+                    android:textSize="@dimen/_10ssp" />
+
+                <TextView
+                    android:id="@+id/tv_userPhoneNumber"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:drawableStart="@drawable/ic_baseline_local_phone_24"
+                    android:drawablePadding="@dimen/_10sdp"
+                    android:fontFamily="@font/nexa_regular"
+                    android:gravity="center_vertical"
+                    android:text="Phone Number"
+                    android:textColor="@color/dusk"
+                    android:textSize="@dimen/_10ssp" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:orientation="horizontal"
+                    android:weightSum="1">
+
+                    <TextView
+                        android:id="@+id/tv_userAddress"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.9"
+                        android:drawableStart="@drawable/location_green"
+                        android:drawablePadding="@dimen/_10sdp"
+                        android:fontFamily="@font/nexa_regular"
+                        android:gravity="center_vertical"
+                        android:text="Location"
+                        android:textColor="@color/dusk"
+                        android:textSize="@dimen/_10ssp" />
+
+                    <LinearLayout
+                        android:id="@+id/ll_editLocation"
+                        android:layout_width="0dp"
+                        android:layout_height="@dimen/_30sdp"
+                        android:layout_marginTop="@dimen/_5sdp"
+                        android:layout_weight="0.1"
+                        android:gravity="center|top"
+                        android:orientation="horizontal">
+
+                        <ImageView
+                            android:layout_width="@dimen/_20sdp"
+                            android:layout_height="@dimen/_18sdp"
+                            android:background="@drawable/edit">
+
+                        </ImageView>
+                    </LinearLayout>
+                </LinearLayout>
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/btn_nextDeliveryDetails"
+                    android:layout_width="@dimen/_150sdp"
+                    android:layout_height="@dimen/_28sdp"
+                    android:layout_gravity="center"
+                    android:layout_marginBottom="@dimen/_10sdp"
+                    android:background="@drawable/roundedrectangle_btn"
+                    android:fontFamily="@font/nexa_regular"
+                    android:text="Next"
+                    android:textAllCaps="false"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/_10ssp" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/ll_deliveryDateAndTime"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/MintGreen"
+            android:orientation="vertical"
+            android:visibility="gone">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_margin="@dimen/_10sdp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:layout_gravity="center"
+                    android:layout_marginStart="@dimen/_5sdp"
+                    android:text="Delivery Date and Time"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/_12ssp" />
+
+            </RelativeLayout>
+
+            <View
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/_1sdp"
+                android:background="@color/View_color" />
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:orientation="vertical"
+                android:paddingStart="@dimen/_20sdp"
+                android:paddingTop="@dimen/_10sdp"
+                android:paddingEnd="@dimen/_20sdp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_width="@dimen/_20sdp"
+                        android:layout_height="@dimen/_20sdp"
+                        android:layout_gravity="center"
+                        android:layout_marginStart="@dimen/_6sdp"
+                        android:background="@drawable/calendar" />
+
+                    <TextView
+                        android:id="@+id/tv_date"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginStart="@dimen/_10sdp"
+                        android:fontFamily="@font/nexa_regular"
+                        android:gravity="center_vertical"
+                        android:text="Date"
+                        android:textColor="@color/dusk"
+                        android:textSize="@dimen/_10ssp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_width="@dimen/_20sdp"
+                        android:layout_height="@dimen/_20sdp"
+                        android:layout_gravity="center"
+                        android:layout_marginStart="@dimen/_6sdp"
+                        android:background="@drawable/chronometer" />
+
+                    <TextView
+                        android:id="@+id/tv_time"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginStart="@dimen/_10sdp"
+                        android:fontFamily="@font/nexa_regular"
+                        android:gravity="center_vertical"
+                        android:text="Time"
+                        android:textColor="@color/dusk"
+                        android:textSize="@dimen/_10ssp" />
+                </LinearLayout>
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/btn_nextDateTime"
+                    android:layout_width="@dimen/_150sdp"
+                    android:layout_height="@dimen/_28sdp"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:layout_marginBottom="@dimen/_10sdp"
+                    android:background="@drawable/roundedrectangle_btn"
+                    android:fontFamily="@font/nexa_regular"
+                    android:text="Next"
+                    android:textAllCaps="false"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/_10ssp" />
+
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/ll_paymentMethod"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/MintGreen"
+            android:orientation="vertical"
+            android:visibility="gone">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_margin="@dimen/_10sdp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:layout_gravity="center"
+                    android:layout_marginStart="@dimen/_5sdp"
+                    android:text="Payment Method"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/_12ssp" />
+
+            </RelativeLayout>
+
+            <View
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/_1sdp"
+                android:background="@color/View_color" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:background="@color/white"
+                android:orientation="vertical"
+                android:paddingStart="@dimen/_20sdp"
+                android:paddingTop="@dimen/_5sdp"
+                android:paddingEnd="@dimen/_20sdp">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <RadioGroup
+                        android:id="@+id/rg_paymentMethod"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_12sdp"
+                        android:orientation="vertical">
+
+                        <RadioButton
+                            android:id="@+id/rb_cashOnDelivery"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:buttonTint="@color/MintGreen"
+                            android:fontFamily="@font/nexa_bold"
+                            android:text=""
+                            android:checked="true"
+                            android:textColor="@color/dusk"
+                            android:textSize="@dimen/_10ssp" />
+
+                        <RadioButton
+                            android:id="@+id/rb_useDebitCreditCard"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/nexa_bold"
+                            android:text=""
+                            android:buttonTint="@color/MintGreen"
+                            android:textColor="@color/dusk"
+                            android:textSize="@dimen/_10ssp" />
+
+                        <RadioButton
+                            android:id="@+id/rb_easypaisaJazzCcash"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/nexa_bold"
+                            android:text=""
+                            android:buttonTint="@color/MintGreen"
+                            android:textColor="@color/dusk"
+                            android:textSize="@dimen/_10ssp" />
+
+                    </RadioGroup>
+
+                    <LinearLayout
+                        android:id="@+id/ll_cashOnDelivery"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_8sdp"
+                        android:layout_toEndOf="@+id/rg_paymentMethod"
+                        android:orientation="horizontal"
+                        android:padding="@dimen/_5sdp">
+
+                        <ImageView
+                            android:layout_width="@dimen/_30sdp"
+                            android:layout_height="@dimen/_30sdp"
+                            android:layout_gravity="center"
+                            android:background="@drawable/cash_on_delivery" />
+
+                        <TextView
+                            android:id="@+id/tv_cashOnDelivery"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_marginStart="@dimen/_5sdp"
+                            android:layout_marginTop="@dimen/_2sdp"
+                            android:fontFamily="@font/nexa_regular"
+                            android:gravity="center_vertical"
+                            android:text="Cash On Deivery"
+                            android:textColor="@color/dusk"
+                            android:textSize="@dimen/_12ssp" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/ll_debitCreditCard"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/ll_cashOnDelivery"
+                        android:layout_toEndOf="@+id/rg_paymentMethod"
+                        android:orientation="horizontal"
+                        android:padding="@dimen/_5sdp">
+
+                        <ImageView
+                            android:layout_width="@dimen/_30sdp"
+                            android:layout_height="@dimen/_30sdp"
+                            android:layout_gravity="center"
+                            android:background="@drawable/credit_cards" />
+
+                        <TextView
+                            android:id="@+id/tv_debitCreditCard"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_marginTop="@dimen/_2sdp"
+                            android:layout_marginStart="@dimen/_5sdp"
+                            android:fontFamily="@font/nexa_regular"
+                            android:gravity="center_vertical"
+                            android:text="Use debit/Credit Card"
+                            android:textColor="@color/dusk"
+                            android:textSize="@dimen/_12ssp" />
+                    </LinearLayout>
+                    <LinearLayout
+                        android:id="@+id/ll_easyPaisaJazzcash"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_5sdp"
+                        android:layout_below="@id/ll_debitCreditCard"
+                        android:layout_toEndOf="@+id/rg_paymentMethod"
+                        android:orientation="horizontal"
+                        android:padding="@dimen/_5sdp">
+
+                        <ImageView
+                            android:layout_width="@dimen/_30sdp"
+                            android:layout_height="@dimen/_30sdp"
+                            android:layout_gravity="center"
+                            android:background="@drawable/easypaisa_jazzcash" />
+
+                        <TextView
+                            android:id="@+id/tv_easypaisaJazzcash"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_marginStart="@dimen/_5sdp"
+                            android:fontFamily="@font/nexa_regular"
+                            android:gravity="center_vertical"
+                            android:text="Use Easy Paisa/Jazz Cash"
+                            android:textColor="@color/dusk"
+                            android:textSize="@dimen/_12ssp" />
+                    </LinearLayout>
+
+                </RelativeLayout>
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/btn_nextPaymentMethod"
+                    android:layout_width="@dimen/_150sdp"
+                    android:layout_height="@dimen/_28sdp"
+                    android:layout_gravity="center"
+                    android:layout_margin="@dimen/_5sdp"
+                    android:background="@drawable/roundedrectangle_btn"
+                    android:fontFamily="@font/nexa_regular"
+                    android:text="Next"
+                    android:textAllCaps="false"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/_10ssp" />
+
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
 
 </FrameLayout>

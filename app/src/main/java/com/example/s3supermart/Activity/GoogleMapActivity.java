@@ -76,7 +76,7 @@ public class GoogleMapActivity extends AppCompatActivity implements OnMapReadyCa
     boolean connected = false;
     PrefsManager prefsManager;
     DialogHandler dialogHandler;
-    String currLocation ="",appartmentInfo="";
+    String currLocation = "", appartmentInfo = "";
     ImageView iv_rotate;
     BottomSheetBehavior<View> bottomSheetBehavior;
     ArrayList<LatLng> routepoints;
@@ -236,7 +236,7 @@ public class GoogleMapActivity extends AppCompatActivity implements OnMapReadyCa
             @Override
             public void onClick(View v) {
 
-                currLocation= et_currentLocation.getText().toString();
+                currLocation = et_currentLocation.getText().toString();
                 appartmentInfo = et_appartmentInfo.getText().toString();
                 if (currLocation.equals("") || appartmentInfo.equals("")) {
                     DialogHandler.customDialog(GoogleMapActivity.this, "Provide Complete Address", "Please provide complete address (Appartment info,flat or house number)");

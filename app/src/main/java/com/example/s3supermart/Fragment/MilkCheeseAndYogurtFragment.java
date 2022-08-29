@@ -10,6 +10,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
+import android.widget.TextView;
 
 import com.example.s3supermart.Adapter.ViewPagerAdapter;
 import com.example.s3supermart.R;
@@ -22,6 +23,7 @@ public class MilkCheeseAndYogurtFragment extends Fragment {
     TabLayout tabLayout;
     LinearLayout layout_back,layout_menu;
     RelativeLayout layout_homeBtn;
+    TextView tv_topBar;
 
 
     public MilkCheeseAndYogurtFragment() {
@@ -32,7 +34,7 @@ public class MilkCheeseAndYogurtFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View view = inflater.inflate(R.layout.fragment_all_categories, container, false);
+        View view = inflater.inflate(R.layout.fragment_milk_cheese_and_yogurt, container, false);
 
         //intialising ids to  variables
         viewPager = view.findViewById(R.id.viewpagerAddPatient);
@@ -40,6 +42,8 @@ public class MilkCheeseAndYogurtFragment extends Fragment {
         layout_back = view.findViewById(R.id.ll_back);
         layout_homeBtn = view.findViewById(R.id.Rl_homeBtn);
         layout_menu = view.findViewById(R.id.ll_menu);
+        tv_topBar = getActivity().findViewById(R.id.tv_titleTopBar);
+        tv_topBar.setText("Dairy Products");
 
       /*  //method that contains click listener implementation
         clickListeners();

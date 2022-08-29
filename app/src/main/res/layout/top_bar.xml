@@ -26,6 +26,13 @@
 
         </LinearLayout>
 
+        <ImageView
+            android:id="@+id/iv_location"
+            android:layout_width="@dimen/_20sdp"
+            android:layout_height="@dimen/_20sdp"
+            android:layout_centerVertical="true"
+            android:src="@drawable/ic_baseline_location_on_24" />
+
         <TextView
             android:id="@+id/tv_titleTopBar"
             android:layout_width="wrap_content"
@@ -36,12 +43,39 @@
             android:textColor="@color/white"
             android:textSize="@dimen/_14sdp" />
 
+        <TextView
+            android:id="@+id/tv_location"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_marginStart="@dimen/_10sdp"
+            android:layout_marginEnd="@dimen/_10sdp"
+            android:layout_toStartOf="@+id/iv_editLocation"
+            android:layout_toEndOf="@+id/iv_location"
+            android:ellipsize="marquee"
+            android:fontFamily="@font/nexa_bold"
+            android:marqueeRepeatLimit="marquee_forever"
+            android:scrollHorizontally="true"
+            android:singleLine="true"
+            android:text="House # 1712, Street 46, Dhoke Kala Khan, Rawalpindi"
+            android:textColor="@color/white"
+            android:textSize="@dimen/_12ssp" />
+
+        <ImageView
+            android:id="@+id/iv_editLocation"
+            android:layout_width="@dimen/_15sdp"
+            android:layout_height="@dimen/_15sdp"
+            android:layout_centerVertical="true"
+            android:layout_toStartOf="@+id/ll_menu"
+            android:src="@drawable/ic_edit" />
+
         <LinearLayout
             android:id="@+id/ll_menu"
-            android:layout_width="@dimen/_40sdp"
-            android:layout_height="@dimen/_40sdp"
+            android:layout_marginStart="@dimen/_5sdp"
+            android:layout_width="@dimen/_30sdp"
+            android:layout_height="@dimen/_30sdp"
             android:layout_alignParentEnd="true"
-            android:gravity="center">
+            android:gravity="end|center">
 
             <ImageView
                 android:layout_width="@dimen/_25sdp"

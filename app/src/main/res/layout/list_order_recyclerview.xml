@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <View
+        android:id="@+id/view"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_5sdp"
+        android:layout_marginTop="@dimen/_2sdp"
+        android:background="@drawable/horizantal_dashed_line"
+        android:layerType="software" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/view"
+        android:layout_marginTop="@dimen/_5sdp"
+        android:layout_marginBottom="@dimen/_5sdp"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:weightSum="1">
+
+        <!-- <ImageView
+             android:id="@+id/iv_productOrder"
+             android:layout_width="0dp"
+             android:layout_height="@dimen/_50sdp"
+             android:layout_weight="0.2"
+             android:background="@drawable/grocery" />
+ -->
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.8">
+
+            <TextView
+                android:id="@+id/tv_productName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_5sdp"
+                android:layout_marginTop="@dimen/_3sdp"
+                android:layout_toStartOf="@+id/ll_price"
+                android:fontFamily="@font/nexa_bold"
+                android:text="Muhammad Zohaib Ahmed (Private)"
+                android:textColor="@color/dusk"
+                android:textSize="@dimen/_11ssp" />
+
+            <LinearLayout
+                android:id="@+id/ll_price"
+                android:layout_width="@dimen/_70sdp"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_marginStart="@dimen/_5sdp"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/tv_Rs"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/avenir_nextitpro_bold"
+                    android:text="Rs : "
+                    android:textColor="@color/dusk"
+                    android:textSize="@dimen/_11ssp" />
+
+                <TextView
+                    android:id="@+id/tv_productPrice"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/avenir_nextitpro_bold"
+                    android:text="20000"
+                    android:textColor="@color/dusk"
+                    android:textSize="@dimen/_11ssp" />
+
+            </LinearLayout>
+            <!-- <TextView
+                 android:id="@+id/tv_productPrice"
+                 android:layout_width="wrap_content"
+                 android:layout_height="wrap_content"
+                 android:layout_marginStart="@dimen/_5sdp"
+                 android:layout_marginTop="@dimen/_10sdp"
+                 android:fontFamily="@font/avenir_nextitpro_bold"
+                 android:text="RS 200"
+                 android:textColor="@color/dusk"
+                 android:textSize="@dimen/_11ssp" />
+ -->
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginStart="@dimen/_5sdp"
+            android:layout_weight="0.2">
+
+            <com.makeramen.roundedimageview.RoundedImageView
+                android:id="@+id/iv_productOrder"
+                android:layout_width="@dimen/_40sdp"
+                android:layout_height="@dimen/_40sdp"
+                android:layout_centerInParent="true"
+                android:scaleType="fitXY"
+                android:src="@drawable/dairy_product"
+                app:riv_corner_radius="@dimen/_80ssp" />
+        </RelativeLayout>
+
+    </LinearLayout>
+
+</RelativeLayout>

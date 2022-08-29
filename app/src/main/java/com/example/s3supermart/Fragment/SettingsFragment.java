@@ -12,8 +12,10 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.CompoundButton;
+import android.widget.TextView;
 
 import com.example.s3supermart.Activity.ChangePasswordActivity;
+import com.example.s3supermart.Activity.HomeActivity;
 import com.example.s3supermart.Helper.DialogHandler;
 import com.example.s3supermart.Helper.PrefsManager;
 import com.example.s3supermart.R;
@@ -23,6 +25,7 @@ public class SettingsFragment extends Fragment {
     CardView cv_changePassword;
     SwitchCompat switch_fingerprintbtn;
     PrefsManager prefsManager;
+    TextView tv_topBar;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -38,7 +41,9 @@ public class SettingsFragment extends Fragment {
 
         cv_changePassword = view.findViewById(R.id.cv_changePassword);
         switch_fingerprintbtn = view.findViewById(R.id.btn_fingerprint);
-
+        tv_topBar = getActivity().findViewById(R.id.tv_titleTopBar);
+        tv_topBar.setText("Settings");
+        ((HomeActivity) getContext()).topBarWithBackIcon();
         //to check if biometric login was enabled previously to maintain its state
         biometricState();
 

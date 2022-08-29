@@ -4,31 +4,22 @@ import static com.example.s3supermart.Activity.HomeActivity.currentFragment;
 
 import android.os.Bundle;
 
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
 import androidx.fragment.app.Fragment;
-import androidx.recyclerview.widget.GridLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
 
-import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.s3supermart.Activity.HomeActivity;
-import com.example.s3supermart.Adapter.AllCategoriesAdapter;
-import com.example.s3supermart.Helper.DialogHandler;
-import com.example.s3supermart.Model.AllCategoriesClass;
 import com.example.s3supermart.R;
 import com.example.s3supermart.Utils.Utility;
 import com.synnapps.carouselview.CarouselView;
 import com.synnapps.carouselview.ImageListener;
-
-import java.util.ArrayList;
-import java.util.List;
 
 public class HomeFragment extends Fragment {
 
@@ -37,8 +28,8 @@ public class HomeFragment extends Fragment {
     ImageView iv_edit, iv_menu;
     Utility utility;
     HomeActivity homeActivity;
-    CardView cv_grocery;
-    LinearLayout ll_homeFragbar;
+    CardView cv_grocery,cv_electronics,cv_pharmacy;
+    LinearLayout ll_bottomBar;
     int[] sampleImages = {R.drawable.offer1, R.drawable.offer2,
             R.drawable.logo, R.drawable.slider1, R.drawable.offer3};
 
@@ -59,19 +50,23 @@ public class HomeFragment extends Fragment {
         carouselView = view.findViewById(R.id.carouselView);
         tv_greetMsg = view.findViewById(R.id.tv_gd_morning);
         cv_grocery = view.findViewById(R.id.cv_groceryCategory);
-        ll_homeFragbar = view.findViewById(R.id.ll_topbarHome);
+        cv_electronics = view.findViewById(R.id.cv_electroniceCategory);
+        cv_pharmacy = view.findViewById(R.id.cv_pharmacyCategory);
+       ((HomeActivity) getContext()).topBarWithLocationIcon();
+        ll_bottomBar = getActivity().findViewById(R.id.ll_bottomBar);
+        ll_bottomBar.setVisibility(View.VISIBLE);
+    /*    ll_homeFragbar = view.findViewById(R.id.ll_topbarHome);
         tv_location = view.findViewById(R.id.tv_location);
-        iv_edit = view.findViewById(R.id.iv_editLocation);
-        iv_menu = view.findViewById(R.id.iv_homeMenu);
-
+        iv_edit = view.findViewById(R.id.iv_editLocation);*/
+       // iv_menu = view.findViewById(R.id.iv_homeMenu);
+      //  tv_location = view.findViewById(R.id.tv_location);
         //intialising classes
         utility = new Utility();
         homeActivity = new HomeActivity();
 
-        tv_location.setSelected(true);
+      /*  tv_location.setSelected(true);
         tv_location.setEllipsize(TextUtils.TruncateAt.MARQUEE);
-
-        //method that contains implementation of greeting message
+     */   //method that contains implementation of greeting message
         greetUser();
 
         clickListeners();
@@ -92,20 +87,31 @@ public class HomeFragment extends Fragment {
                     currentFragment = new GroceryFragment();
                     ((HomeActivity) getContext()).getSupportFragmentManager().beginTransaction().replace(R.id.frameLayout, currentFragment,
                             currentFragment.getClass().getSimpleName()).commit();
-                    ((HomeActivity) getContext()).changetopBar();
 
                 }
             }
         });
+        cv_electronics.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Toast.makeText(getContext(), "Comming Soon", Toast.LENGTH_SHORT).show();
+            }
+        });
+        cv_pharmacy.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Toast.makeText(getContext(), "Comming Soon", Toast.LENGTH_SHORT).show();
+            }
+        });
 
-        iv_menu.setOnClickListener(new View.OnClickListener() {
+      /*  iv_menu.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 if (getContext() != null) {
                     DialogHandler.homeMenu(getContext());
                 }
             }
-        });
+        });*/
     }
 
     //method to display greeting message on home screen

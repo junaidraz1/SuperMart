@@ -9,13 +9,16 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 
+import com.example.s3supermart.Activity.HomeActivity;
 import com.example.s3supermart.R;
 
 public class ProfileFragment extends Fragment {
 
     LinearLayout layout_userInfo, layout_edituserInfo;
     Button btn_editProfile, btn_updateProfile;
+    TextView tv_topBar;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -31,8 +34,11 @@ public class ProfileFragment extends Fragment {
         layout_userInfo = view.findViewById(R.id.ll_basicInfoProfile);
         layout_edituserInfo = view.findViewById(R.id.ll_changeInfoProfile);
         btn_editProfile = view.findViewById(R.id.btn_editInfoProfile);
-        btn_updateProfile = view.findViewById(R.id.btn_updateInfoProfile);
 
+        btn_updateProfile = view.findViewById(R.id.btn_updateInfoProfile);
+        tv_topBar = getActivity().findViewById(R.id.tv_titleTopBar);
+        tv_topBar.setText("Profile");
+        ((HomeActivity) getContext()).topBarWithBackIcon();
         clickListeners();
 
         return view;

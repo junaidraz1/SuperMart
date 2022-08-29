@@ -6,6 +6,7 @@
     android:layout_height="match_parent"
     tools:context=".Activity.HomeActivity">
 
+<!--
     <LinearLayout
         android:id="@+id/ll_topbarHome"
         android:layout_width="match_parent"
@@ -25,12 +26,12 @@
                 android:layout_centerVertical="true"
                 android:src="@drawable/ic_baseline_location_on_24" />
 
-<!--            <ImageView-->
-<!--                android:id="@+id/iv_back"-->
-<!--                android:layout_width="@dimen/_18sdp"-->
-<!--                android:layout_height="@dimen/_18sdp"-->
-<!--                android:layout_centerVertical="true"-->
-<!--                android:src="@drawable/ic_arrow_back_white" />-->
+&lt;!&ndash;            <ImageView&ndash;&gt;
+&lt;!&ndash;                android:id="@+id/iv_back"&ndash;&gt;
+&lt;!&ndash;                android:layout_width="@dimen/_18sdp"&ndash;&gt;
+&lt;!&ndash;                android:layout_height="@dimen/_18sdp"&ndash;&gt;
+&lt;!&ndash;                android:layout_centerVertical="true"&ndash;&gt;
+&lt;!&ndash;                android:src="@drawable/ic_arrow_back_white" />&ndash;&gt;
 
             <TextView
                 android:id="@+id/tv_location"
@@ -50,17 +51,17 @@
                 android:textColor="@color/white"
                 android:textSize="@dimen/_12ssp" />
 
-<!--            <TextView-->
-<!--                android:id="@+id/tv_title"-->
-<!--                android:layout_width="wrap_content"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:layout_centerInParent="true"-->
-<!--                android:layout_marginStart="@dimen/_10sdp"-->
-<!--                android:layout_marginEnd="@dimen/_10sdp"-->
-<!--                android:fontFamily="@font/nexa_bold"-->
-<!--                android:text="Title"-->
-<!--                android:textColor="@color/white"-->
-<!--                android:textSize="@dimen/_14ssp" />-->
+&lt;!&ndash;            <TextView&ndash;&gt;
+&lt;!&ndash;                android:id="@+id/tv_title"&ndash;&gt;
+&lt;!&ndash;                android:layout_width="wrap_content"&ndash;&gt;
+&lt;!&ndash;                android:layout_height="wrap_content"&ndash;&gt;
+&lt;!&ndash;                android:layout_centerInParent="true"&ndash;&gt;
+&lt;!&ndash;                android:layout_marginStart="@dimen/_10sdp"&ndash;&gt;
+&lt;!&ndash;                android:layout_marginEnd="@dimen/_10sdp"&ndash;&gt;
+&lt;!&ndash;                android:fontFamily="@font/nexa_bold"&ndash;&gt;
+&lt;!&ndash;                android:text="Title"&ndash;&gt;
+&lt;!&ndash;                android:textColor="@color/white"&ndash;&gt;
+&lt;!&ndash;                android:textSize="@dimen/_14ssp" />&ndash;&gt;
 
 
             <ImageView
@@ -83,6 +84,7 @@
         </RelativeLayout>
 
     </LinearLayout>
+-->
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -357,13 +359,15 @@
                                 <TextView
                                     android:id="@+id/tv_viewAllElectronics"
                                     android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
+                                    android:layout_height="match_parent"
                                     android:layout_below="@+id/tv_electronicsCategory"
                                     android:layout_marginStart="@dimen/_10sdp"
                                     android:layout_marginTop="@dimen/_10sdp"
-                                    android:fontFamily="@font/nexa_bold"
-                                    android:text="View All"
-                                    android:textColor="@color/MintGreen"
+                                    android:layout_marginBottom="@dimen/_10sdp"
+                                    android:gravity="bottom"
+                                    android:fontFamily="@font/nexa_regular"
+                                    android:text="comming soon"
+                                    android:textColor="@color/dusk"
                                     android:textSize="@dimen/_10ssp" />
 
                                 <ImageView
@@ -372,6 +376,7 @@
                                     android:layout_below="@+id/tv_electronicsCategory"
                                     android:layout_gravity="center"
                                     android:layout_marginTop="@dimen/_7sdp"
+                                    android:visibility="gone"
                                     android:layout_toEndOf="@+id/tv_viewAllElectronics"
                                     android:background="@drawable/ic_navigate_next_blue_24dp" />
 
@@ -433,13 +438,15 @@
                                 <TextView
                                     android:id="@+id/tv_viewAllpharmacy"
                                     android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
+                                    android:layout_height="match_parent"
                                     android:layout_below="@+id/tv_pharmacyCategory"
                                     android:layout_marginStart="@dimen/_10sdp"
                                     android:layout_marginTop="@dimen/_10sdp"
-                                    android:fontFamily="@font/nexa_bold"
-                                    android:text="View All"
-                                    android:textColor="@color/MintGreen"
+                                    android:layout_marginBottom="@dimen/_10sdp"
+                                    android:fontFamily="@font/nexa_regular"
+                                    android:gravity="bottom"
+                                    android:text="Comming soon"
+                                    android:textColor="@color/dusk"
                                     android:textSize="@dimen/_10ssp" />
 
                                 <ImageView
@@ -448,6 +455,7 @@
                                     android:layout_below="@+id/tv_pharmacyCategory"
                                     android:layout_gravity="center"
                                     android:layout_marginTop="@dimen/_7sdp"
+                                    android:visibility="gone"
                                     android:layout_toEndOf="@+id/tv_viewAllpharmacy"
                                     android:background="@drawable/ic_navigate_next_blue_24dp" />
 

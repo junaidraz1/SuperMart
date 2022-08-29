@@ -80,7 +80,7 @@ public class DialogHandler {
         popupWindow.showAtLocation(view, Gravity.TOP | Gravity.END, -15, 80);
 
         TextView tv_versionNum, tv_location, tv_title;
-        LinearLayout layout_profile, layout_setting, layout_logout;
+        LinearLayout layout_profile, layout_setting, layout_logout,ll_back;
         ImageView iv_location, iv_edit, iv_back;
         BottomNavigationView bottomNavigationView;
 
@@ -91,6 +91,7 @@ public class DialogHandler {
         iv_location = ((AppCompatActivity) context).findViewById(R.id.iv_location);
         iv_edit = ((AppCompatActivity) context).findViewById(R.id.iv_editLocation);
         iv_back = ((AppCompatActivity) context).findViewById(R.id.iv_back);
+        ll_back = ((AppCompatActivity) context).findViewById(R.id.ll_back);
         tv_location = ((AppCompatActivity) context).findViewById(R.id.tv_location);
         tv_title = ((AppCompatActivity) context).findViewById(R.id.tv_titleTopBar);
         bottomNavigationView = ((AppCompatActivity) context).findViewById(R.id.bottomnavView);
@@ -106,13 +107,14 @@ public class DialogHandler {
                 ((AppCompatActivity) context).getSupportFragmentManager().beginTransaction().replace(R.id.frameLayout, currentFragment,
                         currentFragment.getClass().getSimpleName()).commit();
                 bottomNavigationView.getMenu().getItem(2).setChecked(true);
-                iv_location.setVisibility(View.GONE);
+/*                iv_location.setVisibility(View.GONE);
                 iv_edit.setVisibility(View.GONE);
                 tv_location.setVisibility(View.GONE);
                 iv_back.setVisibility(View.VISIBLE);
+                ll_back.setVisibility(View.VISIBLE);
                 tv_title.setVisibility(View.VISIBLE);
 
-                tv_title.setText("Profile");
+                tv_title.setText("Profile");*/
 
             }
         });
@@ -125,13 +127,14 @@ public class DialogHandler {
                 ((AppCompatActivity) context).getSupportFragmentManager().beginTransaction().replace(R.id.frameLayout, currentFragment,
                         currentFragment.getClass().getSimpleName()).commit();
                 bottomNavigationView.getMenu().getItem(2).setChecked(true);
-                iv_location.setVisibility(View.GONE);
+        /*        iv_location.setVisibility(View.GONE);
                 iv_edit.setVisibility(View.GONE);
                 tv_location.setVisibility(View.GONE);
                 iv_back.setVisibility(View.VISIBLE);
+                ll_back.setVisibility(View.VISIBLE);
                 tv_title.setVisibility(View.VISIBLE);
 
-                tv_title.setText("Settings");
+                tv_title.setText("Settings");*/
             }
         });
 

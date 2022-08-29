@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/bottom_roundedcorners"
+        android:padding="@dimen/_8sdp">
+<!--
+        <LinearLayout
+            android:id="@+id/ll_back"
+            android:layout_width="@dimen/_30sdp"
+            android:layout_height="@dimen/_30sdp"
+            android:layout_centerVertical="true"
+            android:gravity="center">
+
+            <ImageView
+                android:id="@+id/iv_back"
+                android:layout_width="@dimen/_15sdp"
+                android:layout_height="@dimen/_10sdp"
+                android:background="@drawable/ic_arrow_back_white" />
+
+        </LinearLayout>-->
+        <EditText
+            android:id="@+id/et_searchBar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_searchbar"
+            android:drawableEnd="@drawable/ic_baseline_search_24"
+            android:fontFamily="@font/nexa_bold"
+            android:hint="Search Location"
+            android:imeOptions="flagNoFullscreen"
+            android:maxLines="1"
+            android:paddingStart="@dimen/_20sdp"
+            android:paddingTop="@dimen/_8sdp"
+            android:paddingEnd="@dimen/_10sdp"
+            android:paddingBottom="@dimen/_8sdp"
+            android:textColor="@color/dusk"
+            android:textSize="@dimen/_10ssp" />
+    </RelativeLayout>
+
+<!--    </RelativeLayout>-->
+
+
+</RelativeLayout>

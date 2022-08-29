@@ -9,8 +9,14 @@ public class PrefsManager {
     public SharedPreferences.Editor editor;
     public String APP_KEY = "AppKey";
     public String LOGIN_KEY = "KEY_LOGIN";
+    public String FIRSTNAME_KEY = "KEY_FIRSTNAME";
+    public String LASTNAME_KEY = "KEY_LASTNAME";
     public String USERMAIL_KEY = "KEY_USEREMAIL";
+    public String Address_KEY = "KEY_LOCATION";
+    public String MOBILENO_KEY = "KEY_MOBILENO";
     public String PASSWORD_KEY = "KEY_PASSWORD";
+    public String CONFIRMPASS_KEY = "KEY_CONFIRMPASS";
+
     //  public String LOGIN_CLASS_KEY = "KEY_LOGIN_CLASS";
     public String FINGERPRINT_ENABLED = "KEY_FINGERPRINT";
 
@@ -27,6 +33,24 @@ public class PrefsManager {
 
     public boolean getLogin() {
         return sharedPreferences.getBoolean(LOGIN_KEY, false);
+    }
+
+    public void setFIRSTNAME_KEY(String firstName) {
+        editor.putString(FIRSTNAME_KEY, firstName);
+        editor.commit();
+    }
+
+    public String getFIRSTNAME_KEY() {
+        return sharedPreferences.getString(FIRSTNAME_KEY, "");
+    }
+
+    public void setLASTNAME_KEY(String lastName) {
+        editor.putString(LASTNAME_KEY, lastName);
+        editor.commit();
+    }
+
+    public String getLASTNAME_KEY() {
+        return sharedPreferences.getString(LASTNAME_KEY, "");
     }
 
     public void setUSERMAIL_KEY(String email) {
@@ -56,4 +80,30 @@ public class PrefsManager {
         return sharedPreferences.getBoolean(FINGERPRINT_ENABLED, false);
     }
 
+    public void setAddress_KEY(String currentLocation) {
+        editor.putString(Address_KEY, currentLocation);
+        editor.commit();
+    }
+
+    public String getAddress_KEY() {
+        return sharedPreferences.getString(Address_KEY, "");
+    }
+
+    public void setMOBILENO_KEY(String mobileNo) {
+        editor.putString(MOBILENO_KEY, mobileNo);
+        editor.commit();
+    }
+
+    public String getMOBILENO_KEY() {
+        return sharedPreferences.getString(MOBILENO_KEY, "");
+    }
+
+    public void setCONFIRMPASS_KEY(String appartmentInfo) {
+        editor.putString(CONFIRMPASS_KEY, appartmentInfo);
+        editor.commit();
+    }
+
+    public String getCONFIRMPASS_KEY() {
+        return sharedPreferences.getString(CONFIRMPASS_KEY, "");
+    }
 }

@@ -1,11 +1,16 @@
 package com.example.s3supermart.Activity;
 
+import androidx.activity.result.ActivityResultLauncher;
+import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 
+import android.Manifest;
 import android.annotation.SuppressLint;
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Log;
@@ -22,6 +27,7 @@ import com.example.s3supermart.Fragment.SearchFragment;
 import com.example.s3supermart.Fragment.ViewCartFragment;
 import com.example.s3supermart.Fragment.WalletFragment;
 import com.example.s3supermart.Helper.DialogHandler;
+import com.example.s3supermart.Helper.PrefsManager;
 import com.example.s3supermart.R;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -31,14 +37,13 @@ public class HomeActivity extends AppCompatActivity {
     BottomNavigationView bottomNavigationView;
     FloatingActionButton fab_viewCart;
     Fragment HomeFrag;
+    PrefsManager prefsManager;
     ImageView iv_location, iv_editLocation;
     TextView tv_location, tv_topBar, tv_counterBottomBar;
-
     LinearLayout ll_back, ll_menu, ll_bottomBar;
-
     RelativeLayout rl_homeactTopbar;
-
-
+    String currentAddress = "";
+    String appartmentInfo = "";
     public static Fragment currentFragment;
 
     @Override
@@ -47,8 +52,6 @@ public class HomeActivity extends AppCompatActivity {
         setContentView(R.layout.activity_home);
 
         //intialising ids to variables
-
-
         iv_location = findViewById(R.id.iv_location);
         iv_editLocation = findViewById(R.id.iv_editLocation);
         bottomNavigationView = findViewById(R.id.bottomnavView);
@@ -62,8 +65,6 @@ public class HomeActivity extends AppCompatActivity {
         ll_bottomBar = findViewById(R.id.ll_bottomBar);
 
         bottomNavigationView.setBackground(null);
-        //  rl_homeactTopbar.setVisibility(View.GONE);
-        //setting title and back icon gone on default
 
         tv_topBar.setVisibility(View.GONE);
         ll_back.setVisibility(View.GONE);
@@ -74,6 +75,18 @@ public class HomeActivity extends AppCompatActivity {
         tv_location.setSelected(true);
         tv_location.setEllipsize(TextUtils.TruncateAt.MARQUEE);
 
+        prefsManager = new PrefsManager(HomeActivity.this);
+
+
+        currentAddress = getIntent().getStringExtra("CURRENT_ADDRESS");
+        appartmentInfo = getIntent().getStringExtra("APPARTMENT_INFO");
+        if (currentAddress == null && appartmentInfo == null) {
+            tv_location.setText("Edit Address");
+
+        } else {
+            tv_location.setText(appartmentInfo + " " + currentAddress);
+        }
+
         //to load home fragment when activity is created
         loadFrag();
 
@@ -82,10 +95,6 @@ public class HomeActivity extends AppCompatActivity {
 
         topBarWithBackIcon();
 
-
-
-
-    //    tv_location.setText(appartmentInfo + " " + currentAddress);
     }
 
     public void topBarWithBackIcon() {
@@ -142,6 +151,7 @@ public class HomeActivity extends AppCompatActivity {
 
             }
         });
+
         bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @SuppressLint("NonConstantResourceId")
             @Override
@@ -187,6 +197,13 @@ public class HomeActivity extends AppCompatActivity {
                 return true;
             }
         });
+
+        iv_editLocation.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(HomeActivity.this, GoogleMapActivity.class));
+            }
+        });
     }
 
     @Override
@@ -197,6 +214,8 @@ public class HomeActivity extends AppCompatActivity {
             finishAffinity();
         } else {
             loadFrag();
+
+            bottomNavigationView.getMenu().getItem(0).setChecked(true);
         }
 
         //gets value of fragments that are pushed to back stack

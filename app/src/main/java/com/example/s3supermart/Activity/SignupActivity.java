@@ -42,8 +42,6 @@ public class SignupActivity extends AppCompatActivity {
         setContentView(R.layout.activity_signup);
 
         //intialising ids to  variables
-   /*     viewPager = findViewById(R.id.viewpagerSignUp);
-        tabLayout = findViewById(R.id.tab_layoutSignUp);*/
         et_fname = findViewById(R.id.et_fName);
         et_lname = findViewById(R.id.et_lName);
         et_email = findViewById(R.id.et_email);
@@ -55,12 +53,9 @@ public class SignupActivity extends AppCompatActivity {
         rl_signin = findViewById(R.id.rl_signin);
 
         prefsManager = new PrefsManager(this);
-       /* currentAddress = prefsManager.getCURRENTLOCATION_KEY();
-        appartmentInfo = prefsManager.getAPARTMENTINFO_KEY();*/
-        //  tabAndViewPager();
+
         //contains implementation of all the click listeners involve
         clickListeners();
-
 
         currentAddress = getIntent().getStringExtra("CURRENT_ADDRESS");
         appartmentInfo = getIntent().getStringExtra("APPARTMENT_INFO");
@@ -145,36 +140,5 @@ public class SignupActivity extends AppCompatActivity {
             return true;
         }
 
-    }
-
-    public void tabAndViewPager() {
-
-
-
-      /*  //method that contains click listener implementation
-        clickListeners();
-*/
-        //this is used to store memory of tabs that aren't active on screen
-        //store memory means if user swipes from one tab to another it will store the filled state of fields
-        //limit 5 means 5 tabs next to the current one
-        viewPager.setOffscreenPageLimit(5);
-
-        // setting up the adapter
-        viewPagerAdapter = new ViewPagerAdapter(getSupportFragmentManager());
-
-        // adding fragments into viewpager
-        viewPagerAdapter.add(new FragmentSignUpPersonal(), "Personal");
-        viewPagerAdapter.add(new FragmentSignUpSecurity(), "Security");
-       /* viewPagerAdapter.add(new VaccinationDetailFragment(), "Vaccination Details");
-        viewPagerAdapter.add(new NextOfKinFragment(), "Next of Kin");
-        viewPagerAdapter.add(new RegistrationFeeFragment(), "Registration fee");*/
-
-        //setting adapter to viewpager
-        viewPager.setAdapter(viewPagerAdapter);
-
-        // The Page (fragment) titles will be displayed in the
-        // tabLayout hence we need to  set the page viewer
-        // we use the setupWithViewPager().
-        tabLayout.setupWithViewPager(viewPager);
     }
 }

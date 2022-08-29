@@ -19,13 +19,18 @@ public class ChangePasswordActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_change_password);
 
+        //intialising id's to variables
         layout_back = findViewById(R.id.ll_back);
         layout_menu = findViewById(R.id.ll_menu);
 
+        //method that contain click implementations
         clickListeners();
     }
 
+    //click listeners functionality defined here
     public void clickListeners() {
+
+        //when user clicks on back image
         layout_back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -34,6 +39,7 @@ public class ChangePasswordActivity extends AppCompatActivity {
             }
         });
 
+        //when user clicks on menu image
         layout_menu.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

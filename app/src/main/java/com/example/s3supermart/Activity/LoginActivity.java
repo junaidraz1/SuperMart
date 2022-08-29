@@ -98,7 +98,7 @@ public class LoginActivity extends AppCompatActivity {
                     prefsManager.setUSERMAIL_KEY(email);
                     prefsManager.setPASSWORD_KEY(password);
 
-                    startActivity(new Intent(LoginActivity.this, HomeActivity.class)
+                    startActivity(new Intent(LoginActivity.this, GoogleMapActivity.class)
                             .setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP));
                 }
             }
@@ -113,7 +113,6 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     public void authorizeFingerprint() {
-
 
         // creating a variable for our Executor
         Executor executor = ContextCompat.getMainExecutor(this);

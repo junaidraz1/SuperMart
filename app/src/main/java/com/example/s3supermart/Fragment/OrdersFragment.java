@@ -27,31 +27,31 @@ public class OrdersFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_orders, container, false);
+
         //intialising ids to  variables
         viewPager = view.findViewById(R.id.viewpagerOrders);
         tabLayout = view.findViewById(R.id.tab_layoutOrders);
         tv_topBar = getActivity().findViewById(R.id.tv_titleTopBar);
         tv_topBar.setText("Orders");
-        ((HomeActivity) getContext()).topBarWithBackIcon();
-      /*  //method that contains click listener implementation
-        clickListeners();
-*/
+
+        if (getContext() != null) {
+            ((HomeActivity) getContext()).topBarWithBackIcon();
+        }
+
         //this is used to store memory of tabs that aren't active on screen
         //store memory means if user swipes from one tab to another it will store the filled state of fields
-        //limit 5 means 5 tabs next to the current one
-        viewPager.setOffscreenPageLimit(5);
+        //limit 1 means 1 tabs next to the current one
+        viewPager.setOffscreenPageLimit(1);
 
         // setting up the adapter
-        viewPagerAdapter = new ViewPagerAdapter(getParentFragmentManager());
+        viewPagerAdapter = new ViewPagerAdapter(getChildFragmentManager());
 
         // adding fragments into viewpager
         viewPagerAdapter.add(new CurrentOrderFragment(), "Current");
         viewPagerAdapter.add(new HistoryOrderFragment(), "History");
-       /* viewPagerAdapter.add(new VaccinationDetailFragment(), "Vaccination Details");
-        viewPagerAdapter.add(new NextOfKinFragment(), "Next of Kin");
-        viewPagerAdapter.add(new RegistrationFeeFragment(), "Registration fee");*/
 
         //setting adapter to viewpager
         viewPager.setAdapter(viewPagerAdapter);
@@ -62,7 +62,6 @@ public class OrdersFragment extends Fragment {
         tabLayout.setupWithViewPager(viewPager);
 
         return view;
-
 
     }
 }

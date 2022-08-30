@@ -56,11 +56,16 @@ public class ViewCartFragment extends Fragment {
         recyclerView.setHasFixedSize(true);
         View BottomsheetView = view.findViewById(R.id.ll_bottomSheetView);
         rl_titleBottomshet = view.findViewById(R.id.Rl_titleBottomsheet);
-        tv_topBar = getActivity().findViewById(R.id.tv_titleTopBar);
+        if (getActivity() != null) {
+            tv_topBar = getActivity().findViewById(R.id.tv_titleTopBar);
+            ll_bottomBar = getActivity().findViewById(R.id.ll_bottomBar);
+        }
+
+        if (getContext() != null) {
+            ((HomeActivity) getContext()).topBarWithBackIcon();
+        }
         tv_topBar.setText("View Shopping Cart");
-        ll_bottomBar = getActivity().findViewById(R.id.ll_bottomBar);
         ll_bottomBar.setVisibility(View.GONE);
-        ((HomeActivity) getContext()).topBarWithBackIcon();
 
         layoutManager = new LinearLayoutManager(getContext());
 
@@ -70,8 +75,17 @@ public class ViewCartFragment extends Fragment {
 
         //Adding Data into ArrayList
         viewCartClassList.add(new ViewCartClass("Olpers Full Cream Milk ", "250 ml", "Rs.55", R.drawable.olpers_milk_250ml));
+        viewCartClassList.add(new ViewCartClass("Olpers Full Cream Milk ", "250 ml", "Rs.55", R.drawable.olpers_milk_250ml));
+        viewCartClassList.add(new ViewCartClass("Olpers Full Cream Milk ", "250 ml", "Rs.55", R.drawable.olpers_milk_250ml));
+        viewCartClassList.add(new ViewCartClass("Cake Cup ", "", "Rs.200", R.drawable.cakecup));
+        viewCartClassList.add(new ViewCartClass("Cake Cup ", "", "Rs.200", R.drawable.cakecup));
         viewCartClassList.add(new ViewCartClass("Cake Cup ", "", "Rs.200", R.drawable.cakecup));
         viewCartClassList.add(new ViewCartClass("7up bottle ", "1.5 Litre", "Rs.130", R.drawable.beverage));
+        viewCartClassList.add(new ViewCartClass("7up bottle ", "1.5 Litre", "Rs.130", R.drawable.beverage));
+        viewCartClassList.add(new ViewCartClass("7up bottle ", "1.5 Litre", "Rs.130", R.drawable.beverage));
+        viewCartClassList.add(new ViewCartClass("7up bottle ", "1.5 Litre", "Rs.130", R.drawable.beverage));
+        viewCartClassList.add(new ViewCartClass("7up bottle ", "1.5 Litre", "Rs.130", R.drawable.beverage));
+
         viewCartAdapter = new ViewCartAdapter(getContext(), viewCartClassList);
         recyclerView.setAdapter(viewCartAdapter);
 
@@ -79,6 +93,7 @@ public class ViewCartFragment extends Fragment {
         if (viewCartClassList.isEmpty()) {
             recyclerView.setVisibility(View.GONE);
             tv_emptyCart.setVisibility(View.VISIBLE);
+
         } else {
             recyclerView.setVisibility(View.VISIBLE);
             tv_emptyCart.setVisibility(View.GONE);

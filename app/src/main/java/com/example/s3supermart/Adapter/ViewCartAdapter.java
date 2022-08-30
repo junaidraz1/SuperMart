@@ -31,6 +31,7 @@ public class ViewCartAdapter extends RecyclerView.Adapter<ViewCartAdapter.Custom
         this.context = context;
         this.productsList = productsList;
     }
+
     @NonNull
     @Override
     public ViewCartAdapter.CustomViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
@@ -38,6 +39,7 @@ public class ViewCartAdapter extends RecyclerView.Adapter<ViewCartAdapter.Custom
         View view = layoutInflater.inflate(R.layout.list_viewcart, parent, false);
         return new ViewCartAdapter.CustomViewHolder(view);
     }
+
     @Override
     public void onBindViewHolder(@NonNull ViewCartAdapter.CustomViewHolder holder, int position) {
         holder.tv_ProductName.setText(productsList.get(position).getProductName());
@@ -45,6 +47,7 @@ public class ViewCartAdapter extends RecyclerView.Adapter<ViewCartAdapter.Custom
         holder.tv_productPrice.setText(productsList.get(position).getProductPrice());
         holder.iv_productImage.setImageResource((productsList.get(position).getProductImageUri()));
     }
+
     @Override
     public int getItemCount() {
         return productsList.size();
@@ -54,8 +57,8 @@ public class ViewCartAdapter extends RecyclerView.Adapter<ViewCartAdapter.Custom
         public final View view;
 
         TextView tv_ProductName, tv_productQuantity, tv_productPrice, tv_quantityCounter;
-        LinearLayout ll_addToCart,ll_increment,ll_decrement,ll_deleteProduct;
-        ImageView iv_delete,iv_productImage;
+        LinearLayout ll_addToCart, ll_increment, ll_decrement, ll_deleteProduct;
+        ImageView iv_delete, iv_productImage;
 
         public CustomViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -74,7 +77,7 @@ public class ViewCartAdapter extends RecyclerView.Adapter<ViewCartAdapter.Custom
             ll_deleteProduct.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    deleteItem();
+                    deleteItem(getAdapterPosition());
                 }
             });
 
@@ -83,9 +86,9 @@ public class ViewCartAdapter extends RecyclerView.Adapter<ViewCartAdapter.Custom
                 public void onClick(View v) {
                     Tv_Counter = tv_quantityCounter.getText().toString();
                     if (tv_quantityCounter.getText().toString().equals("1")) {
-                     //   ll_addToCart.setVisibility(View.GONE);
+                        //   ll_addToCart.setVisibility(View.GONE);
                         // Toast.makeText(context, "Button Decriment Clicked", Toast.LENGTH_SHORT).show();
-                        deleteItem();
+                        deleteItem(getAdapterPosition());
                     } else {
                         quantityDecrement();
                     }
@@ -117,23 +120,27 @@ public class ViewCartAdapter extends RecyclerView.Adapter<ViewCartAdapter.Custom
 
             }
         }
+
         private void quantityDecrement() {
             // Get the value of the text view
             String countString = tv_quantityCounter.getText().toString();
             // Convert value to a number and increment it
             int qty = parseInt(countString);
 
-            if (qty>1){
+            if (qty > 1) {
                 qty--;
             }
             String num = String.valueOf(qty);
             // Display the new value in the text view.
             tv_quantityCounter.setText(num);
         }
-        private void deleteItem() {
-            productsList.remove(getAdapterPosition());
-            notifyItemRemoved(getAdapterPosition());
-            notifyItemRangeChanged(getAdapterPosition(),productsList.size());
+
+        private void deleteItem(int position) {
+            if (position >= 0) {
+                productsList.remove(position);
+                notifyItemRemoved(position);
+                notifyItemRangeChanged(position, productsList.size());
+            }
         }
     }
 }

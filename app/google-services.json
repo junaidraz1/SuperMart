@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "269637799463",
+    "project_id": "s3-super-mart",
+    "storage_bucket": "s3-super-mart.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:269637799463:android:d29c524d325db729190802",
+        "android_client_info": {
+          "package_name": "com.example.s3supermart"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "269637799463-3mjnnegjrui5sf3r9ol1q47oepean1gm.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDZh2J0veGEUUEImJsbVbbYaL6mteBKym8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "269637799463-3mjnnegjrui5sf3r9ol1q47oepean1gm.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

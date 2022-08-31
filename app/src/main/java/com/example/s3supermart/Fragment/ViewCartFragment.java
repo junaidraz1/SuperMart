@@ -123,9 +123,11 @@ public class ViewCartFragment extends Fragment {
         btn_checkOut.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                currentFragment = new CheckOutFragment();
-                ((HomeActivity) getContext()).getSupportFragmentManager().beginTransaction().replace(R.id.frameLayout, currentFragment,
-                        currentFragment.getClass().getSimpleName()).commit();
+                if (getContext() != null) {
+                    currentFragment = new CheckOutFragment();
+                    ((HomeActivity) getContext()).getSupportFragmentManager().beginTransaction().replace(R.id.frameLayout, currentFragment,
+                            currentFragment.getClass().getSimpleName()).commit();
+                }
             }
         });
         return view;

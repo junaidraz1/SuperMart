@@ -542,7 +542,7 @@ public class GoogleMapActivity extends AppCompatActivity implements OnMapReadyCa
 
     @Override
     public void onBackPressed() {
-        super.onBackPressed();
+        finishAffinity();
     }
 }
 

@@ -15,8 +15,9 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/_10sdp"
-        android:layout_marginTop="-70dp"
+        android:layout_marginTop="-80dp"
         android:layout_marginEnd="@dimen/_10sdp"
+        android:layout_marginBottom="@dimen/_20sdp"
         android:background="@color/white"
         android:backgroundTint="@color/white"
         app:cardCornerRadius="@dimen/_15sdp"
@@ -148,11 +149,12 @@
 
             <RelativeLayout
                 android:id="@+id/rl_forgotPass"
-                android:layout_width="wrap_content"
+                android:layout_width="@dimen/_150sdp"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/btn_login"
-                android:layout_centerInParent="true"
-                android:layout_marginStart="@dimen/_5sdp"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="@dimen/_20sdp"
+                android:gravity="center_horizontal"
                 android:padding="@dimen/_5sdp">
 
                 <TextView
@@ -167,26 +169,28 @@
 
             <LinearLayout
                 android:id="@+id/ll_signup"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/rl_forgotPass"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="@dimen/_5sdp"
                 android:layout_marginBottom="@dimen/_10sdp"
-                android:gravity="center"
                 android:orientation="horizontal">
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_gravity="center"
                     android:fontFamily="@font/nexa_bold"
-                    android:gravity="center"
                     android:text="Don't Have An Account?"
-                    android:textStyle="bold" />
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_10ssp" />
 
                 <RelativeLayout
                     android:id="@+id/rl_signUp"
-                    android:layout_width="wrap_content"
+                    android:layout_width="@dimen/_50sdp"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="@dimen/_2sdp"
+                    android:layout_marginStart="@dimen/_3sdp"
                     android:layout_marginEnd="@dimen/_5sdp"
                     android:paddingTop="@dimen/_5sdp"
                     android:paddingBottom="@dimen/_5sdp">
@@ -195,12 +199,13 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/nexa_bold"
+                        android:gravity="center"
                         android:text="Sign Up"
                         android:textColor="@color/MintGreen"
-                        android:textSize="@dimen/_10ssp"
-                        android:textStyle="bold" />
+                        android:textSize="@dimen/_10ssp" />
 
                 </RelativeLayout>
+
             </LinearLayout>
 
             <ImageView

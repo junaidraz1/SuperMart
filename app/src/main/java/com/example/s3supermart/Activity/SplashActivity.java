@@ -111,8 +111,12 @@ public class SplashActivity extends AppCompatActivity {
     public void getloginPref() {
 
         if (prefsManager.getLogin()) {
-            startActivity(new Intent(SplashActivity.this, HomeActivity.class));
+            if (prefsManager.getAddress_KEY().equals("")) {
+                startActivity(new Intent(SplashActivity.this, GoogleMapActivity.class));
 
+            } else {
+                startActivity(new Intent(SplashActivity.this, HomeActivity.class));
+            }
         } else {
             startActivity(new Intent(SplashActivity.this, LoginActivity.class));
         }

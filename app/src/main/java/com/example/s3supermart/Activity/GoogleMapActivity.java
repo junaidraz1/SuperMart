@@ -9,10 +9,8 @@ import android.content.pm.PackageManager;
 import android.location.Address;
 import android.location.Geocoder;
 import android.location.Location;
-import android.location.LocationManager;
 import android.os.Build;
 import android.os.Bundle;
-import android.provider.Settings;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -37,7 +35,6 @@ import com.example.s3supermart.Helper.DialogHandler;
 import com.example.s3supermart.Helper.PrefsManager;
 import com.example.s3supermart.R;
 import com.google.android.gms.common.ConnectionResult;
-import com.google.android.gms.common.api.ApiException;
 import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.android.gms.common.api.ResolvableApiException;
 import com.google.android.gms.location.LocationListener;
@@ -45,7 +42,6 @@ import com.google.android.gms.location.LocationRequest;
 import com.google.android.gms.location.LocationServices;
 import com.google.android.gms.location.LocationSettingsRequest;
 import com.google.android.gms.location.LocationSettingsResponse;
-import com.google.android.gms.location.LocationSettingsStatusCodes;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
@@ -54,8 +50,6 @@ import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
 import com.google.android.material.bottomsheet.BottomSheetBehavior;
 
 import java.io.IOException;
@@ -123,9 +117,9 @@ public class GoogleMapActivity extends AppCompatActivity implements OnMapReadyCa
         // To check internet connectivity
         if (conManager.checkConnection(GoogleMapActivity.this)) {
 
+            Log.d("checkperm", "onCreate: map synced");
             mapFrag.getMapAsync(GoogleMapActivity.this);
         }
-
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
 
@@ -162,11 +156,12 @@ public class GoogleMapActivity extends AppCompatActivity implements OnMapReadyCa
                     DialogHandler.customDialog(GoogleMapActivity.this, "Incomplete Address", "Please provide complete address (Appartment info,flat or house number)");
 
                 } else {
-                    Intent intent = new Intent(GoogleMapActivity.this, HomeActivity.class);
-                    intent.putExtra("CURRENT_ADDRESS", currLocation);
-                    intent.putExtra("APPARTMENT_INFO", appartmentInfo);
-                    startActivity(intent);
-                    intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+
+                    //to store address in prefs to display for later
+                    prefsManager.setAddress_KEY(et_appartmentInfo.getText().toString() + " " + et_currentLocation.getText().toString());
+                    startActivity(new Intent(GoogleMapActivity.this, HomeActivity.class)
+                            .setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP));
+//
                 }
             }
         });
@@ -178,6 +173,7 @@ public class GoogleMapActivity extends AppCompatActivity implements OnMapReadyCa
         super.onPause();
         //stop location updates when Activity is no longer active
         if (mGoogleApiClient != null) {
+            Log.d("checkperm", "onPause: map on pause called");
             LocationServices.FusedLocationApi.removeLocationUpdates(mGoogleApiClient, this);
         }
     }
@@ -185,6 +181,7 @@ public class GoogleMapActivity extends AppCompatActivity implements OnMapReadyCa
     @Override
     public void onResume() {
         super.onResume();
+        Log.d("checkperm", "onResume: map on resume called");
         if (mGoogleApiClient != null &&
                 ContextCompat.checkSelfPermission(this,
                         Manifest.permission.ACCESS_FINE_LOCATION)
@@ -198,6 +195,7 @@ public class GoogleMapActivity extends AppCompatActivity implements OnMapReadyCa
     to be used and provides a non-null instance of GoogleMap*/
     @Override
     public void onMapReady(@NonNull GoogleMap googleMap) {
+        Log.d("checkperm", "onMapReady: on map ready called");
         mGoogleMap = googleMap;
         mGoogleMap.setMapType(GoogleMap.MAP_TYPE_NORMAL);
         mGoogleMap.getUiSettings().setZoomControlsEnabled(true);
@@ -209,6 +207,7 @@ public class GoogleMapActivity extends AppCompatActivity implements OnMapReadyCa
                     == PackageManager.PERMISSION_GRANTED) {
                 buildGoogleApiClient();
                 mGoogleMap.setMyLocationEnabled(true);
+
             }
         } else {
             buildGoogleApiClient();
@@ -218,6 +217,7 @@ public class GoogleMapActivity extends AppCompatActivity implements OnMapReadyCa
 
     //building google maps api
     protected synchronized void buildGoogleApiClient() {
+        Log.d("checkperm", "buildGoogleApiClient: map client api building method called");
         mGoogleApiClient = new GoogleApiClient.Builder(this)
                 .addConnectionCallbacks(this)
                 .addOnConnectionFailedListener(this)
@@ -230,6 +230,7 @@ public class GoogleMapActivity extends AppCompatActivity implements OnMapReadyCa
     and permissions when google Api connects */
     @Override
     public void onConnected(@Nullable Bundle bundle) {
+        Log.d("checkperm", "onConnected: on connected map method called");
         mLocationRequest = new LocationRequest();
         mLocationRequest.setInterval(0);
         mLocationRequest.setFastestInterval(0);
@@ -256,7 +257,7 @@ public class GoogleMapActivity extends AppCompatActivity implements OnMapReadyCa
     @Override
     public void onLocationChanged(@NonNull Location location) {
 
-        Log.e("Location Changed", "" + location.getLatitude() + location.getLongitude());
+        Log.d("checkperm", "onLocationChanged: lat lng is " + location.getLatitude() + location.getLongitude());
 
         LatLng latLng = new LatLng(location.getLatitude(), location.getLongitude());
         lastLatitude = location.getLatitude();
@@ -287,46 +288,45 @@ public class GoogleMapActivity extends AppCompatActivity implements OnMapReadyCa
 
     /* Method to check permission for location*/
     public void checkLocationPermission() {
-        ActivityResultLauncher<String[]> locationPermissionRequest =
-                registerForActivityResult(new ActivityResultContracts
-                        .RequestMultiplePermissions(), result -> {
-
+        Log.d("checkperm", "checkLocationPermission: checking location permission method called");
+        ActivityResultLauncher<String[]> locationPermissionRequest = registerForActivityResult
+                (new ActivityResultContracts.RequestMultiplePermissions(), result -> {
                     Boolean fineLocationGranted = null;
                     if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+                        Log.d("checkperm", "checkLocationPermission: if fine location called");
                         fineLocationGranted = result.getOrDefault(
                                 Manifest.permission.ACCESS_FINE_LOCATION, false);
                     }
 
                     Boolean coarseLocationGranted = null;
                     if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+                        Log.d("checkperm", "checkLocationPermission: if coarse location called");
                         coarseLocationGranted = result.getOrDefault(
                                 Manifest.permission.ACCESS_COARSE_LOCATION, false);
                     }
 
                     if (fineLocationGranted != null && fineLocationGranted) {
+                        Log.d("checkperm", "checkLocationPermission (if): fine location granted");
                         enablephoneLocation();
-                        Log.d("checkperm", "checkLocationPermission: fine location granted");
 
                     } else if (coarseLocationGranted != null && coarseLocationGranted) {
-                        Log.d("checkperm", "checkLocationPermission: coarse location granted");
+                        Log.d("checkperm", "checkLocationPermission (else if): coarse location granted");
 
                     } else {
-                        Log.d("checkperm", "checkLocationPermission: non location granted");
+                        Log.d("checkperm", "checkLocationPermission (else): none location granted");
                     }
                 });
 
         // Before you perform the actual permission request, check whether your app
         // already has the permissions, and whether your app needs to show a permission
         // rationale dialog. For more details, see Request permissions.
-        locationPermissionRequest.launch(new String[]{
-                Manifest.permission.ACCESS_FINE_LOCATION,
-                Manifest.permission.ACCESS_COARSE_LOCATION
-        });
+        locationPermissionRequest.launch(new String[]{Manifest.permission.ACCESS_FINE_LOCATION,
+                Manifest.permission.ACCESS_COARSE_LOCATION});
     }
 
     //to enable user location from mobile
     public void enablephoneLocation() {
-
+        Log.d("checkperm", "enablephoneLocation: enablephoneLocation called");
         LocationRequest locationRequest = LocationRequest.create()
                 .setInterval(0)
                 .setFastestInterval(0)
@@ -338,7 +338,7 @@ public class GoogleMapActivity extends AppCompatActivity implements OnMapReadyCa
         LocationServices.getSettingsClient(this)
                 .checkLocationSettings(builder.build())
                 .addOnSuccessListener(this, (LocationSettingsResponse response) -> {
-                    Log.d("checkperm", "enablephoneLocation: Location Enabled");
+                    Log.d("checkperm", "enablephoneLocation addOnSuccessListener: Location Enabled");
                 }).addOnFailureListener(this, ex -> {
                     if (ex instanceof ResolvableApiException) {
                         // Location settings are NOT satisfied,  but this can be fixed  by showing the user a dialog.
@@ -358,26 +358,34 @@ public class GoogleMapActivity extends AppCompatActivity implements OnMapReadyCa
     public void onRequestPermissionsResult(int requestCode,
                                            @NonNull String[] permissions, @NonNull int[] grantResults) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+        Log.d("checkperm", "onRequestPermissionsResult: on request permission called");
         switch (requestCode) {
             case MY_PERMISSIONS_REQUEST_LOCATION: {
                 // If request is cancelled, the result arrays are empty.
                 if (grantResults.length > 0
                         && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
 
+                    Log.d("checkperm", "onRequestPermissionsResult permission granted");
                     // permission was granted, yay! Do the
                     // contacts-related task you need to do.
                     if (ContextCompat.checkSelfPermission(this,
                             Manifest.permission.ACCESS_FINE_LOCATION)
                             == PackageManager.PERMISSION_GRANTED) {
 
+                        Log.d("checkperm", "onRequestPermissionsResult fine location granted");
+
                         if (mGoogleApiClient == null) {
                             buildGoogleApiClient();
                         }
                         mGoogleMap.setMyLocationEnabled(true);
+                    } else {
+
+                        Log.d("checkperm", "onRequestPermissionsResult fine location not granted");
+                        Toast.makeText(this, "Permission not granted", Toast.LENGTH_SHORT).show();
                     }
 
                 } else {
-
+                    Log.d("checkperm", "onRequestPermissionsResult  location permission not granted");
                     //when location permission is denied
                     Toast.makeText(this, "Permission denied", Toast.LENGTH_LONG).show();
                 }
@@ -439,6 +447,8 @@ public class GoogleMapActivity extends AppCompatActivity implements OnMapReadyCa
 
     // Method to covert current location latlng to address
     public void currentlatlngToAddress() {
+
+        Log.d("checkperm", "currentlatlngToAddress: current lat long called");
         Geocoder geocoder;
         List<Address> addressList = null;
         geocoder = new Geocoder(GoogleMapActivity.this, Locale.getDefault());
@@ -463,6 +473,7 @@ public class GoogleMapActivity extends AppCompatActivity implements OnMapReadyCa
     //Method used to get address by search
     public void addressbySearch() {
 
+        Log.d("checkperm", "addressbySearch: address by search called");
         // adding on query listener for our search view.
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
@@ -528,7 +539,7 @@ public class GoogleMapActivity extends AppCompatActivity implements OnMapReadyCa
             e.printStackTrace();
         }
 
-        if (addressList.size() > 0) {
+        if (addressList != null && addressList.size() > 0) {
             String address = addressList.get(0).getAddressLine(0); // If any additional address line present than only, check with max available address lines by getMaxAddressLineIndex()
             String city = addressList.get(0).getLocality();
 

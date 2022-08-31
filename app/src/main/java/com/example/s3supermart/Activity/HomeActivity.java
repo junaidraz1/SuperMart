@@ -20,6 +20,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.s3supermart.Fragment.HomeFragment;
 import com.example.s3supermart.Fragment.OrdersFragment;
@@ -77,14 +78,13 @@ public class HomeActivity extends AppCompatActivity {
 
         prefsManager = new PrefsManager(HomeActivity.this);
 
-
-        currentAddress = getIntent().getStringExtra("CURRENT_ADDRESS");
-        appartmentInfo = getIntent().getStringExtra("APPARTMENT_INFO");
-        if (currentAddress == null && appartmentInfo == null) {
-            tv_location.setText("Edit Address");
+        //to fetch saved location from prefs and display it on top bar in home screen
+        if (prefsManager.getAddress_KEY() != null) {
+            tv_location.setText(prefsManager.getAddress_KEY());
 
         } else {
-            tv_location.setText(appartmentInfo + " " + currentAddress);
+            tv_location.setText("Add Address");
+            Log.d("MAINACTIVITY", "onCreate: Prefs is null");
         }
 
         //to load home fragment when activity is created

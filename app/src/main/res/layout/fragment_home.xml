@@ -6,90 +6,9 @@
     android:layout_height="match_parent"
     tools:context=".Activity.HomeActivity">
 
-<!--
-    <LinearLayout
-        android:id="@+id/ll_topbarHome"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical">
-
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@drawable/bottom_roundedcorners"
-            android:padding="@dimen/_10sdp">
-
-            <ImageView
-                android:id="@+id/iv_location"
-                android:layout_width="@dimen/_20sdp"
-                android:layout_height="@dimen/_20sdp"
-                android:layout_centerVertical="true"
-                android:src="@drawable/ic_baseline_location_on_24" />
-
-&lt;!&ndash;            <ImageView&ndash;&gt;
-&lt;!&ndash;                android:id="@+id/iv_back"&ndash;&gt;
-&lt;!&ndash;                android:layout_width="@dimen/_18sdp"&ndash;&gt;
-&lt;!&ndash;                android:layout_height="@dimen/_18sdp"&ndash;&gt;
-&lt;!&ndash;                android:layout_centerVertical="true"&ndash;&gt;
-&lt;!&ndash;                android:src="@drawable/ic_arrow_back_white" />&ndash;&gt;
-
-            <TextView
-                android:id="@+id/tv_location"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerVertical="true"
-                android:layout_marginStart="@dimen/_10sdp"
-                android:layout_marginEnd="@dimen/_10sdp"
-                android:layout_toStartOf="@+id/iv_editLocation"
-                android:layout_toEndOf="@+id/iv_location"
-                android:ellipsize="marquee"
-                android:fontFamily="@font/nexa_bold"
-                android:marqueeRepeatLimit="marquee_forever"
-                android:scrollHorizontally="true"
-                android:singleLine="true"
-                android:text="House # 1712, Street 46, Dhoke Kala Khan, Rawalpindi"
-                android:textColor="@color/white"
-                android:textSize="@dimen/_12ssp" />
-
-&lt;!&ndash;            <TextView&ndash;&gt;
-&lt;!&ndash;                android:id="@+id/tv_title"&ndash;&gt;
-&lt;!&ndash;                android:layout_width="wrap_content"&ndash;&gt;
-&lt;!&ndash;                android:layout_height="wrap_content"&ndash;&gt;
-&lt;!&ndash;                android:layout_centerInParent="true"&ndash;&gt;
-&lt;!&ndash;                android:layout_marginStart="@dimen/_10sdp"&ndash;&gt;
-&lt;!&ndash;                android:layout_marginEnd="@dimen/_10sdp"&ndash;&gt;
-&lt;!&ndash;                android:fontFamily="@font/nexa_bold"&ndash;&gt;
-&lt;!&ndash;                android:text="Title"&ndash;&gt;
-&lt;!&ndash;                android:textColor="@color/white"&ndash;&gt;
-&lt;!&ndash;                android:textSize="@dimen/_14ssp" />&ndash;&gt;
-
-
-            <ImageView
-                android:id="@id/iv_homeMenu"
-                android:layout_width="@dimen/_25sdp"
-                android:layout_height="@dimen/_25sdp"
-                android:layout_alignParentEnd="true"
-                android:layout_centerVertical="true"
-                android:src="@drawable/ic_round_menu_24" />
-
-            <ImageView
-                android:id="@+id/iv_editLocation"
-                android:layout_width="@dimen/_15sdp"
-                android:layout_height="@dimen/_15sdp"
-                android:layout_alignEnd="@+id/iv_homeMenu"
-                android:layout_centerVertical="true"
-                android:layout_marginEnd="@dimen/_30sdp"
-                android:src="@drawable/ic_edit" />
-
-        </RelativeLayout>
-
-    </LinearLayout>
--->
-
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@+id/ll_topbarHome"
         android:orientation="vertical">
 
         <LinearLayout
@@ -121,7 +40,7 @@
                     android:layout_marginStart="@dimen/_3sdp"
                     android:layout_toEndOf="@+id/tv_Hi"
                     android:fontFamily="@font/nexa_bold"
-                    android:text="Mehmood Ur Rehman "
+                    android:text="Test User "
                     android:textColor="@color/black"
                     android:textSize="@dimen/_14ssp" />
 
@@ -364,9 +283,9 @@
                                     android:layout_marginStart="@dimen/_10sdp"
                                     android:layout_marginTop="@dimen/_10sdp"
                                     android:layout_marginBottom="@dimen/_10sdp"
-                                    android:gravity="bottom"
                                     android:fontFamily="@font/nexa_regular"
-                                    android:text="comming soon"
+                                    android:gravity="bottom"
+                                    android:text="Coming soon"
                                     android:textColor="@color/dusk"
                                     android:textSize="@dimen/_10ssp" />
 
@@ -445,7 +364,7 @@
                                     android:layout_marginBottom="@dimen/_10sdp"
                                     android:fontFamily="@font/nexa_regular"
                                     android:gravity="bottom"
-                                    android:text="Comming soon"
+                                    android:text="Coming soon"
                                     android:textColor="@color/dusk"
                                     android:textSize="@dimen/_10ssp" />
 

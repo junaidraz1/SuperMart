@@ -28,7 +28,7 @@ public class HomeFragment extends Fragment {
     ImageView iv_edit, iv_menu;
     Utility utility;
     HomeActivity homeActivity;
-    CardView cv_grocery,cv_electronics,cv_pharmacy;
+    CardView cv_grocery, cv_electronics, cv_pharmacy;
     LinearLayout ll_bottomBar;
     int[] sampleImages = {R.drawable.offer1, R.drawable.offer2,
             R.drawable.logo, R.drawable.slider1, R.drawable.offer3};
@@ -36,7 +36,6 @@ public class HomeFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
 
     }
 
@@ -52,14 +51,14 @@ public class HomeFragment extends Fragment {
         cv_grocery = view.findViewById(R.id.cv_groceryCategory);
         cv_electronics = view.findViewById(R.id.cv_electroniceCategory);
         cv_pharmacy = view.findViewById(R.id.cv_pharmacyCategory);
-       ((HomeActivity) getContext()).topBarWithLocationIcon();
+        ((HomeActivity) getContext()).topBarWithLocationIcon();
         ll_bottomBar = getActivity().findViewById(R.id.ll_bottomBar);
         ll_bottomBar.setVisibility(View.VISIBLE);
     /*    ll_homeFragbar = view.findViewById(R.id.ll_topbarHome);
         tv_location = view.findViewById(R.id.tv_location);
         iv_edit = view.findViewById(R.id.iv_editLocation);*/
-       // iv_menu = view.findViewById(R.id.iv_homeMenu);
-      //  tv_location = view.findViewById(R.id.tv_location);
+        // iv_menu = view.findViewById(R.id.iv_homeMenu);
+        //  tv_location = view.findViewById(R.id.tv_location);
         //intialising classes
         utility = new Utility();
         homeActivity = new HomeActivity();
@@ -91,12 +90,14 @@ public class HomeFragment extends Fragment {
                 }
             }
         });
+
         cv_electronics.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Toast.makeText(getContext(), "Comming Soon", Toast.LENGTH_SHORT).show();
             }
         });
+
         cv_pharmacy.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

@@ -53,8 +53,10 @@ public class MilkCheeseAndYogurtFragment extends Fragment {
         //limit 5 means 5 tabs next to the current one
         viewPager.setOffscreenPageLimit(5);
 
+       /* // setting up the adapter
+        viewPagerAdapter = new ViewPagerAdapter(getParentFragmentManager());*/
         // setting up the adapter
-        viewPagerAdapter = new ViewPagerAdapter(getParentFragmentManager());
+        viewPagerAdapter = new ViewPagerAdapter(getChildFragmentManager());
 
         // adding fragments into viewpager
         viewPagerAdapter.add(new MilkAndMilkPowderFragment(), "Milk & Milk Powder");

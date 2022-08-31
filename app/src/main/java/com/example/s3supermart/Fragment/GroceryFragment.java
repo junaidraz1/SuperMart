@@ -41,17 +41,16 @@ public class GroceryFragment extends Fragment {
         cv_dairyProduct.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-         /*       if (getContext() != null) {
+                if (getContext() != null) {
                     Fragment fragment3 = new MilkCheeseAndYogurtFragment();
                     ((HomeActivity) getContext()).getSupportFragmentManager().beginTransaction().replace(R.id.frameLayout, fragment3,
                             fragment3.getClass().getSimpleName()).addToBackStack(null).commit();
-                }*/
-
+                }
+/*
                 startActivity(new Intent(getContext(), GoogleMapActivity.class)
-                        .setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP));
+                        .setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP));*/
             }
         });
-
         // Inflate the layout for this fragment
         return view;
     }
